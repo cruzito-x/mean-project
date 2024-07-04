@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSearch, faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -12,5 +12,5 @@ import { faSearch, faUser, faCartShopping } from '@fortawesome/free-solid-svg-ic
 export class NavbarComponent {
   faSearch = faSearch;
   faUser = faUser;
-  faCartShopping = faCartShopping;
+  faShoppingBag = faShoppingBag;
 }
