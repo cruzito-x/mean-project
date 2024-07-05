@@ -1,4 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+interface Product {
+  name: string;
+  brand: string;
+  categorie: string;
+  created_at: string;
+  description: string;
+  photo: string;
+  price: number;
+  rating: number;
+  stock: number;
+  sub_categorie: string;
+  technical_specifications: string;
+  updated_at: string | null;
+  _id: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -41,4 +57,6 @@ import { Component } from '@angular/core';
     }
   `
 })
-export class HomeComponent {}
+export class HomeComponent {
+  
+}
