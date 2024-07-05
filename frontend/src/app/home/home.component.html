@@ -146,20 +146,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xl-3 col-md-6 col-sm-12 mb-3">
-      <div class="card">
-        <!-- <img class="img-fluid rounded" src={{photo}} alt=""> -->
-        <img class="img-fluid rounded-top" src="https://zonadigitalsv.com/assets/media/dualsenseedge.jpg" alt="">
-        <div class="card-body">
-          <p class="categorie text-secondary"> {{categorie}} </p>
-          <p class="card-title">{{(categorie+' '+brand+' '+name).toUpperCase()}}</p>
-          <!-- <p class="">{{description}}</p> -->
-          <hr>
-          <div class="text-center">
-            <span class="text-primary">${{price}}</span>
-            <a href="#" class="text-decoration-none text-primary d-none">Add to cart</a>
+    @for(item of products; track products.id) {
+      <div class="col-xl-3 col-md-3 col-sm-3 mb-3">
+        <div class="card">
+          <img class="img-fluid rounded-top" [src]="item.photo" alt="">
+          <div class="card-body">
+            <p class="categorie text-secondary">{{item.categorie}}</p>
+            <p class="card-title">{{(item.categorie + ' ' + item.brand + ' ' + item.name).toUpperCase()}}</p>
+            <hr>
+            <div class="text-center">
+              <span class="text-primary">${{item.price}}</span>
+              <a href="#" class="text-decoration-none text-primary d-none">Add to cart</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    }
   </div>

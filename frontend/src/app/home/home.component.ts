@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 interface Product {
+  id: number;
   name: string;
   brand: string;
   categorie: string;
@@ -61,38 +62,28 @@ interface Product {
       font-weight: bold;
       font-size: 11px;
     }
-  `
+  `,
 })
 export class HomeComponent implements OnInit {
-  name: string = '';
-  description: string = '';
-  categorie: string = '';
-  brand: string = '';
-  photo: string = '';
-  price: number = 0;
+  products: Product[] = [];
 
   ngOnInit() {
     this.fetchProducts();
   }
 
   fetchProducts() {
-    fetch("http://localhost:3000/products")
-      .then(response => {
+    fetch('http://localhost:3000/products')
+      .then((response) => {
         if (!response.ok) {
-          throw new Error("Error fetching products");
+          throw new Error('Error to get products');
         }
         return response.json();
       })
-      .then(data => {
-        const product: Product = data[0];
-        this.name = product.name;
-        this.description = product.description;
-        this.categorie = product.categorie;
-        this.brand = product.brand;
-        this.photo = product.photo;
-        this.price = product.price;
+      .then((data: Product[]) => {
+        this.products = data;
+        console.log('Products:', this.products);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error:', error);
       });
   }
