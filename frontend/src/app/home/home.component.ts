@@ -55,8 +55,45 @@ interface Product {
     .card:hover .overlay {
       opacity: 1;
     }
+
+    .categorie {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 11px;
+    }
   `
 })
-export class HomeComponent {
-  
+export class HomeComponent implements OnInit {
+  name: string = '';
+  description: string = '';
+  categorie: string = '';
+  brand: string = '';
+  photo: string = '';
+  price: number = 0;
+
+  ngOnInit() {
+    this.fetchProducts();
+  }
+
+  fetchProducts() {
+    fetch("http://localhost:3000/products")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Error fetching products");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const product: Product = data[0];
+        this.name = product.name;
+        this.description = product.description;
+        this.categorie = product.categorie;
+        this.brand = product.brand;
+        this.photo = product.photo;
+        this.price = product.price;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
 }
