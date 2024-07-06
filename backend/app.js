@@ -10,6 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const logsFolder = path.join(__dirname, "./logs"); // Ruta de la carpeta de logs
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Configurar el middleware para retornar archivos estáticos desde la carpeta 'uploads'
 app.use(helmet({
   contentSecurityPolicy: false, // Deshabilitar la política de seguridad de contenido para evitar problemas con CORS
   crossOriginResourcePolicy: { policy: 'cross-origin' }, // Permitir solicitudes desde otros orígenes
