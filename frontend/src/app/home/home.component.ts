@@ -28,13 +28,15 @@ interface Product {
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
+  bestRatedProducts: Product[] = [];
   faShoppingBag = faShoppingBag;
 
   ngOnInit() {
-    this.fetchProducts();
+    this.getAllProducts();
+    this.getBestRatedProducts();
   }
 
-  fetchProducts() {
+  getAllProducts() {
     fetch('http://localhost:3000/products')
       .then((response) => {
         if (!response.ok) {
@@ -45,6 +47,23 @@ export class HomeComponent implements OnInit {
       .then((data: Product[]) => {
         this.products = data.slice(0, 6);
         console.log('Products:', this.products);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  getBestRatedProducts() {
+    fetch('http://localhost:3000/products/bestRated')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error to get best rated products');
+        }
+        return response.json();
+      })
+      .then((data: Product[]) => {
+        this.bestRatedProducts = data.slice(0, 6);
+        console.log('Best rated products:', this.products);
       })
       .catch((error) => {
         console.error('Error:', error);
