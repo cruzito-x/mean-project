@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 
 interface Product {
   id: number;
@@ -20,52 +22,13 @@ interface Product {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [FontAwesomeModule],
   templateUrl: './home.component.html',
-  styles: `
-    .card {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    
-    .card img {
-      transition: opacity 0.3s ease;
-    }
-    
-    .card .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, .5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #ffffff;
-      font-size: 1.25rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-        
-    .card:hover img {
-      opacity: 0.5;
-    }
-
-    .card:hover .overlay {
-      opacity: 1;
-    }
-
-    .categorie {
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 11px;
-    }
-  `,
+  styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
+  faShoppingBag = faShoppingBag;
 
   ngOnInit() {
     this.fetchProducts();
@@ -80,7 +43,7 @@ export class HomeComponent implements OnInit {
         return response.json();
       })
       .then((data: Product[]) => {
-        this.products = data;
+        this.products = data.slice(0, 6);
         console.log('Products:', this.products);
       })
       .catch((error) => {
