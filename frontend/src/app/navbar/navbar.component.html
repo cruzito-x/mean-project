@@ -27,7 +27,7 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <a class="nav-link" href="#" title="Log in">
             <fa-icon [icon]="faUser" />
           </a>
@@ -41,3 +41,59 @@
     </div>
   </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="p-3">
+        <div class="row">
+          <div class="col-10">
+            <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+          </div>
+          <div class="col-2 text-end">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form class="g-3">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"/> </span>
+                <input type="text" class="form-control" placeholder="e-mail" aria-label="email" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
+                <input type="text" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+            </div>
+            <div class="col-6 text-end">
+              <a href="#" class="small text-decoration-none">Forgot password?</a>
+            </div>
+          </div>
+        </form>
+        <div class="row mt-4">
+          <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-primary w-100">Log In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

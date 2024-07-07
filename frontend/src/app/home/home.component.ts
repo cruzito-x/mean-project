@@ -69,4 +69,14 @@ export class HomeComponent implements OnInit {
         console.error('Error:', error);
       });
   }
+
+  generateStars(rating: number) {
+    let stars = '';
+
+    for (let n = 0; n < rating; n++) {
+      stars += '★';
+    }
+    
+    return stars;
+  }
 }
