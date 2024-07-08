@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
     const password = crypto.createHash('md5').update(req.body.password).digest('hex') === user.password; //Comprobe if password exists
     if (!password) return res.status(404).json({ message: "User not found" });
 
-    res.status(200).json({ message: "User logged in successfully", token: generateToken(user) });
+    res.status(200).json({ message: "User logged in successfully", token: generateToken(user), isLoggedIn: true });
   } catch(error) {
     
   }
