@@ -3,6 +3,7 @@ require('./config/db');
 const express = require('express');
 const helmet = require("helmet");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 const morgan = require("morgan");
@@ -15,10 +16,9 @@ app.use(helmet({
   contentSecurityPolicy: false, // Deshabilitar la política de seguridad de contenido para evitar problemas con CORS
   crossOriginResourcePolicy: { policy: 'cross-origin' }, // Permitir solicitudes desde otros orígenes
 }));
+app.use(bodyParser.json()); // Middleware para parsear el body de las solicitudes como JSON
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors()); // Permite solicitudes CORS de diferentes endpoints fuera del servidor
-
-//Routes
-const products = require("./routes/products");
 
 // Crear la carpeta de logs si no existe
 if (!fs.existsSync(logsFolder)) {
@@ -37,6 +37,11 @@ console.error = function(message) {
   logStream.write(`[ERROR] ${message}\n`);
 };
 
+//Routes
+const users = require("./routes/users");
+const products = require("./routes/products");
+
+app.use("/users", users);
 app.use("/products", products);
 
 app.listen(port, () => {
