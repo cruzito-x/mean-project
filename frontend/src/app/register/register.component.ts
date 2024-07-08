@@ -1,22 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSearch, faUser, faShoppingBag, faSignOut, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-register',
   standalone: true,
-  imports: [FontAwesomeModule, FormsModule, ReactiveFormsModule, RouterOutlet, RouterLink],
-  templateUrl: './navbar.component.html',
-  styles: ``
+  imports: [FontAwesomeModule, FormsModule, ReactiveFormsModule],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css'
 })
-export class NavbarComponent {
-  faSearch = faSearch;
-  faUser = faUser;
-  faShoppingBag = faShoppingBag;
-  faSignOut = faSignOut;
+export class RegisterComponent {
   faEnvelope = faEnvelope;
   faLock = faLock;
 

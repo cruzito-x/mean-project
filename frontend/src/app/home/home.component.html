@@ -47,7 +47,7 @@
   <div class="row d-none d-md-flex justify-content-center text-center p-2">
     <div class="col-xl-2 col-sm-12 mt-2">
       <div class="card shadow">
-        <img class="img-fluid rounded" src="../../../assets/consoles.jpeg" alt="">
+        <img class="img-fluid rounded" src="../../../assets/consoles.jpg" alt="">
         <div class="overlay">
           <h5>Consoles</h5>
         </div>
@@ -99,7 +99,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="card shadow">
-          <img class="img-fluid rounded" src="../../../assets/consoles.jpeg" alt="">
+          <img class="img-fluid rounded" src="../../../assets/consoles.jpg" alt="">
           <div class="overlay">
             <span>Consoles</span>
           </div>
@@ -159,7 +159,8 @@
           @for(item of products; track item.id) {
           <div class="col-xl col-md col-sm-6 p-3">
             <div class="card">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 160px;">
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+                style="height: 160px;">
               <div class="card-body">
                 <p class="categorie text-secondary">{{item.categorie}}</p>
                 <p class="card-title">{{(item.categorie + ' ' + item.brand + ' ' + item.name).toUpperCase()}}</p>
@@ -175,9 +176,7 @@
           </div>
           } @empty {
           <div class="col-xl col-md col-sm-6 p-3 text-center">
-            <h4> Sorry! </h4>
-            <h5> No products found </h5>
-            <img src="../../../assets/noProducts.png" class="img-fluid w-50">
+            <img src="../../../assets/noProducts.png" class="img-fluid w-50 h-50">
           </div>
           }
         </div>
@@ -228,7 +227,7 @@
                 <div class="justify-content-center text-center">
                   <span class="text-primary me-4">${{item.price}}</span>
                   <button class="btn btn-outline-primary">
-                    Add <fa-icon [icon]="faShoppingBag"/>
+                    Add <fa-icon [icon]="faShoppingBag" />
                   </button>
                 </div>
               </div>
@@ -264,7 +263,7 @@
     </div>
   </div>
 
-  @defer () {
+  @defer (on viewport) {
   <div class="row text-center mt-4">
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular </h5>
@@ -274,14 +273,14 @@
         <li class="list-group-item">
           <div class="d-flex">
             <div class="w-25">
-              <img src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
             </div>
-            <div class="w-50 ms-3">
+            <div class="w-75 ms-3">
               {{
               (item.categorie +' ' + item.brand +' ' + item.name).toUpperCase()
               }} <br>
               <span class="text-primary">Price: ${{item.price}} </span> <br>
-              <span class="text-primary">Rating: {{generateStars(item.rating)}} </span>
+              Rating: <span class="text-warning"> {{generateStars(item.rating)}} </span>
             </div>
           </div>
         </li>
@@ -297,14 +296,14 @@
         <li class="list-group-item">
           <div class="d-flex">
             <div class="w-25">
-              <img src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
             </div>
-            <div class="w-50 ms-3">
+            <div class="w-75 ms-3">
               {{
               (item.categorie +' ' + item.brand +' ' + item.name).toUpperCase()
               }} <br>
               <span class="text-primary">Price: ${{item.price}} </span> <br>
-              <span class="text-primary">Rating: {{generateStars(item.rating)}} </span>
+              Rating: <span class="text-warning"> {{generateStars(item.rating)}} </span>
             </div>
           </div>
         </li>
@@ -320,14 +319,14 @@
         <li class="list-group-item">
           <div class="d-flex">
             <div class="w-25">
-              <img src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
             </div>
-            <div class="w-50 ms-3">
+            <div class="w-75 ms-3">
               {{
               (item.categorie +' ' + item.brand +' ' + item.name).toUpperCase()
               }} <br>
               <span class="text-primary">Price: ${{item.price}} </span> <br>
-              <span class="text-primary">Rating: {{generateStars(item.rating)}} </span>
+              Rating: <span class="text-warning"> {{generateStars(item.rating)}} </span>
             </div>
           </div>
         </li>
@@ -337,6 +336,14 @@
     </div>
   </div>
   } @placeholder {
-
+  <div class="row text-center mt-4">
+    <div class="col-12">
+      <div class="spinner-grow text-primary" role="status"></div>
+      <div class="spinner-grow text-primary ms-2 me-2" role="status"></div>
+      <div class="spinner-grow text-primary me-2" role="status"></div>
+      <div class="spinner-grow text-primary me-2" role="status"></div>
+      <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+  </div>
   }
 </div>

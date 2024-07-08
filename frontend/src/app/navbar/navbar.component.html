@@ -14,29 +14,46 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Categories</a>
+          <a class="nav-link" routerLink="/categories">Categories</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Offers</a>
+          <a class="nav-link" routerLink="/offers">Offers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Brands</a>
+          <a class="nav-link" routerLink="/brands">Brands</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        @if(!isLoggedIn) {
         <li class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <a class="nav-link" href="#" title="Log in">
-            <fa-icon [icon]="faUser" />
-          </a>
+          <label class="nav-link" title="Log in" style="cursor: pointer;">
+            <fa-icon [icon]="faUser"></fa-icon>
+          </label>
         </li>
+        } @else {
         <li class="nav-item">
-          <a class="nav-link" href="#" title="My bag">
-            <fa-icon [icon]="faShoppingBag" />
+          <a href="/account">
+            <label class="nav-link" title="My account" style="cursor: pointer;">
+              <fa-icon [icon]="faUser"></fa-icon>
+            </label>
           </a>
         </li>
+        }
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart" title="My bag">
+            <fa-icon [icon]="faShoppingBag"></fa-icon>
+          </a>
+        </li>
+        @if(isLoggedIn) {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/logOut" title="Log out">
+            <fa-icon [icon]="faSignOut"></fa-icon>
+          </a>
+        </li>
+        }
       </ul>
     </div>
   </div>
@@ -57,20 +74,22 @@
         </div>
       </div>
       <div class="modal-body">
-        <form class="g-3">
+        <form class="g-3" [formGroup]="form" (ngSubmit)="login()">
           <div class="row">
             <div class="col-md-12">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"/> </span>
-                <input type="text" class="form-control" placeholder="e-mail" aria-label="email" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"></fa-icon> </span>
+                <input type="email" class="form-control" formControlName="email" placeholder="e-mail" aria-label="email"
+                  aria-describedby="basic-addon1" required>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
-                <input type="text" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"></fa-icon> </span>
+                <input type="password" class="form-control" formControlName="password" placeholder="password"
+                  aria-label="password" aria-describedby="basic-addon1" required>
               </div>
             </div>
           </div>
@@ -87,13 +106,20 @@
               <a href="#" class="small text-decoration-none">Forgot password?</a>
             </div>
           </div>
-        </form>
-        <div class="row mt-4">
-          <div class="col-12 d-flex justify-content-center">
-            <button type="button" class="btn btn-primary w-100">Log In</button>
+          <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary w-100">Log In</button>
+            </div>
+            <div class="col-12 mt-3">
+              <div class="text-center">
+                <p>Don't have an account? <a class="text-decoration-none" href="/register">Sign up</a></p>
+              </div>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
+<router-outlet></router-outlet>
