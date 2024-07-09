@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPhone, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,8 @@ import { LoginService } from '../services/login.service';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  faUser = faUser;
+  faPhone = faPhone;
   faEnvelope = faEnvelope;
   faLock = faLock;
 
@@ -19,9 +22,15 @@ export class RegisterComponent {
   loginService = inject(LoginService);
   isLoggedIn = false;
 
-  constructor() {
+  constructor(private _route: ActivatedRoute) {
+    const isLloggedIn = this._route.snapshot.queryParamMap.get('isLloggedIn');
+    console.log(isLloggedIn);
+
     this.form = new FormGroup({
+      username: new FormControl(''),
       email: new FormControl(''),
+      phone: new FormControl(''),
+      address: new FormControl(''),
       password: new FormControl('')
     });
   }
@@ -34,5 +43,6 @@ export class RegisterComponent {
   async login() {
     const response = await this.loginService.login(this.form.value);
     this.isLoggedIn = response.isLoggedIn;
+    location.href = '/', this.isLoggedIn;
   }
 }

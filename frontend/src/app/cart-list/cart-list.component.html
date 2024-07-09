@@ -1,0 +1,60 @@
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="staticBackdrop"
+  id="offcanvasExample" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel"> My cart list </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row">
+      <div class="col-12">
+        @for (item of cartService.getItems(); track item.id) {
+        <div class="row">
+          <div class="col-4">
+            <div class="position-relative">
+              <img src="http://localhost:3000/{{item.photo}}" alt="Product" class="img-fluid"
+                style="width: 100px; height: 100px;" />
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                (click)="deleteItemFromCart(item)" style="cursor: pointer;"> x </span>
+            </div>
+          </div>
+          <div class="col-8">
+            <label class="medium"> {{ item.name }} </label>
+            <p> {{ item.quantity }} x ${{ item.price }} </p>
+            <div class="row mt-2">
+              <div class="col-6 text-center">
+                <button type="button" class="btn btn-outline-danger w-100" (click)="cartService.decreaseQuantity(item.id)"> <span> - </span> </button>
+              </div>
+              <div class="col-6 text-center">
+                <button type="button" class="btn btn-outline-primary w-100" (click)="cartService.increaseQuantity(item.id)"> <span> + </span> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        } @empty {
+        <div class="col-12 text-center">
+          <p> Your cart is empty </p>
+        </div>
+        }
+      </div>
+
+      @if(cartService.getItems().length > 0) {
+      <div class="col-6 text-start d-flex align-items-center">
+        <label class="medium"> Sub Total: ${{ cartService.getSubTotal() }} </label>
+      </div>
+      <div class="col-6 text-end">
+        <a [routerLink]="['/cart']">
+          <button type="button" class="btn btn-outline-primary w-75" data-bs-dismiss="offcanvas" aria-label="Close">
+            Go to cart </button>
+        </a>
+      </div>
+      <div class="col-12 mt-2">
+        <a [routerLink]="['']">
+          <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">
+            Pay </button>
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+</div>

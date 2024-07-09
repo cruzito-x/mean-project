@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from '../services/cart.service';
 
 interface Product {
   id: number;
@@ -31,9 +33,17 @@ export class HomeComponent implements OnInit {
   bestRatedProducts: Product[] = [];
   faShoppingBag = faShoppingBag;
 
+  constructor(private _route: ActivatedRoute) {
+    const isLloggedIn = this._route.snapshot.queryParamMap.get('isLloggedIn');
+    console.log(isLloggedIn);
+  }
+
+  cartService = inject(CartService);
+
   ngOnInit() {
     this.getAllProducts();
     this.getBestRatedProducts();
+    this._route.snapshot.paramMap.get("isLloggedIn");
   }
 
   getAllProducts() {
@@ -46,11 +56,14 @@ export class HomeComponent implements OnInit {
       })
       .then((data: Product[]) => {
         this.products = data.slice(0, 6);
-        console.log('Products:', this.products);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 
   getBestRatedProducts() {
@@ -63,7 +76,6 @@ export class HomeComponent implements OnInit {
       })
       .then((data: Product[]) => {
         this.bestRatedProducts = data.slice(0, 6);
-        console.log('Best rated products:', this.products);
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -76,7 +88,7 @@ export class HomeComponent implements OnInit {
     for (let n = 0; n < rating; n++) {
       stars += '★';
     }
-    
+
     return stars;
   }
 }

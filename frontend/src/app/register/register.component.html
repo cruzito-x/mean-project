@@ -38,7 +38,7 @@
           </div>
           <div class="row mt-4">
             <div class="col-12 d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary w-100">Log In</button>
+              <button type="submit" class="btn btn-outline-primary w-100">Log In</button>
             </div>
           </div>
         </form>
@@ -48,6 +48,59 @@
       <div class="card p-3 mt-md-0 mt-sm-5">
         <h3 class="mt-2 mb-2"> Register </h3>
         <p class="medium"> Fast and easy payment, Easy access to your order history and status </p>
+        <form class="g-3" [formGroup]="form" (ngSubmit)="register()">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faUser"></fa-icon> </span>
+                <input type="text" class="form-control" formControlName="username" placeholder="Username" aria-label="Username"
+                  aria-describedby="basic-addon1" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"></fa-icon> </span>
+                <input type="email" class="form-control" formControlName="email" placeholder="e-mail" aria-label="E-mail"
+                  aria-describedby="basic-addon1" required/>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faPhone"></fa-icon> </span>
+                <input type="email" class="form-control" formControlName="phone" placeholder="Phone number" aria-label="E-mail"
+                  aria-describedby="basic-addon1" required/>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+              <textarea class="form-control" formControlName="address" placeholder="Address" style="height: 200px; resize: none;" required></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"></fa-icon> </span>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" aria-label="password"
+                  aria-describedby="basic-addon1" required/>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"></fa-icon> </span>
+                <input type="password" class="form-control" placeholder="Confirm password" aria-label="Confirm password"
+                  aria-describedby="basic-addon1" required/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <button type="submit" class="btn btn-outline-primary w-100"> Register user </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['']">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/categories">Categories</a>
@@ -43,7 +43,7 @@
         </li>
         }
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart" title="My bag">
+          <a class="nav-link" title="My bag" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="cursor: pointer;">
             <fa-icon [icon]="faShoppingBag"></fa-icon>
           </a>
         </li>
@@ -108,7 +108,7 @@
           </div>
           <div class="row mt-4">
             <div class="col-12 d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary w-100">Log In</button>
+              <button type="submit" class="btn btn-outline-primary w-100">Log In</button>
             </div>
             <div class="col-12 mt-3">
               <div class="text-center">
