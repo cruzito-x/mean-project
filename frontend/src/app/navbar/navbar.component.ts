@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSearch, faUser, faShoppingBag, faSignOut, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faCartShopping, faSignOut, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
@@ -15,7 +15,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 export class NavbarComponent {
   faSearch = faSearch;
   faUser = faUser;
-  faShoppingBag = faShoppingBag;
+  faCartShopping = faCartShopping;
   faSignOut = faSignOut;
   faEnvelope = faEnvelope;
   faLock = faLock;

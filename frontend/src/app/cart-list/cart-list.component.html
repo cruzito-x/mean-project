@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="col-8">
-            <label class="medium"> {{ item.name }} </label>
+            <label class="medium"> {{ (item.categorie+' '+item.brand+' '+item.name).toUpperCase() }} </label>
             <p> {{ item.quantity }} x ${{ item.price }} </p>
             <div class="row mt-2">
               <div class="col-6 text-center">
@@ -45,13 +45,12 @@
       <div class="col-6 text-end">
         <a [routerLink]="['/cart']">
           <button type="button" class="btn btn-outline-primary w-75" data-bs-dismiss="offcanvas" aria-label="Close">
-            Go to cart </button>
+            View in cart </button>
         </a>
       </div>
-      <div class="col-12 mt-2">
-        <a [routerLink]="['']">
-          <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">
-            Pay </button>
+      <div class="col-12 mt-2 align-items-center">
+        <a [routerLink]="['/pay']">
+          <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close"> <fa-icon [icon]="faCreditCard" /> Pay </button>
         </a>
       </div>
       }

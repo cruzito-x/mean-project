@@ -10,8 +10,12 @@ export class CartService {
   constructor() {}
 
   addToCart(item: any) {
-    this.items.push({ ...item, quantity: 1 });
-    // localStorage.setItem('cartList', JSON.stringify(this.items));
+    if(this.items.find((cartItem) => cartItem.id === item.id)) {
+      this.increaseQuantity(item.id);
+    } else {
+      this.items.push({ ...item, quantity: 1 });
+      // localStorage.setItem('cartList', JSON.stringify(this.items));
+    }
   }
 
   getItems() {
@@ -25,7 +29,7 @@ export class CartService {
 
   increaseQuantity(id: number) {
     let item = this.items.find((n) => n.id === id);
-    
+
     if(item) item.quantity++;
 
     // localStorage.setItem('cartList', JSON.stringify(this.items));
@@ -33,8 +37,8 @@ export class CartService {
 
   decreaseQuantity(id: number) {
     let item = this.items.find((n) => n.id === id);
-    
-    if(item) if(item.quantity > 0) item.quantity--;
+
+    if(item) if(item.quantity == 1) this.deleteItemFromCart(item); else item.quantity--;
 
     // localStorage.setItem('cartList', JSON.stringify(this.items));
   }

@@ -5,6 +5,7 @@ import { BrandsComponent } from './brands/brands.component';
 import { OffersComponent } from './offers/offers.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { PayComponent } from './pay/pay.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent, data: { params: ':isLoggedIn' } },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: "categories", component: CategoriesComponent },
   { path: "offers", component: OffersComponent },
   { path: "brands", component: BrandsComponent, data: { params: ':brand' }},
-  { path: "cart", component: CartComponent }
+  { path: "cart", component: CartComponent },
+  { path: "pay", component: PayComponent}
 ];

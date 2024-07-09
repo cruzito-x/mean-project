@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NgxPaginationModule } from "ngx-pagination";
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 interface Brands {
   id: number;
@@ -17,19 +19,27 @@ interface Brands {
   standalone: true,
   imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
   templateUrl: './brands.component.html',
-  styleUrl: './brands.component.css'
+  styles: ``
 })
-export class BrandsComponent {
+export class BrandsComponent implements OnInit {
   brands: Brands[] = [];
   faSearch = faSearch;
   page = 1;
+  itemsPerPage = 20;
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   handlePageChange(event: any) {
     this.page = event;
   }
 
   ngOnInit(): void {
-    this.getAllBrands();    
+    this.getAllBrands();
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
+      .pipe(map(result => result.matches))
+      .subscribe(isSmallScreen => {
+        this.itemsPerPage = isSmallScreen ? 10 : 20;
+      });
   }
 
   getAllBrands() {

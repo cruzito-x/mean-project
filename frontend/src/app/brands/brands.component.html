@@ -32,8 +32,8 @@
         </div>
       </div>
       <div class="row">
-        @for(item of brands | paginate: { itemsPerPage: 20, currentPage: page }; track item.id) {
-        <div class="col-md-3 mb-3 d-sm-none d-md-block">
+        @for(item of brands | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track item.id) {
+        <div class="col-md-3 col-sm-6 mb-3">
           <a [routerLink]="['/brands', (item.name).trim().toLowerCase().replace(' ', '')]">
             <div class="card bg-light rounded shadow p-2">
               <img class="img-fluid rounded" src="{{'http://localhost:3000/'+item.photo}}"
@@ -42,19 +42,8 @@
           </a>
         </div>
         }
-
-        @for(item of brands | paginate: { itemsPerPage: 10, currentPage: page }; track item.id) {
-        <div class="col-sm-6 mb-3 d-md-none d-sm-block">
-          <a [routerLink]="['/brands', (item.name).trim().toLowerCase().replace(' ', '')]">
-            <div class="card bg-light rounded shadow p-2">
-              <img class="img-fluid rounded" src="{{'http://localhost:3000/'+item.photo}}"
-                alt="{{(item.name).toLowerCase()}}" style="height: 150px;">
-            </div>
-          </a>
-        </div>
-        }
         <div class="col-12 d-flex justify-content-end">
-          <pagination-controls class="mb-4" (pageChange)="handlePageChange($event)" />
+          <pagination-controls previousLabel="" nextLabel="" class="mb-4" (pageChange)="handlePageChange($event)" />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../services/cart.service';
 
 interface Product {
@@ -31,7 +31,7 @@ interface Product {
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   bestRatedProducts: Product[] = [];
-  faShoppingBag = faShoppingBag;
+  faCartShopping = faCartShopping;
 
   constructor(private _route: ActivatedRoute) {
     const isLloggedIn = this._route.snapshot.queryParamMap.get('isLloggedIn');
