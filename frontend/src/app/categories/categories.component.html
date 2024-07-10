@@ -1,1 +1,33 @@
-<p>categories works!</p>
+<div class="container p-2">
+  <div class="row">
+    @for(category of categories; track category.id) {
+    <div class="col-md-3 col-sm-6">
+      <div class="card mb-4 rounded shadow">
+        <img class="card-img-top" src="{{'http://localhost:3000/'+category.photo}}" alt="{{ category.name }}">
+        <div class="card-body text-start">
+          <h5 class="card-title">{{ category.name }}</h5>
+          <hr>
+          <div class="accordion accordion-flush" id="accordionFlushExample_{{category.id}}">
+            @for(subcategory of category.subcategories; track subcategory.id) {
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse_' + category.id + '_' + subcategory.id" aria-expanded="false" [attr.aria-controls]="'collapse_' + category.id + '_' + subcategory.id"> {{ subcategory.name }} </button>
+              </h2>
+              <div [id]="'collapse_' + category.id + '_' + subcategory.id" class="accordion-collapse collapse" [attr.data-bs-parent]="'#accordionFlushExample_' + category.id">
+                <div class="accordion-body">
+                  <ul class="list-group list-group-flush text-start">
+                    @for(subsubcategory of subcategory.subcategories; track subsubcategory.id) {
+                    <li class="list-group-item"> {{ subsubcategory.name }}</li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

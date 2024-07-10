@@ -3,6 +3,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch, faUser, faCartShopping, faSignOut, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service';
+import { CartService } from '../services/cart.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -22,6 +23,7 @@ export class NavbarComponent {
 
   form: FormGroup;
   loginService = inject(LoginService);
+  cartService = inject(CartService);
   isLoggedIn = false;
 
   constructor() {

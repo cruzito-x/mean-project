@@ -10,7 +10,7 @@ import { PayComponent } from './pay/pay.component';
 export const routes: Routes = [
   { path: "", component: HomeComponent, data: { params: ':isLoggedIn' } },
   { path: "register", component: RegisterComponent },
-  { path: "categories", component: CategoriesComponent },
+  { path: "categories", component: CategoriesComponent, data: { params: ':categorie'} },
   { path: "offers", component: OffersComponent },
   { path: "brands", component: BrandsComponent, data: { params: ':brand' }},
   { path: "cart", component: CartComponent },
