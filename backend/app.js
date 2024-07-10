@@ -40,10 +40,12 @@ console.error = function(message) {
 //Routes
 const users = require("./routes/users");
 const brands = require("./routes/brands");
+const categories = require("./routes/categories");
 const products = require("./routes/products");
 
 app.use("/users", users);
-app.use("/brands", brands)
+app.use("/brands", brands);
+app.use("/categories", categories);
 app.use("/products", products);
 
 app.listen(port, () => {
