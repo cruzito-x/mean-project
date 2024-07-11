@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch, faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ interface Brand {
 }
 
 interface Product {
-  id: number;
+  id: string;
   name: string;
   brand: Brand[];
   category_id: string;
@@ -29,9 +29,9 @@ interface Product {
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css'],
+  styles: ``
 })
 export class CategoryComponent implements OnInit {
   category_id: string = '';

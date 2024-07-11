@@ -19,7 +19,7 @@ interface Categories {
   standalone: true,
   imports: [RouterLink],
   templateUrl: './categories.component.html',
-  styleUrl: './categories.component.css'
+  styles: ``
 })
 export class CategoriesComponent implements OnInit {
   categories: Categories[] = [];

@@ -10,7 +10,7 @@ interface Brand {
 }
 
 interface Product {
-  id: number;
+  id: string;
   name: string;
   brand: Brand[];
   category: string;
@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  generateStars(rating: number) {
+  generateRatingStars(rating: number) {
     let stars = '';
 
     for (let n = 0; n < rating; n++) {

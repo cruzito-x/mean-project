@@ -8,8 +8,8 @@
           <label class="mb-2"> Product name </label>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-              aria-describedby="basic-addon2">
-            <span class="input-group-text btn btn-outline-primary" id="basic-addon2"> <fa-icon
+              aria-describedby="basic-addon2" id="search">
+            <span class="input-group-text btn btn-outline-primary" id="basic-addon2" id="btn_search"> <fa-icon
                 [icon]="faSearch"></fa-icon>
             </span>
           </div>
@@ -52,7 +52,7 @@
               </div>
               <div class="row text-center mb-2">
                 <div class="col-6">
-                  <a href="#" class="btn btn-outline-primary"> Details </a>
+                  <a [routerLink]="['/details', item.name.toLowerCase().replace('(need gpu)', '').replace('(no needs gpu)', '').replace(' ', '_').replace('/', '_').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
                 </div>
                 <div class="col-6">
                   <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon

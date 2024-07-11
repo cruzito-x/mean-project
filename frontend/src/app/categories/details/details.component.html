@@ -1,0 +1,112 @@
+<div class="container p-2">
+  <div class="row">
+    <div class="col-12">
+      <h2> {{ (products[0].category+' '+products[0].brand[0].name +' '+ products[0].name).toUpperCase() }} </h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <img src="http://localhost:3000/{{ products[0].photo }}" alt="" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-12">
+              <span>Rating:</span> <span class="text-warning fs-5"> {{ generateRatingStars(products[0].rating) }}
+              </span>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <span class="text-primary fs-1">${{ products[0].price }}</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <input class="form-control" type="number" min="1" value="1">
+            </div>
+            <div class="col-10">
+              <button class="btn btn-outline-primary w-100" (click)="addToCart(products[0])"> Add to cart <fa-icon [icon]="faCartShopping" />
+              </button>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    <fa-icon class="me-1 text-primary" [icon]="faInfoCircle" /> | Information
+                  </button>
+                </h2>
+                <div id="collapseOne" class="show">
+                  <div class="accordion-body">
+                    @if(products[0].stock > 0) {
+                    Availability: <span class="badge rounded-pill text-bg-primary">In stock</span>
+                    } <br> Color: <span class="badge rounded-pill bg-{{products[0].color}} border border-{{products[0].color}}"> {{ products[0].color }} </span>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <fa-icon class="me-1 text-primary" [icon]="faTags" /> | Tags
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="row">
+                      <div class="col-1">
+                        <span class="badge rounded-pill text-bg-primary"> {{ products[0].category }} </span>
+                      </div>
+                      @for(item of products; track $index) {
+                      <div class="col-1 ms-3">
+                        <span class="badge rounded-pill text-bg-primary"> {{ item.sub_category }} </span>
+                      </div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <a class="nav-link text-primary" [class.active]="activeTab === 'description'"
+            (click)="activeTab = 'description'">
+            Description
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" [class.active]="activeTab === 'tech_specs'"
+            (click)="activeTab = 'tech_specs'">
+            Technical specifications
+          </a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        @if(activeTab === 'description') {
+        <div class="tab-pane fade show active">
+          <p class="mt-3">
+            {{ products[0].description }}
+          </p>
+        </div>
+        } @else {
+          <div class="tab-pane mt-3 fade show active">
+            <p>
+              @for(item of products[0].technical_specifications.split(', '); track $index) {
+                {{ item }} <br>
+              }
+            </p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+</div>
