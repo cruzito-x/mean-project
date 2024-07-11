@@ -1,0 +1,73 @@
+<div class="container p-2">
+  <h3 class="mt-3"> {{ subsubcategory.charAt(0).toUpperCase() + subsubcategory.slice(1).replace('_', ' ') }} </h3>
+  <hr>
+  <div class="row">
+    <div class="col-md-3 col-sm-0">
+      <div class="row">
+        <div class="col-12">
+          <label class="mb-2"> Product name </label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+              aria-describedby="basic-addon2">
+            <span class="input-group-text btn btn-outline-primary" id="basic-addon2"> <fa-icon
+                [icon]="faSearch"></fa-icon>
+            </span>
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="mb-2"> Brands </label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sort" id="sort1" value="asc" checked>
+            <label class="form-check-label" for="sort"> All </label>
+          </div>
+            @for(item of uniqueBrands; track $index) {
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="brand" id="brand{{ $index }}" value="{{ item.name }}">
+                <label class="form-check-label" for="brand{{ $index }}"> {{ item.name }} </label>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+      <div class="row">
+          @for(item of products; track $index) {
+          <div class="col-md-4 col-sm-6">
+            <div class="card rounded shadow mb-2 p-2">
+              <div class="row">
+                <div class="col-12">
+                  <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo"
+                    [alt]="item.name" style="height: 300px;">
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="card-body">
+                      <h5 class="card-title fs-6"> {{ item.brand[0].name+' '+item.name }} </h5>
+                      <p class="card-text"> Price: <span class="text-primary"> ${{ item.price }} </span> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row text-center mb-2">
+                <div class="col-6">
+                  <a href="#" class="btn btn-outline-primary"> Details </a>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon
+                      [icon]="faCartShopping"></fa-icon> </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+        @empty {
+          <div class="col-12 text-center">
+            <p> No products found in this category </p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

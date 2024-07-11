@@ -35,7 +35,7 @@
         @for(item of brands | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track item.id) {
         <div class="col-md-3 col-sm-6 mb-3">
           <a [routerLink]="['/brands', (item.name).trim().toLowerCase().replace(' ', '')]">
-            <div class="card bg-light rounded shadow p-2">
+            <div class="card rounded shadow p-2">
               <img class="img-fluid rounded" src="{{'http://localhost:3000/'+item.photo}}"
                 alt="{{(item.name).toLowerCase()}}" style="height: 150px;" />
             </div>

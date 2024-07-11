@@ -4,11 +4,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../services/cart.service';
 
+interface Brand {
+  id: string;
+  name: string;
+}
+
 interface Product {
   id: number;
   name: string;
-  brand: string;
-  categorie: string;
+  brand: Brand[];
+  category: string;
   created_at: string;
   description: string;
   photo: string;
@@ -18,7 +23,6 @@ interface Product {
   sub_categorie: string;
   technical_specifications: string;
   updated_at: string | null;
-  _id: string;
 }
 
 @Component({

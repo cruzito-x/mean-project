@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Subcategory {
   id: string;
@@ -16,7 +17,7 @@ interface Categories {
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })
