@@ -38,7 +38,6 @@ export class CategoriesComponent implements OnInit {
       })
       .then((data: Categories[]) => {
         this.categories = data;
-        console.log(this.categories);
       })
       .catch((error) => {
         console.error('Error:', error);

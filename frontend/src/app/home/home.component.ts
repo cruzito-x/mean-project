@@ -1,11 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../services/cart.service';
 
 interface Brand {
   id: string;
+  name: string;
+}
+
+interface Colors {
   name: string;
 }
 
@@ -17,6 +21,7 @@ interface Product {
   created_at: string;
   description: string;
   photo: string;
+  colors: Colors[];
   price: number;
   rating: number;
   stock: number;
@@ -28,7 +33,7 @@ interface Product {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

@@ -9,6 +9,11 @@ interface Brand {
   name: string;
 }
 
+type Colors = {
+  id: string;
+  color: string;
+};
+
 interface Product {
   id: string;
   name: string;
@@ -18,7 +23,7 @@ interface Product {
   created_at: string;
   description: string;
   photo: string;
-  color: string;
+  colors: Colors[];
   price: number;
   rating: number;
   stock: number;
@@ -32,19 +37,15 @@ interface Product {
   standalone: true,
   imports: [FontAwesomeModule, RouterLink],
   templateUrl: './details.component.html',
-  styles: `
-  .nav-item {
-    cursor: pointer;
-  }
-  `,
+  styleUrl: './details.component.css',
 })
 export class DetailsComponent implements OnInit {
-  product_id: string = '';
   products: Product[] = [];
   faCartShopping = faCartShopping;
   faInfoCircle = faInfoCircle;
   faTags = faTags;
   cartService = inject(CartService);
+  product_id: string = '';
   activeTab: string = 'description';
 
   constructor(private route: ActivatedRoute) {}
@@ -56,7 +57,6 @@ export class DetailsComponent implements OnInit {
       this.getProductDetails(this.product_id);
       return this.route;
     });
-
   }
 
   getProductDetails(product: string) {
@@ -82,7 +82,7 @@ export class DetailsComponent implements OnInit {
 
     return stars;
   }
-  
+
   addToCart(product: Product) {
     this.cartService.addToCart(product);
   }

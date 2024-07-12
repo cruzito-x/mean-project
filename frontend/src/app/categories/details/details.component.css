@@ -1,0 +1,37 @@
+.nav-item {
+  cursor: pointer;
+}
+
+.bg-gray {
+  background-color: #c9c9c9;
+  color: #333333;
+}
+
+.bg-white {
+  color: #000000;
+  border: solid 1px #cacbcf;
+}
+
+.bg-blue {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.bg-purple {
+  background-color: #6e7edc;
+  color: #ffffff;
+}
+
+.bg-green {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+.bg-pink {
+  background-color: #f57ab3;
+  color: #ffffff;
+}
+
+.text-bg-low {
+  background-color: #f57040;
+}

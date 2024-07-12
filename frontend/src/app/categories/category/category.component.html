@@ -52,7 +52,7 @@
               </div>
               <div class="row text-center mb-2">
                 <div class="col-6">
-                  <a [routerLink]="['/details', item.name.toLowerCase().replace('(need gpu)', '').replace('(no needs gpu)', '').replace(' ', '_').replace('/', '_').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
+                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
                 </div>
                 <div class="col-6">
                   <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon

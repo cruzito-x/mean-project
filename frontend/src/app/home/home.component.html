@@ -163,7 +163,11 @@
                 style="height: 160px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}}</p>
-                <p class="card-title">{{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}</p>
+                <p class="card-title">
+                  <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                    {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                  </a>
+                </p>
                 <hr>
                 <div class="justify-content-center text-center">
                   <span class="me-4">${{item.price}}</span>
@@ -200,7 +204,9 @@
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}}</p>
-                <p class="card-title">{{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}</p>
+                <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                </a>
                 <hr>
                 <div class="justify-content-center text-center">
                   <span class="me-4">${{item.price}}</span>
@@ -222,7 +228,9 @@
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}}</p>
-                <p class="card-title">{{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}</p>
+                <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                </a>
                 <hr>
                 <div class="justify-content-center text-center">
                   <span class="me-4">${{item.price}}</span>
@@ -244,7 +252,9 @@
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}}</p>
-                <p class="card-title">{{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}</p>
+                <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                </a>
                 <hr>
                 <div class="justify-content-center text-center">
                   <span class="me-4">${{item.price}}</span>
@@ -280,8 +290,8 @@
               (item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()
               }}
               <div class="align-items-center">
-                Price: <span class="text-primary"> ${{item.price}} </span> <br>
-                Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span>
+                <span> Price: <span class="text-primary"> ${{item.price}} </span> </span> <br>
+                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
               </div>
             </div>
           </div>
