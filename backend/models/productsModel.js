@@ -5,6 +5,11 @@ const brandSchema = new mongoose.Schema({
   name: { type: String, required: true },
 });
 
+const colorSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  color: { type: String, required: true },
+});
+
 const productSchema = new mongoose.Schema({
   id: String,
   name: String,
@@ -16,6 +21,7 @@ const productSchema = new mongoose.Schema({
   brand: [brandSchema],
   stock: Number,
   photo: String,
+  colors: [colorSchema],
   technical_specifications: String,
   rating: Number,
   created_at: Date,
