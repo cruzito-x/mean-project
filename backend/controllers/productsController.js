@@ -1,4 +1,5 @@
 const Product = require("../models/productsModel");
+const Brands = require("../models/brandsModel");
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -38,3 +39,14 @@ exports.getProductDetails = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+exports.getProductsByBrand = async (req, res) => {
+  const brandName = req.params.brand;
+  try {
+    const products = await Product.find({ 'brand.name' : brandName });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
