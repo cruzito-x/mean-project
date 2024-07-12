@@ -30,14 +30,14 @@
         @if(!isLoggedIn) {
         <li class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <label class="nav-link" title="Log in" style="cursor: pointer;">
-            <fa-icon [icon]="faUser"></fa-icon>
+            <fa-icon [icon]="faUser"/>
           </label>
         </li>
         } @else {
         <li class="nav-item">
           <a href="/account">
             <label class="nav-link" title="My account" style="cursor: pointer;">
-              <fa-icon [icon]="faUser"></fa-icon>
+              <fa-icon [icon]="faUser"/>
             </label>
           </a>
         </li>
@@ -46,21 +46,21 @@
           @if(cartService.getItems().length > 0) {
             <div class="position-relative">
               <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="cursor: pointer;">
-                <fa-icon [icon]="faCartShopping"></fa-icon>
+                <fa-icon [icon]="faCartShopping"/>
                 <span class="position-absolute top-1 end-2 start-100 end-25 small translate-middle p-2 bg-primary rounded-circle">
                 </span>
               </a>
             </div>
           } @else {
             <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="cursor: pointer;">
-              <fa-icon [icon]="faCartShopping"></fa-icon>
+              <fa-icon [icon]="faCartShopping"/>
             </a>
           }
         </li>
         @if(isLoggedIn) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/logOut" title="Log out">
-            <fa-icon [icon]="faSignOut"></fa-icon>
+            <fa-icon [icon]="faSignOut"/>
           </a>
         </li>
         }
@@ -88,7 +88,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"></fa-icon> </span>
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"/> </span>
                 <input type="email" class="form-control" formControlName="email" placeholder="e-mail" aria-label="email"
                   aria-describedby="basic-addon1" required>
               </div>
@@ -97,7 +97,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"></fa-icon> </span>
+                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
                 <input type="password" class="form-control" formControlName="password" placeholder="password"
                   aria-label="password" aria-describedby="basic-addon1" required>
               </div>

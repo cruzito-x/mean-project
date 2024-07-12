@@ -1,7 +1,7 @@
-<div class="container p-2">
+<div class="container p-2 mt-3">
   <div class="row">
     <div class="col-12">
-      <h2> {{ (products[0].sub_category+' '+products[0].category+' '+products[0].brand[0].name +' '+ products[0].name).toUpperCase() }} </h2>
+      <h3> {{ (products[0].sub_category+' '+products[0].category+' '+products[0].brand[0].name +' '+ products[0].name).toUpperCase() }} </h3>
       <hr>
       <div class="row">
         <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
@@ -65,16 +65,9 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <div class="row">
-                      @for(item of products; track $index) {
-                      <div class="col-1">
-                        <span class="badge rounded-pill text-bg-primary"> {{ item.sub_category }} </span>
-                      </div>
+                      @for(item of products[0].tags; track $index) {
+                        <span class="badge rounded-pill text-bg-primary me-2"> {{ item.name }} </span>
                       }
-                      <div class="col-2 ms-4">
-                        <span class="badge rounded-pill text-bg-primary"> {{ products[0].category }} </span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

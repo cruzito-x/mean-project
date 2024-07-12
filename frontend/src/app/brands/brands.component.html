@@ -7,7 +7,7 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search" aria-label="Search"
           aria-describedby="basic-addon2">
-        <span class="input-group-text btn btn-outline-primary" id="basic-addon2"> <fa-icon [icon]="faSearch"></fa-icon>
+        <span class="input-group-text btn btn-outline-primary" id="basic-addon2"> <fa-icon [icon]="faSearch"/>
         </span>
       </div>
     </div>
@@ -27,14 +27,14 @@
             <input type="text" class="form-control" placeholder="Search" aria-label="Search"
               aria-describedby="basic-addon2">
             <span class="input-group-text btn btn-outline-primary" id="basic-addon2"> <fa-icon
-                [icon]="faSearch"></fa-icon> </span>
+                [icon]="faSearch"/> </span>
           </div>
         </div>
       </div>
       <div class="row">
         @for(item of brands | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track item.id) {
         <div class="col-md-3 col-sm-6 mb-3">
-          <a [routerLink]="['/brands', (item.name).trim().toLowerCase().replace(' ', '')]">
+          <a [routerLink]="['/brand', (item.name).trim().toLowerCase().replace(' ', '')]">
             <div class="card rounded shadow p-2">
               <img class="img-fluid rounded" src="{{'http://localhost:3000/'+item.photo}}"
                 alt="{{(item.name).toLowerCase()}}" style="height: 150px;" />

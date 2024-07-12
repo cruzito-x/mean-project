@@ -1,0 +1,43 @@
+<div class="container p-2 mt-3">
+  <h3> {{ (products[0].brand[0].name+' family').toUpperCase() }} </h3>
+  <hr>
+  <div class="row">
+    @for(item of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
+    <div class="col-md-3 col-sm-6 mb-3">
+      <div class="card rounded shadow mb-2 p-2">
+        <div class="row">
+          <div class="col-12">
+            <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo" [alt]="item.name"
+              style="height: 300px;">
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="card-body">
+                <h5 class="card-title fs-6"> {{ (item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
+                <p class="card-text"> Price: <span class="text-primary"> ${{ item.price }} </span> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center mb-2">
+          <div class="col-6">
+            <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon
+                [icon]="faCartShopping"/> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    @empty {
+    <div class="col-12 text-center">
+      <p> No products found for this brand </p>
+    </div>
+    }
+    <div class="col-12 d-flex justify-content-end">
+      <pagination-controls previousLabel="" nextLabel="" (pageChange)="handlePageChange($event)" />
+    </div>
+  </div>
+</div>

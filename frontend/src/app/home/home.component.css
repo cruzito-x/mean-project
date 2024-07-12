@@ -30,3 +30,7 @@
   font-weight: bold;
   font-size: 11px;
 }
+
+a:hover {
+  text-decoration: underline !important;
+}

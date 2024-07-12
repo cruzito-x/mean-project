@@ -1,20 +1,14 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping, faInfoCircle, faTags } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 interface Brand {
   id: string;
-  name: string;
-}
-
-type Colors = {
-  id: string;
-  color: string;
-};
-
-interface Tags {
   name: string;
 }
 
@@ -27,46 +21,52 @@ interface Product {
   created_at: string;
   description: string;
   photo: string;
-  colors: Colors[];
   price: number;
   rating: number;
   stock: number;
   sub_category: string;
-  tags: Tags[];
   technical_specifications: string;
   updated_at: string | null;
 }
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-brand-products',
   standalone: true,
-  imports: [FontAwesomeModule, RouterLink],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.css',
+  imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
+  templateUrl: './brand-products.component.html',
+  styles: ``,
 })
-export class DetailsComponent implements OnInit {
+export class BrandProductsComponent implements OnInit {
   products: Product[] = [];
   faCartShopping = faCartShopping;
-  faInfoCircle = faInfoCircle;
-  faTags = faTags;
+  brand_name: string = '';
+  itemsPerPage = 9;
+  page = 1;
   cartService = inject(CartService);
-  product_id: string = '';
-  activeTab: string = 'description';
-  indexColor = 0;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.product_id = params['id'];
+      this.brand_name = params['brand'];
 
-      this.getProductDetails(this.product_id);
+      this.getProductsByBrand(this.brand_name);
       return this.route;
     });
+
+    this.breakpointObserver
+      .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
+      .pipe(map((result) => result.matches))
+      .subscribe((isSmallScreen) => {
+        this.itemsPerPage = isSmallScreen ? 10 : 9;
+      });
   }
 
-  getProductDetails(product: string) {
-    fetch(`http://localhost:3000/products/details/${product}`)
+  getProductsByBrand(brand: string) {
+    fetch(`http://localhost:3000/products/brand/${brand}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error getting product details');
@@ -79,18 +79,8 @@ export class DetailsComponent implements OnInit {
       .catch((error) => console.error('Error:', error));
   }
 
-  generateRatingStars(rating: number) {
-    let stars = '';
-
-    for (let n = 0; n < rating; n++) {
-      stars += '★';
-    }
-
-    return stars;
-  }
-
-  indexSelectedColor(indexSelectedColor: number) {
-    this.cartService.indexSelectedColor(indexSelectedColor);
+  handlePageChange(event: any) {
+    this.page = event;
   }
 
   addToCart(product: Product) {

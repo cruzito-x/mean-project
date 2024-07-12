@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { PayComponent } from './pay/pay.component';
 import { CategoryComponent } from './categories/category/category.component';
 import { DetailsComponent } from './categories/details/details.component';
+import { BrandProductsComponent } from './brands/brand-products/brand-products.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent, data: { params: ':isLoggedIn' } },
@@ -16,7 +17,8 @@ export const routes: Routes = [
   { path: "category/:category/:subcategory/:subsubcategory/:id", component: CategoryComponent },
   { path: "details/:name/:id", component: DetailsComponent},
   { path: "offers", component: OffersComponent },
-  { path: "brands", component: BrandsComponent, data: { params: ':brand' }},
+  { path: "brands", component: BrandsComponent},
+  { path: "brand/:brand", component: BrandProductsComponent},
   { path: "cart", component: CartComponent },
   { path: "pay", component: PayComponent}
 ];

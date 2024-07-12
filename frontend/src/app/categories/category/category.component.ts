@@ -3,6 +3,9 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 interface Brand {
   id: string;
@@ -29,7 +32,7 @@ interface Product {
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [FontAwesomeModule, RouterLink],
+  imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
   templateUrl: './category.component.html',
   styles: ``
 })
@@ -40,10 +43,12 @@ export class CategoryComponent implements OnInit {
   subsubcategory: string = '';
   products: Product[] = [];
   uniqueBrands: Brand[] = [];
+  itemsPerPage: number = 9;
+  page: number = 1;
   faSearch = faSearch;
   faCartShopping = faCartShopping;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {}
 
   cartService = inject(CartService);
 
@@ -56,6 +61,12 @@ export class CategoryComponent implements OnInit {
 
       this.getProductsByCategory(this.category_id);
     });
+
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
+      .pipe(map(result => result.matches))
+      .subscribe(isSmallScreen => {
+        this.itemsPerPage = isSmallScreen ? 10 : 9;
+      });
   }
 
   getProductsByCategory(category: string) {
@@ -87,6 +98,10 @@ export class CategoryComponent implements OnInit {
     });
     
     return uniqueBrands;
+  }
+
+  handlePageChange(event: any) {
+    this.page = event;
   }
 
   addToCart(product: Product) {
