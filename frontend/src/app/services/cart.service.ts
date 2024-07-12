@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   private items: any[] = [];
+  indexColor: number = 0;
 
   constructor() {}
 
@@ -12,7 +13,7 @@ export class CartService {
     if(this.items.find((cartItem) => cartItem.id === item.id)) {
       this.increaseQuantity(item.id);
     } else {
-      this.items.push({ ...item, quantity: 1 });
+      this.items.push({ ...item, indexColor: this.indexColor, quantity: 1 });
       localStorage.setItem('cartList', JSON.stringify(this.items));
     }
   }
@@ -32,6 +33,11 @@ export class CartService {
     if(item) item.quantity++;
 
     localStorage.setItem('cartList', JSON.stringify(this.items));
+  }
+
+  indexSelectedColor(index: number) {
+    this.indexColor = index;
+    console.log(this.indexColor);
   }
 
   decreaseQuantity(id: number) {

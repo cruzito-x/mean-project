@@ -47,6 +47,7 @@ export class DetailsComponent implements OnInit {
   cartService = inject(CartService);
   product_id: string = '';
   activeTab: string = 'description';
+  indexColor = 0;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -81,6 +82,10 @@ export class DetailsComponent implements OnInit {
     }
 
     return stars;
+  }
+
+  indexSelectedColor(indexSelectedColor: number) {
+    this.cartService.indexSelectedColor(indexSelectedColor);
   }
 
   addToCart(product: Product) {
