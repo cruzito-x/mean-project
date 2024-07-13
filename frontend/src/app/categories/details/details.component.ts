@@ -91,9 +91,11 @@ export class DetailsComponent implements OnInit {
 
   indexSelectedColor(indexSelectedColor: number) {
     this.cartService.indexSelectedColor(indexSelectedColor);
+    this.indexColor = indexSelectedColor;
   }
 
   addToCart(product: Product) {
+    this.cartService.indexSelectedColor(this.indexColor);
     this.cartService.addToCart(product);
   }
 }

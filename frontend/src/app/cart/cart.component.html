@@ -1,1 +1,48 @@
-<p>cart works!</p>
+<div class="container p-2 mt-3">
+  <div class="row">
+    <div class="col-md-9 col-sm-12">
+      <h3 class="mb-3"> My cart list </h3>
+      @for (item of cartService.getItems(); track $index) {
+      <div class="row">
+        <div class="col-md-2 col-sm-3">
+          <div class="position-absolute">
+            <img src="http://localhost:3000/{{item.photo}}" alt="Product" class="img-fluid"
+              style="width: 100px; height: 100px;" />
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              (click)="deleteItemFromCart(item)" style="cursor: pointer;"> x </span>
+          </div>
+        </div>
+        <div class="col-md-10 col-sm-8 text-start">
+          <div class="row mt-2">
+            <div class="col-md-10 col-sm-8">
+              <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+' ('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
+            </div>
+            <div class="col-md-2 col-sm-4 d-flex align-items-center">
+              <button type="button" class="btn btn-outline-danger w-50 me-2" (click)="cartService.decreaseQuantity(item.id, item.indexColor)"> <span> - </span> </button>
+              <button type="button" class="btn btn-outline-primary w-50" (click)="cartService.increaseQuantity(item.id, item.indexColor)"> <span> + </span> </button>
+            </div>
+            <p> {{ item.quantity }} x ${{ item.price }} </p>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      } @empty {
+      <div class="col-12 text-center">
+        <p> Your cart is empty </p>
+      </div>
+      }
+    </div>
+    <app-order-info class="col-md-3 col-sm-12"/>
+
+    @if(cartService.getItems().length > 0) {
+    <div class="col-md-9 col-sm-12 mt-2 text-start d-flex align-items-center">
+      <label class="medium"> Sub Total: ${{ cartService.getSubTotal() }} </label>
+    </div>
+    <div class="col-md-9 col-sm-12 mt-2 align-items-center">
+      <a [routerLink]="['/pay']">
+        <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close"> <fa-icon [icon]="faCreditCard" /> Pay </button>
+      </a>
+    </div>
+    }
+  </div>
+</div>

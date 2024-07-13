@@ -1,0 +1,27 @@
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 3px solid lightgray;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.step.active {
+  font-weight: bold;
+  border-color: #007bff;
+}
+
+.step-content {
+  display: none;
+}
+
+.step-content.active {
+  display: block;
+}

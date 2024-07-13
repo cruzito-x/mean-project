@@ -22,10 +22,10 @@
             <p> {{ item.quantity }} x ${{ item.price }} </p>
             <div class="row mt-2">
               <div class="col-6 text-center">
-                <button type="button" class="btn btn-outline-danger w-100" (click)="cartService.decreaseQuantity(item.id)"> <span> - </span> </button>
+                <button type="button" class="btn btn-outline-danger w-100" (click)="cartService.decreaseQuantity(item.id, item.indexColor)"> <span> - </span> </button>
               </div>
               <div class="col-6 text-center">
-                <button type="button" class="btn btn-outline-primary w-100" (click)="cartService.increaseQuantity(item.id)"> <span> + </span> </button>
+                <button type="button" class="btn btn-outline-primary w-100" (click)="cartService.increaseQuantity(item.id, item.indexColor)"> <span> + </span> </button>
               </div>
             </div>
           </div>

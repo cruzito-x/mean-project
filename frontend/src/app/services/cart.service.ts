@@ -10,8 +10,10 @@ export class CartService {
   constructor() {}
 
   addToCart(item: any) {
-    if(this.items.find((cartItem) => cartItem.id === item.id)) {
-      this.increaseQuantity(item.id);
+    const existingItem = this.items.find((cartItem) => cartItem.id === item.id && cartItem.indexColor === this.indexColor);
+
+    if (existingItem) {
+      this.increaseQuantity(existingItem.id, this.indexColor);
     } else {
       this.items.push({ ...item, indexColor: this.indexColor, quantity: 1 });
       localStorage.setItem('cartList', JSON.stringify(this.items));
@@ -23,38 +25,44 @@ export class CartService {
   }
 
   deleteItemFromCart(item: any) {
-    this.items = this.items.filter((n) => n.id !== item.id);
+    this.items = this.items.filter((n) => !(n.id === item.id && n.indexColor === item.indexColor)
+    );
     localStorage.setItem('cartList', JSON.stringify(this.items));
   }
 
-  increaseQuantity(id: number) {
-    let item = this.items.find((n) => n.id === id);
+  increaseQuantity(id: number, indexColor: number) {
+    let item = this.items.find((n) => n.id === id && n.indexColor === indexColor);
 
-    if(item) item.quantity++;
+    if (item) item.quantity++;
 
+    console.log(item);
     localStorage.setItem('cartList', JSON.stringify(this.items));
   }
 
   indexSelectedColor(index: number) {
     this.indexColor = index;
-    console.log(this.indexColor);
   }
 
-  decreaseQuantity(id: number) {
-    let item = this.items.find((n) => n.id === id);
+  decreaseQuantity(id: number, indexColor: number) {
+    let item = this.items.find((n) => n.id === id && n.indexColor === indexColor);
 
-    if(item) if(item.quantity == 1) this.deleteItemFromCart(item); else item.quantity--;
-
-    localStorage.setItem('cartList', JSON.stringify(this.items));
+    if (item) {
+      if (item.quantity == 1) {
+        this.deleteItemFromCart(item);
+      } else {
+        item.quantity--;
+      }
+      localStorage.setItem('cartList', JSON.stringify(this.items));
+    }
   }
 
   getSubTotal() {
-    return this.items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 
   validateCart() {
-    if(this.items != null) {
-       this.items = JSON.parse(localStorage.getItem('cartList') || '[]');
+    if (this.items != null) {
+      this.items = JSON.parse(localStorage.getItem('cartList') || '[]');
     }
   }
 }
