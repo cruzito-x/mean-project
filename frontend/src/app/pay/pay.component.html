@@ -10,10 +10,91 @@
     <app-cart />
   </div>
   <div class="step-content" [class]="{'active': currentStep === 2}">
-    <h3>Step 2</h3>
-    <p>This is the content of Step 2.</p>
-    <button class="btn btn-secondary" (click)="prevStep()">Previous</button>
-    <button class="btn btn-primary" (click)="nextStep()">Next</button>
+    <div class="row p-2">
+      <div class="col-md-9 col-sm-12">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <div class="alert alert-primary"> <label> Client info </label> </div>
+            <div class="form">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g. Jhon Doe" required>
+                    <label for="floatingInput">Name</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                    <label for="floatingInput">Phone</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com" required>
+                    <label for="floatingInput">Email</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Additional comments</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 mb-3">
+            <div class="alert alert-primary"> <label> Shipping info </label> </div>
+            <div class="form">
+              <div class="row">
+                <div class="col-6 text-start mb-3">
+                  <button class="btn btn-outline-primary"> Pick at store </button>
+                </div>
+                <div class="col-6 text-end mb-3">
+                  <button class="btn btn-outline-primary"> Home shipping </button>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                      
+                    </select>
+                    <label for="floatingSelect"> Departments </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                      
+                    </select>
+                    <label for="floatingSelect"> Departments </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2"> Address </label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2"> Reference point </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-6 text-start">
+            <button class="btn btn-outline-primary me-3" (click)="prevStep()"> < My cart list </button>
+          </div>
+          <div class="col-6 text-end">
+            <button class="btn btn-outline-primary" (click)="nextStep()"> Payment > </button>
+          </div>
+        </div>
+      </div>
+      <app-order-info class="col-md-3 col-sm-12" />
+    </div>
   </div>
   <div class="step-content" [class]="{'active': currentStep === 3}">
     <div class="row p-2">
