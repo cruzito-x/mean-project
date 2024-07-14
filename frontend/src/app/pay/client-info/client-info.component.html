@@ -59,9 +59,9 @@
               </div>
               <div class="col-md-6 col-sm-12 d-none" id="homeShippingCol2">
                 <div class="form-floating mb-3">
-                  <select class="form-select" id="floatingSelect">
+                  <select class="form-select" id="floatingSelectMunicipalities">
                     @for (item of municipalities; track $index) {
-                      <option value="{{ $index }}"> {{ item }} </option>
+                      <option value="{{ item.precio }}"> {{ item.nombre +' -  ($'+item.precio+')' }} </option>
                     }
                   </select>
                   <label for="floatingSelect"> Municipality </label>

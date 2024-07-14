@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
   private items: any[] = [];
   indexColor: number = 0;
+  amount: number = 0;
 
   constructor() {}
 
@@ -66,8 +67,8 @@ export class CartService {
     }
   }
 
-  shippingCost(amount: number) {
-    return amount;
+  shippingCost() {
+    return this.amount;
   }
 
   clearCart() {

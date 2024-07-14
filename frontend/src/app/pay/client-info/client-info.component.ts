@@ -7,10 +7,9 @@ import { CartService } from '../../services/cart.service';
 import $ from 'jquery';
 
 interface Municipalities {
-  municipios: [{
-    id_mun: string,
-    nombre: string
-  }]
+  id_mun: string,
+  nombre: string,
+  precio: number
 }
 
 interface Departments {
@@ -54,12 +53,15 @@ export class ClientInfoComponent {
       $('#homeShippingCol1, #homeShippingCol2').addClass('d-none');
       $('#pickAtStore').removeClass('btn-outline-primary').addClass('btn-primary');
       $('#homeShipping').addClass('btn-outline-primary').removeClass('btn-primary');
-      this.cartService.shippingCost(0);
     });
 
-    $('#floatingSelectDepartments').on('change', () => {
-      let departmentId: number = parseInt($('#floatingSelectDepartments').val() as string) || 0;
+    $("#floatingSelectDepartments").on("change", () => {
+      let departmentId: number = parseInt($("#floatingSelectDepartments").val() as string) || 0;
       this.getMunicipalities(departmentId);
+    });
+
+    $("#floatingSelectMunicipalities").on("change", () => {
+      this.cartService.amount = parseFloat($("#floatingSelectMunicipalities").val() as string);
     });
   }
 
@@ -73,12 +75,10 @@ export class ClientInfoComponent {
       })
       .then((data: Departments[]) => {
         this.departments = data;
-        console.log(this.departments);
       });
   }
 
-  async getMunicipalities(departmentId: number)  {
-    console.log("selección departamento: ", departmentId);
+  async getMunicipalities(departmentId: number) {
     fetch(`https://api.npoint.io/75a81381a83b8f51e22d/departamentos/${departmentId}`)
     .then((response) => {
       if (!response.ok) {
@@ -86,9 +86,8 @@ export class ClientInfoComponent {
       }
       return response.json();
     })
-    .then((data: Municipalities[]) => {
-      this.municipalities = data;
-      console.log(this.municipalities);
+    .then((data: any) => { // Use 'any' type here for simplicity; adjust as per your API response
+      this.municipalities = data.municipios; // Assuming 'municipios' is the array of municipalities in your response
     });
   }
 }
