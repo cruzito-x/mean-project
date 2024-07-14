@@ -43,16 +43,19 @@ export class ClientInfoComponent {
     this.getDepartments();
     this.getMunicipalities(0);
 
-    $('#homeShipping').on('click', () => {
-      $('#homeShippingCol1, #homeShippingCol2').removeClass('d-none');
-      $('#pickAtStore').addClass('btn-outline-primary').removeClass('btn-primary');
-      $('#homeShipping').removeClass('btn-outline-primary').addClass('btn-primary');
+    $("#homeShipping").on("click", () => {
+      $("#homeShippingCol1, #homeShippingCol2").removeClass("d-none");
+      $("#pickAtStoreSpace").addClass("d-none");
+      $("#pickAtStore").addClass('btn-outline-primary').removeClass("btn-primary");
+      $("#homeShipping").removeClass('btn-outline-primary').addClass("btn-primary");
     });
 
-    $('#pickAtStore').on('click', () => {
-      $('#homeShippingCol1, #homeShippingCol2').addClass('d-none');
-      $('#pickAtStore').removeClass('btn-outline-primary').addClass('btn-primary');
-      $('#homeShipping').addClass('btn-outline-primary').removeClass('btn-primary');
+    $("#pickAtStore").on("click", () => {
+      $("#homeShippingCol1, #homeShippingCol2").addClass("d-none");
+      $("#pickAtStoreSpace").removeClass("d-none");
+      $("#message").html("Excelent! <br> Now you can go to our store to recieve your package");
+      $("#pickAtStore").removeClass("btn-outline-primary").addClass("btn-primary");
+      $("#homeShipping").addClass("btn-outline-primary").removeClass("btn-primary");
     });
 
     $("#floatingSelectDepartments").on("change", () => {
