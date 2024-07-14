@@ -1,0 +1,156 @@
+<div class="row p-2">
+  <div class="col-md-9 col-sm-12">
+    <div class="alert alert-primary">
+      <label> Payment info </label>
+    </div>
+    <div class="col-12">
+      <div class="accordion mb-3" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <fa-icon class="me-2" [icon]="faCreditCard" /> Credit / Debit card
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <div class="row">
+                    <div class="col-4">
+                      <label> Powered by </label>
+                    </div>
+                    <div class="col-8">
+                      <img class="img-fluid" src="../../../../public/assets/poweredBy.png" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 col-sm-12">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                      <label for="floatingInput"> Card number </label>
+                    </div>
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                          <label for="floatingInput">MM</label>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                          <label for="floatingInput">YY</label>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                          <label for="floatingInput">CCV</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                      <label for="floatingInput">Card owner name </label>
+                    </div>
+                    <button class="btn btn-outline-primary w-100 mt-2"> Proccess payment </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <fa-icon class="me-2" [icon]="faAt" /> Transfer
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="alert alert-warning">
+                <strong> Important </strong>
+                <ul class="list-group-numbered">
+                  <li class="list-group-item">
+                    Realize the transfer from your bank platform preference
+                  </li>
+                  <li class="list-group-item">
+                    Choose one of the following accounts to realize the transfer
+                    <ul>
+                      <li> Cuscatlan Bank - Account No. 1234567890 </li>
+                      <li> America Central Bank - Account No. 123456789 </li>
+                      <li> Bancoagricola Bank - Account No. 1234567890 </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <button class="btn btn-outline-primary"> Cuscatlan Bank </button>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <button class="btn btn-outline-primary"> America Central Bank </button>
+                </div>
+                <div class="col-md-4 col-sm-12 mb-3">
+                  <button class="btn btn-outline-primary"> Bancoagricola Bank </button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com" required>
+                    <label for="floatingInput">Titular account </label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com" required>
+                    <label for="floatingInput"> Reference's number </label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com" required>
+                    <label for="floatingInput"> Transfer voucher </label>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com" required>
+                    <label for="floatingInput"> Concept </label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com" required>
+                    <label for="floatingInput"> Amount </label>
+                  </div>
+                  <button class="btn btn-outline-primary w-100 mt-2"> Reserve </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <fa-icon class="me-2" [icon]="faMoneyBill" /> Paypal
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body d-flex align-items-center justify-content-center">
+              <div class="w-50" #paymentRef></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-6 text-start">
+        <button class="btn btn-outline-primary me-3" (click)="pay_steps.prevStep()">
+          <fa-icon [icon]="faAngleLeft"/> Client info </button>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-outline-primary" (click)="pay_steps.nextStep()"> Order <fa-icon [icon]="faAngleRight"/> </button>
+      </div>
+    </div>
+  </div>
+  <app-order-info class="col-md-3 col-sm-12" />
+</div>

@@ -1,7 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-order-info',
@@ -12,8 +10,13 @@ import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 })
 export class OrderInfoComponent {
   cartService = inject(CartService);
+  amount = 0;
   
   getTotalPrice = () => {
     return this.cartService.getSubTotal();
+  }
+
+  shippingCost() {
+    return this.cartService.shippingCost(this.amount);
   }
 }

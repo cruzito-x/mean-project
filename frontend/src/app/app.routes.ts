@@ -3,7 +3,7 @@ import { RegisterComponent } from './register/register.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { BrandsComponent } from './brands/brands.component';
 import { OffersComponent } from './offers/offers.component';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './pay/cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { PayComponent } from './pay/pay.component';
 import { CategoryComponent } from './categories/category/category.component';

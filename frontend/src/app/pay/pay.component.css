@@ -25,8 +25,3 @@
 .step-content.active {
   display: block;
 }
-
-textarea {
-  height: 100px;
-  resize: none;
-}

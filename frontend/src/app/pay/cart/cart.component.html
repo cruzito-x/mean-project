@@ -31,18 +31,22 @@
         <p> Your cart is empty </p>
       </div>
       }
+      @if(cartService.getItems().length > 0) {
+        <div class="col-12 mt-3 text-start d-flex align-items-center">
+          <label class="medium"> Sub Total: ${{ cartService.getSubTotal() }} </label>
+        </div>
+        <div class="row">
+          <div class="col-6 mt-2 mb-3">
+            <button type="button" class="btn btn-outline-danger w-100" (click)="cartService.clearCart()"> <fa-icon [icon]="faTrash" /> Clear cart </button>
+          </div>
+          <div class="col-6 mt-2 mb-3">
+            <a [routerLink]="['/pay']">
+              <button type="button" class="btn btn-outline-primary w-100" (click)="stepsService.nextStep()"> <fa-icon [icon]="faCreditCard" /> Pay <fa-icon [icon]="faAngleRight"/> </button>
+            </a>
+          </div>
+        </div>
+        }
     </div>
     <app-order-info class="col-md-3 col-sm-12"/>
-
-    @if(cartService.getItems().length > 0) {
-    <div class="col-md-9 col-sm-12 mt-2 text-start d-flex align-items-center">
-      <label class="medium"> Sub Total: ${{ cartService.getSubTotal() }} </label>
-    </div>
-    <div class="col-md-9 col-sm-12 mt-2 align-items-center">
-      <a [routerLink]="['/pay']">
-        <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close"> <fa-icon [icon]="faCreditCard" /> Pay </button>
-      </a>
-    </div>
-    }
   </div>
 </div>

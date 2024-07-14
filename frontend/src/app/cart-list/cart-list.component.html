@@ -42,13 +42,13 @@
       <div class="col-6 text-start d-flex align-items-center">
         <label class="medium"> Sub Total: ${{ cartService.getSubTotal() }} </label>
       </div>
-      <div class="col-6 text-end">
+      <!-- <div class="col-6 text-end">
         <a [routerLink]="['/cart']">
           <button type="button" class="btn btn-outline-primary w-75" data-bs-dismiss="offcanvas" aria-label="Close">
             View in cart </button>
         </a>
-      </div>
-      <div class="col-12 mt-2 align-items-center">
+      </div> -->
+      <div class="col-6 align-items-center">
         <a [routerLink]="['/pay']">
           <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close"> <fa-icon [icon]="faCreditCard" /> Pay </button>
         </a>

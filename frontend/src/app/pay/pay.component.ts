@@ -1,41 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { CartComponent } from "../cart/cart.component";
-import { OrderInfoComponent } from "./order-info/order-info.component";
+import { CartComponent } from './cart/cart.component';
+import { OrderInfoComponent } from './order-info/order-info.component';
+import { ClientInfoComponent } from "./client-info/client-info.component";
+import { PayStepsService } from '../services/pay-steps.service';
+import { PaymentComponent } from "./payment/payment.component";
 
 @Component({
   selector: 'app-pay',
   standalone: true,
-  imports: [FontAwesomeModule, CartComponent, OrderInfoComponent],
+  imports: [FontAwesomeModule, CartComponent, OrderInfoComponent, ClientInfoComponent, PaymentComponent],
   templateUrl: './pay.component.html',
-  styleUrl: './pay.component.css'
+  styleUrl: './pay.component.css',
 })
 export class PayComponent {
   faShoppingCart = faShoppingCart;
-
-  currentStep = 1;
-
-  showStep(step: number) {
-    this.currentStep = step;
-  }
-
-  nextStep() {
-    this.currentStep++;
-    if (this.currentStep > 3) {
-      this.currentStep = 3;
-    }
-  }
-
-  prevStep() {
-    this.currentStep--;
-    if (this.currentStep < 1) {
-      this.currentStep = 1;
-    }
-  }
-
-  finishStep() {
-    alert('Stepper Finished!');
-  }
-
+  pay_steps = inject(PayStepsService);
 }

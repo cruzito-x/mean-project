@@ -65,4 +65,13 @@ export class CartService {
       this.items = JSON.parse(localStorage.getItem('cartList') || '[]');
     }
   }
+
+  shippingCost(amount: number) {
+    return amount;
+  }
+
+  clearCart() {
+    this.items = [];
+    localStorage.removeItem('cartList');
+  }
 }

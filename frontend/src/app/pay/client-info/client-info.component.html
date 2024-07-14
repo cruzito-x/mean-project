@@ -1,0 +1,90 @@
+<div class="row p-2">
+  <div class="col-md-9 col-sm-12">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="alert alert-primary"> <label> <fa-icon [icon]="faUser" /> Client info </label> </div>
+        <div class="form">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="e.g. Jhon Doe" required>
+                <label for="floatingInput">Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
+                <label for="floatingInput">Phone</label>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com"
+                  required>
+                <label for="floatingInput">Email</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Additional comments</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="alert alert-primary"> <label> <fa-icon [icon]="faShippingFast" /> Shipping info </label> </div>
+        <div class="form">
+          <div class="row">
+            <div class="col-6 text-start mb-3">
+              <button class="btn btn-outline-primary" id="pickAtStore"> Pick at store </button>
+            </div>
+            <div class="col-6 text-end mb-3">
+              <button class="btn btn-outline-primary" id="homeShipping"> Home shipping </button>
+            </div>
+              <div class="col-md-6 col-sm-12 d-none" id="homeShippingCol1">
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="floatingSelectDepartments">
+                    @for (item of departments; track $index) {
+                      <option value="{{ $index }}"> {{ item.nombre }} </option>
+                    }
+                  </select>
+                  <label for="floatingSelect"> Departments </label>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                  <label for="floatingTextarea2"> Address </label>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 d-none" id="homeShippingCol2">
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="floatingSelect">
+                    @for (item of municipalities; track $index) {
+                      <option value="{{ $index }}"> {{ item }} </option>
+                    }
+                  </select>
+                  <label for="floatingSelect"> Municipality </label>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2"
+                    style="height: 100px"></textarea>
+                  <label for="floatingTextarea2"> Reference point </label>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-6 text-start">
+        <button class="btn btn-outline-primary me-3" (click)="pay_steps.prevStep()">
+          <fa-icon [icon]="faAngleLeft"/> My cart list </button>
+      </div>
+      <div class="col-6 text-end">
+        <button class="btn btn-outline-primary" (click)="pay_steps.nextStep()"> Payment <fa-icon [icon]="faAngleRight"/> </button>
+      </div>
+    </div>
+  </div>
+  <app-order-info class="col-md-3 col-sm-12" />
+</div>
