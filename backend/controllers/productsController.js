@@ -50,3 +50,13 @@ exports.getProductsByBrand = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 }
+
+exports.getProductsByFamily = async (req, res) => {
+  const familyName = req.params.family;
+  try {
+    const products = await Product.find({ 'sub_category' : familyName });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
