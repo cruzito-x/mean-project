@@ -10,6 +10,7 @@ import { CategoryComponent } from './categories/category/category.component';
 import { DetailsComponent } from './categories/details/details.component';
 import { BrandProductsComponent } from './brands/brand-products/brand-products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductsComponent } from './products/products.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent, data: { params: ':isLoggedIn' } },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: "brands", component: BrandsComponent},
   { path: "brand/:brand", component: BrandProductsComponent},
   { path: "pay", component: PayComponent},
+  { path: "products/:category", component: ProductsComponent},
   { path: "**", component: NotFoundComponent }
 ];

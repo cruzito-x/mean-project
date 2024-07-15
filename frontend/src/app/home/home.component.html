@@ -46,44 +46,54 @@
 
   <div class="row d-none d-md-flex justify-content-center text-center p-2">
     <div class="col-xl-2 col-sm-12 mt-2">
-      <div class="card shadow">
-        <img class="img-fluid rounded" src="../../../assets/consoles.jpg" alt="">
-        <div class="overlay">
-          <h5>Consoles</h5>
+      <a [routerLink]="['/products', 'consoles']">
+        <div class="card shadow">
+          <img class="img-fluid rounded" src="../../../assets/consoles.jpg" alt="">
+          <div class="overlay">
+            <h5>Consoles</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
     <div class="col-xl-2 col-sm-12 mt-2">
-      <div class="card shadow">
-        <img class="img-fluid rounded" src="../../../assets/peripherals.jpg" alt="">
-        <div class="overlay">
-          <h5>Peripherals</h5>
+      <a [routerLink]="['/products', 'peripherals']">
+        <div class="card shadow">
+          <img class="img-fluid rounded" src="../../../assets/peripherals.jpg" alt="">
+          <div class="overlay">
+            <h5>Peripherals</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
     <div class="col-xl-2 col-sm-12 mt-2">
-      <div class="card shadow">
-        <img class="img-fluid rounded" src="../../../assets/intel.jpg" alt="">
-        <div class="overlay">
-          <h5>Intel CPU's</h5>
+      <a [routerLink]="['/products', 'intel_cpu']">
+        <div class="card shadow">
+          <img class="img-fluid rounded" src="../../../assets/intel.jpg" alt="">
+          <div class="overlay">
+            <h5>Intel CPU's</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
     <div class="col-xl-2 col-sm-12 mt-2">
-      <div class="card shadow">
-        <img class="img-fluid rounded" src="../../../assets/amd.jpg" alt="">
-        <div class="overlay">
-          <h5>AMD CPU's</h5>
+      <a [routerLink]="['/products', 'amd_cpu']">
+        <div class="card shadow">
+          <img class="img-fluid rounded" src="../../../assets/amd.jpg" alt="">
+          <div class="overlay">
+            <h5>AMD CPU's</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
     <div class="col-xl-2 col-sm-12 mt-2">
-      <div class="card shadow">
-        <img class="img-fluid rounded" src="../../../assets/gpu.jpg" alt="">
-        <div class="overlay">
-          <h5>GPU's</h5>
+      <a [routerLink]="['/products', 'graphic_cards']">
+        <div class="card shadow">
+          <img class="img-fluid rounded" src="../../../assets/gpu.jpg" alt="">
+          <div class="overlay">
+            <h5>GPU's</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
   <!-- Carousel for sm -->
@@ -98,44 +108,54 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="card shadow">
-          <img class="img-fluid rounded" src="../../../assets/consoles.jpg" alt="">
-          <div class="overlay">
-            <span>Consoles</span>
+        <a [routerLink]="['/products', 'consoles']">
+          <div class="card shadow">
+            <img class="img-fluid rounded" src="../../../assets/consoles.jpg" alt="">
+            <div class="overlay">
+              <span>Consoles</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="carousel-item">
-        <div class="card shadow">
-          <img class="img-fluid rounded" src="../../../assets/peripherals.jpg" alt="">
-          <div class="overlay">
-            <span>Peripherals</span>
+        <a [routerLink]="['/products', 'peripherals']">
+          <div class="card shadow">
+            <img class="img-fluid rounded" src="../../../assets/peripherals.jpg" alt="">
+            <div class="overlay">
+              <span>Peripherals</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="carousel-item">
-        <div class="card shadow">
-          <img class="img-fluid rounded" src="../../../assets/intel.jpg" alt="">
-          <div class="overlay">
-            <span>Intel CPU's</span>
+        <a [routerLink]="['/products', 'intel_cpu']">
+          <div class="card shadow">
+            <img class="img-fluid rounded" src="../../../assets/intel.jpg" alt="">
+            <div class="overlay">
+              <span>Intel CPU's</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="carousel-item">
-        <div class="card shadow">
-          <img class="img-fluid rounded" src="../../../assets/amd.jpg" alt="">
-          <div class="overlay">
-            <span>AMD CPU's</span>
+        <a [routerLink]="['/products', 'amd_cpu']">
+          <div class="card shadow">
+            <img class="img-fluid rounded" src="../../../assets/amd.jpg" alt="">
+            <div class="overlay">
+              <span>AMD CPU's</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="carousel-item">
-        <div class="card shadow">
-          <img class="img-fluid rounded" src="../../../assets/gpu.jpg" alt="">
-          <div class="overlay">
-            <span>GPU's</span>
+        <a [routerLink]="['/products', 'graphic_cards']">
+          <div class="card shadow">
+            <img class="img-fluid rounded" src="../../../assets/gpu.jpg" alt="">
+            <div class="overlay">
+              <span>GPU's</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>

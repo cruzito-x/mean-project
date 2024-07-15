@@ -1,11 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSearch, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import { CartService } from '../services/cart.service';
 
 interface Brand {
   id: string;
@@ -30,36 +30,32 @@ interface Product {
 }
 
 @Component({
-  selector: 'app-category',
+  selector: 'app-products',
   standalone: true,
   imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
-  templateUrl: './category.component.html',
+  templateUrl: './products.component.html',
   styles: ``
 })
-export class CategoryComponent implements OnInit {
-  category_id: string = '';
-  category: string = '';
-  subcategory: string = '';
-  subsubcategory: string = '';
+export class ProductsComponent {
+  brands: Brand[] = [];
   products: Product[] = [];
   uniqueBrands: Brand[] = [];
-  itemsPerPage: number = 9;
-  page: number = 1;
-  faSearch = faSearch;
   faCartShopping = faCartShopping;
-
-  constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {}
-
+  faSearch = faSearch;
+  familyName: string = '';
+  itemsPerPage = 9;
+  page = 1;
   cartService = inject(CartService);
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.category_id = params['id'];
-      this.category = params['category'];
-      this.subcategory = params['subcategory'];
-      this.subsubcategory = params['subsubcategory'];
+  constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) { }
 
-      this.getProductsByCategory(this.category_id);
+  ngOnInit(): void {
+
+    this.route.params.subscribe((params) => {
+      this.familyName = params['category'];
+
+      this.getProductsByFamilyName(this.familyName);
+      return this.route;
     });
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
@@ -69,19 +65,19 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  getProductsByCategory(category: string) {
-    fetch(`http://localhost:3000/products/category/${category}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error getting products by category');
-        }
-        return response.json();
-      })
-      .then((data: Product[]) => {
-        this.products = data;
-        this.uniqueBrands = this.getUniqueBrands(data);
-      })
-      .catch((error) => console.error('Error:', error));
+  getProductsByFamilyName(familyName: string) {
+    fetch(`http://localhost:3000/products/family/${familyName}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error getting products by family name');
+      }
+      return response.json();
+    })
+    .then((data: Product[]) => {
+      this.products = data;
+      this.uniqueBrands = this.getUniqueBrands(data);
+      }
+    )
   }
 
   getUniqueBrands(products: Product[]): Brand[] {

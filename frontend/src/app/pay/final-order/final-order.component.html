@@ -1,0 +1,42 @@
+<div class="row p-2">
+  <div class="card">
+    <div class="alert alert-primary text-center mt-3"> Final order </div>
+    <div class="row mb-3">
+      <div class="col-sm-6">
+        <p id=""> Client name </p>
+        <p id=""> Department </p>
+        <p id=""> Municipality </p>
+      </div>
+      <div class="col-sm-6 text-end">
+        <p id=""> David Cruz </p>
+        <p id=""> San Salvador </p>
+        <p id=""> San Salvador </p>
+      </div>
+      <div class="col-12 text-center">
+        <div class="alert alert-primary text-center mt-3"> Products </div>
+      </div>
+      <app-cart-details />
+      <div class="col-12 mb-3 text-center">
+        <div class="alert alert-primary text-center mt-3"> Aditional comments </div>
+        <textarea class="form-control" id="comments" disabled></textarea>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6 text-start">
+            <p> Sub-Total <br>
+              Shipping cost <br>
+              Total to pay </p>
+          </div>
+          <div class="col-6 text-end">
+            <p> ${{ cartService.getSubTotal() }} <br>
+              ${{ cartService.shippingCost() }} <br>
+              ${{ cartService.getSubTotal() + cartService.shippingCost() }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mt-3">
+    <button class="btn btn-outline-primary w-100"> <fa-icon [icon]="faPrint"/> Print </button>
+  </div>
+</div>
