@@ -3,6 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping, faInfoCircle, faTags } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import $ from 'jquery';
 
 interface Brand {
   id: string;
@@ -62,6 +63,20 @@ export class DetailsComponent implements OnInit {
 
       this.getProductDetails(this.product_id);
       return this.route;
+    });
+  }
+
+  getBorderColor(index: number): void {
+    $("span[id^='color-']").css({
+      border: "2px solid transparent"
+    });
+
+    $("span .bg-white").css({
+      border: "1px solid #cacbcf"
+    });
+    
+    $("#color-"+index).css({
+      border: "2px solid #007bff"
     });
   }
 

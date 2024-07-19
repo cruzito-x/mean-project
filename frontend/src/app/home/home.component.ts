@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '../services/cart.service';
@@ -42,17 +42,16 @@ export class HomeComponent implements OnInit {
   bestRatedProducts: Product[] = [];
   faCartShopping = faCartShopping;
 
-  constructor(private _route: ActivatedRoute) {
-    const isLloggedIn = this._route.snapshot.queryParamMap.get('isLloggedIn');
-    console.log(isLloggedIn);
-  }
-
   cartService = inject(CartService);
 
   ngOnInit() {
     this.getAllProducts();
     this.getBestRatedProducts();
-    this._route.snapshot.paramMap.get("isLloggedIn");
+    this.isLoggedIn();
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem("isLoggedIn");
   }
 
   getAllProducts() {

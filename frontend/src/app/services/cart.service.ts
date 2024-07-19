@@ -21,6 +21,10 @@ export class CartService {
     }
   }
 
+  isLoggedIn() {
+    return localStorage.getItem("isLoggedIn");
+  }
+
   getItems() {
     return this.items;
   }

@@ -11,10 +11,12 @@ import { DetailsComponent } from './categories/details/details.component';
 import { BrandProductsComponent } from './brands/brand-products/brand-products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsComponent } from './products/products.component';
+import { AccountComponent } from './account/account.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent, data: { params: ':isLoggedIn' } },
   { path: "register", component: RegisterComponent },
+  { path: "account", component: AccountComponent },
   { path: "categories", component: CategoriesComponent },
   { path: "category/:category/:subcategory/:subsubcategory/:id", component: CategoryComponent },
   { path: "details/:name/:id", component: DetailsComponent},

@@ -1,5 +1,5 @@
 <div class="container p-2 mt-3">
-  <h3> {{ (products[0].brand[0].name+' family').toUpperCase() }} </h3>
+  <h3> {{ (brand_name+' products').toUpperCase() }} </h3>
   <hr>
   <div class="row">
     @for(item of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
@@ -24,8 +24,11 @@
             <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
           </div>
           <div class="col-6">
-            <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon
-                [icon]="faCartShopping"/> </button>
+            @if(cartService.isLoggedIn()) {
+              <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon [icon]="faCartShopping"/> </button>
+            } @else {
+              <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add <fa-icon [icon]="faCartShopping"/> </button>
+            }
           </div>
         </div>
       </div>

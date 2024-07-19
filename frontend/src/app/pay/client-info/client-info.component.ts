@@ -5,6 +5,7 @@ import { OrderInfoComponent } from "../order-info/order-info.component";
 import { PayStepsService } from '../../services/pay-steps.service';
 import { CartService } from '../../services/cart.service';
 import $ from 'jquery';
+import { ClientService } from '../../services/client.service';
 
 interface Municipalities {
   id_mun: string,
@@ -38,6 +39,7 @@ export class ClientInfoComponent {
   faAngleLeft = faAngleLeft;
   pay_steps = inject(PayStepsService);
   cartService = inject(CartService);
+  clientService = inject(ClientService);
 
   ngOnInit(): void {
     this.getDepartments();
@@ -66,6 +68,36 @@ export class ClientInfoComponent {
     $("#floatingSelectMunicipalities").on("change", () => {
       this.cartService.amount = parseFloat($("#floatingSelectMunicipalities").val() as string);
     });
+
+    $("#saveClientInfo").on("click", () => {
+      let item: any = [];
+      let clientName = $("#clientName").val();
+      let clientEmail = $("#clientEmail").val();
+      let clientPhone = $("#clientPhone").val();
+      let additionalComments = $("#additionalComments").text();
+      let department: any;
+      let municipality: any;
+
+      $("#pickAtStore").on("click", () => {
+        department = "San Salvador";
+        municipality = "San Salvador";
+      });
+
+      $("#homeShipping").on("click", () => {
+        department = parseInt($("#floatingSelectDepartments").val() as string);
+        municipality = parseInt($("#floatingSelectMunicipalities").val() as string);
+      });
+
+      if(clientName !== "" && clientEmail !== "" && clientPhone !== "" && additionalComments !== "") {
+        item.push({ clientName: clientName, clientEmail: clientEmail, department: department, municipality: this.getMunicipalities(department), clientPhone: clientPhone, additionalComments: additionalComments});
+
+        if(this.clientService.getClientInfo().length === 0) {
+          this.clientService.clientInfo(item);
+        }
+
+        this.pay_steps.nextStep();
+      }
+    });
   }
 
   async getDepartments() {
@@ -81,7 +113,7 @@ export class ClientInfoComponent {
       });
   }
 
-  async getMunicipalities(departmentId: number) {
+  getMunicipalities(departmentId: number) {
     fetch(`https://api.npoint.io/75a81381a83b8f51e22d/departamentos/${departmentId}`)
     .then((response) => {
       if (!response.ok) {

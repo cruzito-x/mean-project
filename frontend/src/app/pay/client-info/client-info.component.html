@@ -7,26 +7,26 @@
           <div class="row">
             <div class="col-md-6 col-sm-12">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="e.g. Jhon Doe" required>
-                <label for="floatingInput">Name</label>
+                <input type="text" class="form-control" id="clientName" placeholder="e.g. Jhon Doe" required>
+                <label for="clientName">Name</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" placeholder="e.g. +503 7825-0214" required>
-                <label for="floatingInput">Phone</label>
+                <input type="text" class="form-control" id="clientPhone" placeholder="e.g. +503 7825-0214" required>
+                <label for="clientPhone">Phone</label>
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="e.g. name@example.com"
+                <input type="email" class="form-control" id="clientEmail" placeholder="e.g. name@example.com"
                   required>
-                <label for="floatingInput">Email</label>
+                <label for="clientEmail">Email</label>
               </div>
             </div>
             <div class="col-12">
               <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2"
+                <textarea class="form-control" placeholder="Additional comments" id="AddotionalComments"
                   style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Additional comments</label>
+                <label for="additionalComments">Additional comments</label>
               </div>
             </div>
           </div>
@@ -55,9 +55,9 @@
                   <label for="floatingSelect"> Departments </label>
                 </div>
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2"
+                  <textarea class="form-control" placeholder="Address" id="address"
                     style="height: 100px"></textarea>
-                  <label for="floatingTextarea2"> Address </label>
+                  <label for="address"> Address </label>
                 </div>
               </div>
               <div class="col-md-6 col-sm-12 d-none" id="homeShippingCol2">
@@ -70,9 +70,9 @@
                   <label for="floatingSelect"> Municipality </label>
                 </div>
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Additional comments" id="floatingTextarea2"
+                  <textarea class="form-control" id="referencePoint" placeholder="Reference point" id="referencePoint"
                     style="height: 100px"></textarea>
-                  <label for="floatingTextarea2"> Reference point </label>
+                  <label for="referencePoint"> Reference point </label>
                 </div>
               </div>
           </div>
@@ -85,7 +85,7 @@
           <fa-icon [icon]="faAngleLeft"/> My cart list </button>
       </div>
       <div class="col-6 text-end">
-        <button class="btn btn-outline-primary" (click)="pay_steps.nextStep()"> Payment <fa-icon [icon]="faAngleRight"/> </button>
+        <button class="btn btn-outline-primary" id="saveClientInfo"> Payment <fa-icon [icon]="faAngleRight"/> </button>
       </div>
     </div>
   </div>

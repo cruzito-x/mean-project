@@ -42,6 +42,7 @@
           </a>
         </li>
         }
+        @if(isLoggedIn) {
         <li class="nav-item">
           @if(cartService.getItems().length > 0) {
             <div class="position-relative">
@@ -57,9 +58,8 @@
             </a>
           }
         </li>
-        @if(isLoggedIn) {
         <li class="nav-item">
-          <a class="nav-link" routerLink="/logOut" title="Log out">
+          <a class="nav-link" title="Log out" (click)="logOut()" style="cursor: pointer;">
             <fa-icon [icon]="faSignOut"/>
           </a>
         </li>
@@ -84,12 +84,12 @@
         </div>
       </div>
       <div class="modal-body">
-        <form class="g-3" [formGroup]="form" (ngSubmit)="login()">
+        <form class="g-3" [formGroup]="form" (submit)="login()">
           <div class="row">
             <div class="col-md-12">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"/> </span>
-                <input type="email" class="form-control" formControlName="email" placeholder="e-mail" aria-label="email"
+                <input type="email" class="form-control" id="userEmail" formControlName="email" placeholder="e-mail" aria-label="email"
                   aria-describedby="basic-addon1" required>
               </div>
             </div>
@@ -98,12 +98,12 @@
             <div class="col-md-12">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
-                <input type="password" class="form-control" formControlName="password" placeholder="password"
+                <input type="password" class="form-control" id="userPassword" formControlName="password" placeholder="password"
                   aria-label="password" aria-describedby="basic-addon1" required>
               </div>
             </div>
           </div>
-          <div class="row mt-2">
+          <!-- <div class="row mt-2">
             <div class="col-6">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="rememberMe">
@@ -115,8 +115,8 @@
             <div class="col-6 text-end">
               <a href="#" class="small text-decoration-none">Forgot password?</a>
             </div>
-          </div>
-          <div class="row mt-4">
+          </div> -->
+          <div class="row mt-2">
             <div class="col-12 d-flex justify-content-center">
               <button type="submit" class="btn btn-outline-primary w-100">Log In</button>
             </div>

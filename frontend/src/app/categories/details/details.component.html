@@ -1,7 +1,7 @@
 <div class="container p-2 mt-3">
   <div class="row">
     <div class="col-12">
-      <h3> {{ (products[0].sub_category+' '+products[0].category+' '+products[0].brand[0].name +' '+ products[0].name).toUpperCase() }} </h3>
+      <h3> {{ (products[0].category+' '+products[0].brand[0].name +' '+ products[0].name).toUpperCase() }} </h3>
       <hr>
       <div class="row">
         <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
@@ -22,8 +22,13 @@
               <input class="form-control" type="number" id="quantity" min="1" value="1">
             </div>
             <div class="col-10">
-              <button class="btn btn-outline-primary w-100" (click)="addToCart(products[0])"> Add to cart <fa-icon [icon]="faCartShopping" />
-              </button>
+              @if(cartService.isLoggedIn()) {
+                <button class="btn btn-outline-primary w-100" (click)="addToCart(products[0])"> Add to cart <fa-icon [icon]="faCartShopping" />
+                </button>
+              } @else {
+                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping" />
+                </button>
+              }
             </div>
           </div>
           <div class="row mt-4">
@@ -50,7 +55,7 @@
                     <br>
                      <span> Colors:
                       @for(item of products[0].colors; track $index) {
-                        <span class="ms-2 badge rounded-circle bg-{{item.color}}" (click)="indexSelectedColor($index)" style="cursor: pointer;"> <span style="visibility: hidden;"> x </span> </span>
+                        <span class="ms-2 badge rounded-circle bg-{{item.color}}" id="color-{{$index}}" (click)="indexSelectedColor($index); getBorderColor($index)" style="cursor: pointer;"> <span style="visibility: hidden;"> x </span> </span>
                       }
                      </span>
                   </div>

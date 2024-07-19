@@ -1,5 +1,5 @@
 <div class="row p-2">
-  <div class="card">
+  <div class="card" id="order-content">
     <div class="alert alert-primary text-center mt-3"> Final order </div>
     <div class="row mb-3">
       <div class="col-sm-6">
@@ -8,17 +8,21 @@
         <p id=""> Municipality </p>
       </div>
       <div class="col-sm-6 text-end">
-        <p id=""> David Cruz </p>
-        <p id=""> San Salvador </p>
-        <p id=""> San Salvador </p>
+        @for(item of clientService.getClientInfo(); track $index) {
+          <p id=""> {{ item[0].clientName }} </p>
+          <p id=""> {{ item[0].department }} </p>
+          <p id=""> {{ item[0].municipality }} </p>
+        }
       </div>
       <div class="col-12 text-center">
         <div class="alert alert-primary text-center mt-3"> Products </div>
       </div>
       <app-cart-details />
       <div class="col-12 mb-3 text-center">
-        <div class="alert alert-primary text-center mt-3"> Aditional comments </div>
-        <textarea class="form-control" id="comments" disabled></textarea>
+        @for(item of clientService.getClientInfo(); track $index) {
+          <div class="alert alert-primary text-center mt-3"> Aditional comments </div>
+          <textarea class="form-control" id="comments" [value]="item[0].additionalComments" disabled></textarea>
+        }
       </div>
       <div class="col-12">
         <div class="row">
@@ -37,6 +41,6 @@
     </div>
   </div>
   <div class="col-12 mt-3">
-    <button class="btn btn-outline-primary w-100"> <fa-icon [icon]="faPrint"/> Print </button>
+    <button class="btn btn-outline-primary w-100" (click)="printOrder()"> <fa-icon [icon]="faPrint"/> Print </button>
   </div>
 </div>

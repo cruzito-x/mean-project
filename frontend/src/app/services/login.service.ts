@@ -21,7 +21,7 @@ export class LoginService {
     )
   }
 
-  login(formValue: any)  {
+  login(formValue: any) {
     return firstValueFrom(
       this.httpClient.post<any>(
         `${this.host}/login`, formValue
