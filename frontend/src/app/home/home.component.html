@@ -209,25 +209,26 @@
             </div>
           </div>
           } @empty {
-          <div class="col-xl col-md col-sm-6 p-3 text-center">
-            <img src="../assets/img/noProducts.png" class="img-fluid w-50 h-50">
-          </div>x
+          <div class="col-md-12 col-sm-12 text-center">
+            <img src="../assets/img/noProducts.png" class="img-fluid w-25">
+          </div>
           }
         </div>
       </div>
     </div>
   </div>
 
-  <div id="carouselExample" class="carousel slide d-md-none mt-2" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row">
-          @for(item of products.slice(0, 2); track $index) {
+  @if(products.length > 0) {
+    <div id="carouselExample" class="carousel slide d-md-none mt-2" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            @for(item of products.slice(0, 2); track $index) {
           <div class="col-xl col-md col-sm-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
@@ -256,10 +257,10 @@
               </div>
             </div>
           </div>
-          }
+            }
+          </div>
         </div>
-      </div>
-      <div class="carousel-item">
+        <div class="carousel-item">
         <div class="row">
           @for(item of products.slice(2, 4); track $index) {
           <div class="col-xl col-md col-sm-6 p-3">
@@ -292,8 +293,8 @@
           </div>
           }
         </div>
-      </div>
-      <div class="carousel-item">
+        </div>
+        <div class="carousel-item">
         <div class="row">
           @for(item of products.slice(4, 6); track $index) {
           <div class="col-xl col-md col-sm-6 p-3">
@@ -326,117 +327,143 @@
           </div>
           }
         </div>
+        </div>
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  } @else {
+    <div class="d-md-none col-sm-12 text-center">
+      <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+    </div>
+  }
 
   @defer (on viewport) {
   <div class="row text-center mt-4">
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @for(item of products.slice(0, 5); track $index) {
-        @if(item.rating >= 3) {
-        <li class="list-group-item">
-          <div class="d-flex">
-            <div class="w-25">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
-            </div>
-            <div class="w-75 ms-3">
-              <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
-              </a>
-              <div class="align-items-center">
-                <span> Price: @if(item.discount > 0) {
-                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </span>
-                } @else {
-                  <span class="text-primary">${{item.price}}</span>
-                } </span> <br>
-                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
-              </div>
-            </div>
+        @if(products.length > 0) {
+          @for(item of products.slice(0, 5); track $index) {
+            @if(item.rating >= 3) {
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="w-25">
+                    <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+                  </div>
+                  <div class="w-75 ms-3">
+                    <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                    </a>
+                    <div class="align-items-center">
+                      <span> Price:
+                        @if(item.discount > 0) {
+                          <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </span>
+                        } @else {
+                          <span class="text-primary">${{item.price}}</span>
+                        }
+                      </span> <br>
+                      <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            }
+          }
+        } @else {
+          <div class="col-md-12 col-sm-12 text-center">
+            <img src="../assets/img/noProducts.png" class="img-fluid w-50">
           </div>
-        </li>
-        }
         }
       </ul>
     </div>
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular categories </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @for(item of products.slice(0, 5); track $index) {
-        @if(item.rating >= 3) {
-        <li class="list-group-item">
-          <div class="d-flex">
-            <div class="w-25">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
-            </div>
-            <div class="w-75 ms-3">
-              {{
-              (item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()
-              }}
-              <div class="align-items-center">
-                <span> Price: @if(item.discount > 0) {
-                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </span>
-                } @else {
-                  <span class="text-primary">${{item.price}}</span>
-                } </span> <br>
-                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
-              </div>
-            </div>
+        @if(products.length > 0) {
+          @for(item of products.slice(0, 5); track $index) {
+            @if(item.rating >= 3) {
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="w-25">
+                    <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+                  </div>
+                  <div class="w-75 ms-3">
+                    {{(item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()}}
+                    <div class="align-items-center">
+                      <span> Price:
+                        @if(item.discount > 0) {
+                          <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </span>
+                        } @else {
+                          <span class="text-primary">${{item.price}}</span>
+                        }ç
+                      </span> <br>
+                      <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            }
+          }
+        } @else {
+          <div class="col-md-12 col-sm-12 text-center">
+            <img src="../assets/img/noProducts.png" class="img-fluid w-50">
           </div>
-        </li>
-        }
         }
       </ul>
     </div>
     <div class="col-md-4 mt-3 col-sm-12">
       <h5> Best rated </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @for(item of bestRatedProducts.slice(0, 5); track $index) {
-        @if(item.rating >= 3) {
-        <li class="list-group-item">
-          <div class="d-flex">
-            <div class="w-25">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+        @if(products.length > 0) {
+          @for(item of bestRatedProducts.slice(0, 5); track $index) {
+            @if(item.rating >= 3) {
+              <li class="list-group-item">
+                <div class="d-flex">
+                  <div class="w-25">
+                    <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+                  </div>
+                  <div class="w-75 ms-3">
+                    <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                      {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                    </a>
+                    <div class="align-items-center">
+                      <span> Price:
+                        @if(item.discount > 0) {
+                          <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </span>
+                        } @else {
+                          <span class="text-primary">${{item.price}}</span>
+                        } </span> <br>
+                        <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              }
+            }
+          } @else {
+            <div class="col-md-12 col-sm-12 text-center">
+              <img src="../assets/img/noProducts.png" class="img-fluid w-50">
             </div>
-            <div class="w-75 ms-3">
-              <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
-              </a>
-              <div class="align-items-center">
-                <span> Price: @if(item.discount > 0) {
-                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </span>
-                } @else {
-                  <span class="text-primary">${{item.price}}</span>
-                } </span> <br>
-                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
-              </div>
-            </div>
-          </div>
-        </li>
-        }
-        }
-      </ul>
+          }
+        </ul>
+      </div>
     </div>
-  </div>
   } @placeholder {
-  <div class="row text-center mt-4">
-    <div class="col-12">
-      <div class="spinner-grow text-primary" role="status"></div>
-      <div class="spinner-grow text-primary ms-2 me-2" role="status"></div>
-      <div class="spinner-grow text-primary me-2" role="status"></div>
-      <div class="spinner-grow text-primary me-2" role="status"></div>
-      <div class="spinner-grow text-primary" role="status"></div>
+    <div class="row text-center mt-4">
+      <div class="col-12">
+        <div class="spinner-grow text-primary" role="status"></div>
+        <div class="spinner-grow text-primary ms-2 me-2" role="status"></div>
+        <div class="spinner-grow text-primary me-2" role="status"></div>
+        <div class="spinner-grow text-primary me-2" role="status"></div>
+        <div class="spinner-grow text-primary" role="status"></div>
+      </div>
     </div>
-  </div>
   }
 </div>
