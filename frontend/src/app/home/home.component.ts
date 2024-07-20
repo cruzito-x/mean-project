@@ -23,6 +23,7 @@ interface Product {
   photo: string;
   colors: Colors[];
   price: number;
+  discount: number;
   rating: number;
   stock: number;
   sub_categorie: string;

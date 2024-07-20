@@ -15,7 +15,11 @@
             </div>
             <div class="row">
               <div class="col-6">
-                <span class="text-primary fs-1">${{ products[0].price }}</span>
+                @if(products[0].discount > 0) {
+                  <span class="text-primary fs-1">${{ products[0].price - (products[0].price * products[0].discount) }} <span class="text-secondary" style="text-decoration: line-through; font-size: 14px;">${{ products[0].price }}</span> </span>
+                } @else {
+                  <span class="text-primary fs-1">${{ products[0].price }}</span>
+                }
               </div>
             </div>
             <div class="col-2">
@@ -86,13 +90,13 @@
   <div class="row">
     <div class="col-12">
       <ul class="nav nav-underline">
-        <li class="nav-item">
+        <li class="nav-item" style="cursor: pointer;">
           <a class="nav-link text-primary" [class.active]="activeTab === 'description'"
             (click)="activeTab = 'description'">
             Description
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="cursor: pointer;">
           <a class="nav-link text-primary" [class.active]="activeTab === 'tech_specs'"
             (click)="activeTab = 'tech_specs'">
             Technical specifications

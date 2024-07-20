@@ -8,7 +8,7 @@
   border: solid 1px #cacbcf;
 }
 
-.bg-blue {
+.bg-blue, .bg-neon-blue {
   background-color: #007bff;
   color: #ffffff;
 }
@@ -30,6 +30,21 @@
 
 .bg-mint {
   background-color: #00c7b3;
+  color: #ffffff;
+}
+
+.bg-red, .bg-neon-red {
+  background-color: #ff514a;
+  color: #ffffff;  
+}
+
+.bg-turquoise {
+  background-color: #00bdc3;
+  color: #ffffff;
+}
+
+.bg-yellow {
+  background-color: #ffc107;
   color: #ffffff;
 }
 
