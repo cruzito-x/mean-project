@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="col-8">
-            <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+' ('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
+            <label class="medium"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
             <p> {{ item.quantity }} x ${{ item.price }} </p>
             <div class="row mt-2">
               <div class="col-6 text-center">

@@ -15,7 +15,7 @@
         <div class="col-md-10 col-sm-8 text-start">
           <div class="row mt-2">
             <div class="col-md-10 col-sm-8">
-              <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+' ('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
+              <label class="medium"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
               <p> {{ item.quantity }} x ${{ item.price }} </p>
             </div>
             <div class="col-md-2 col-sm-4 d-flex align-items-center">

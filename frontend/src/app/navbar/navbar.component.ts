@@ -33,7 +33,7 @@ export class NavbarComponent {
 
   logOut() {
     localStorage.clear();
-    location.reload();
+    window.location.href = "/";
   }
 
   constructor() {
@@ -44,8 +44,7 @@ export class NavbarComponent {
   }
 
   async register() {
-    const response = await this.loginService.register(this.form.value);
-    console.log(response);
+    await this.loginService.register(this.form.value);
   }
 
   async login() {
