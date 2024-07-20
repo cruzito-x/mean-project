@@ -12,6 +12,7 @@ import { BrandProductsComponent } from './brands/brand-products/brand-products.c
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsComponent } from './products/products.component';
 import { AccountComponent } from './account/account.component';
+import { FooterDetailsComponent } from './footer/footer-details/footer-details.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent, data: { params: ':isLoggedIn' } },
@@ -25,5 +26,6 @@ export const routes: Routes = [
   { path: "brand/:brand", component: BrandProductsComponent},
   { path: "pay", component: PayComponent},
   { path: "products/:category", component: ProductsComponent},
+  { path: "cinnatech/:info", component: FooterDetailsComponent },
   { path: "**", component: NotFoundComponent }
 ];

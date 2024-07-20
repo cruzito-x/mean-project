@@ -1,0 +1,34 @@
+<div class="container p-2 mt-3 ">
+  <h3>
+    {{ info.toUpperCase().replace("_", " ").replace("_", " ") }}
+  </h3>
+  <hr>
+
+  @switch (info) {
+    @case ("trademark_notice") {
+      <app-trademark/>
+    }
+    @case("privacy") {
+      <app-privacy/>
+    }
+    @case("warranty") {
+      <app-warranty/>
+    }
+    @case("delivery_info") {
+      <app-delivery/>
+    }
+    @case("offers_conditions") {
+      <app-offers-conditions/>
+    }
+    @case("our_story") {
+      <app-story/>
+    }
+    @case("services") {
+      <app-services/>
+    }
+    @case("terms_and_conditions") {
+      <app-terms-and-conditions/>
+    }
+  }
+
+</div>
