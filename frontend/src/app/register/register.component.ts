@@ -52,7 +52,7 @@ export class RegisterComponent {
         return;
       } else {
         await this.loginService.register(this.form.value);
-        this.isLoggedIn = true;
+        const response = await this.loginService.login({ email, password });
         
         Swal.fire({
           text: "Account created successfully",
@@ -60,7 +60,10 @@ export class RegisterComponent {
           confirmButtonColor: "#007bff",
           confirmButtonText: "Accept"
         }).then(() => {
-          this.loginService.login({ email, password });
+          this.isLoggedIn = response.isLoggedIn;
+          localStorage.setItem("isLoggedIn", this.isLoggedIn);
+          localStorage.setItem("token", response.token);
+          
           location.href = "/";
         });
       } 

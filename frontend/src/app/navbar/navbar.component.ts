@@ -70,6 +70,13 @@ export class NavbarComponent {
       }).then(() => {
         $(".btn-close").click();
       });
+    } else {
+      Swal.fire({
+        text: "Please enter your email and password",
+        icon: "error",
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Accept"
+      });
     }
 }
 }
