@@ -5,6 +5,7 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from "@angul
 import { LoginService } from "../services/login.service";
 import { CartService } from "../services/cart.service";
 import { RouterLink, RouterOutlet } from "@angular/router";
+import Swal from "sweetalert2";
 import $ from "jquery";
 
 @Component({
@@ -32,8 +33,15 @@ export class NavbarComponent {
   }
 
   logOut() {
-    localStorage.clear();
-    window.location.href = "/";
+    Swal.fire({
+      text: "☆ Thanks for visit CinnaTech Store! ☆",
+      icon: "success",
+      confirmButtonColor: "#007bff",
+      confirmButtonText: "Accept"
+    }).then(() => {
+      localStorage.clear();
+      window.location.href = "/";
+    });
   }
 
   constructor() {
@@ -43,19 +51,25 @@ export class NavbarComponent {
     });
   }
 
-  async register() {
-    await this.loginService.register(this.form.value);
-  }
-
   async login() {
     let userEmail = $("#userEmail").val();
     let userPassword = $("#userPassword").val();
 
     if(userEmail !== "" && userPassword !== "") {
       const response = await this.loginService.login(this.form.value);
+
       this.isLoggedIn = response.isLoggedIn;
-      localStorage.setItem("isLoggedIn", response.isLoggedIn);
-      $(".btn-close").click();
+      localStorage.setItem("isLoggedIn", this.isLoggedIn);
+      localStorage.setItem("token", response.token);
+
+      Swal.fire({
+        text: "☆ Welcome to CinnaTech Store! ☆",
+        icon: "success",
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Accept"
+      }).then(() => {
+        $(".btn-close").click();
+      });
     }
-  }
+}
 }

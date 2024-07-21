@@ -1,59 +1,15 @@
 <div class="container mt-3 p-2">
-  <div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-      <div class="card p-3">
-        <h3 class="mt-2 mb-2"> Log in </h3>
-        <p class="medium"> Welcome! Log in to your account </p>
-        <form class="g-3" [formGroup]="form" (ngSubmit)="login()">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"/> </span>
-                <input type="email" class="form-control" formControlName="email" placeholder="e-mail" aria-label="email"
-                  aria-describedby="basic-addon1" required>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
-                <input type="password" class="form-control" formControlName="password" placeholder="password"
-                  aria-label="password" aria-describedby="basic-addon1" required>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-2">
-            <div class="col-6">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">
-                  Remember me
-                </label>
-              </div>
-            </div>
-            <div class="col-6 text-end">
-              <a href="#" class="small text-decoration-none">Forgot password?</a>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-12 d-flex justify-content-center">
-              <button type="submit" class="btn btn-outline-primary w-100">Log In</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 col-sm-12">
       <div class="card p-3 mt-md-0 mt-sm-5">
         <h3 class="mt-2 mb-2"> Register </h3>
         <p class="medium"> Fast and easy payment, Easy access to your order history and status </p>
-        <form class="g-3" [formGroup]="form" (ngSubmit)="register()">
+        <form class="g-3" [formGroup]="form" (submit)="register()">
           <div class="row">
             <div class="col-md-12">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faUser"/> </span>
-                <input type="text" class="form-control" formControlName="username" placeholder="Username" aria-label="Username"
+                <input type="text" class="form-control" id="userName" formControlName="username" placeholder="Username" aria-label="Username"
                   aria-describedby="basic-addon1" required>
               </div>
             </div>
@@ -62,35 +18,35 @@
             <div class="col-sm-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faEnvelope"/> </span>
-                <input type="email" class="form-control" formControlName="email" placeholder="e-mail" aria-label="E-mail"
+                <input type="email" class="form-control" id="userMail"  formControlName="email" placeholder="e-mail" aria-label="E-mail"
                   aria-describedby="basic-addon1" required/>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faPhone"/> </span>
-                <input type="email" class="form-control" formControlName="phone" placeholder="Phone number" aria-label="E-mail"
+                <input type="email" class="form-control" id="userPhone" formControlName="phone" placeholder="Phone number" aria-label="E-mail"
                   aria-describedby="basic-addon1" required/>
               </div>
             </div>
           </div>
           <div class="row mb-3">
             <div class="col-12">
-              <textarea class="form-control" formControlName="address" placeholder="Address" style="height: 200px; resize: none;" required></textarea>
+              <textarea class="form-control" id="userAddress" formControlName="address" placeholder="Address" style="height: 200px; resize: none;" required></textarea>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
-                <input type="password" class="form-control" formControlName="password" placeholder="Password" aria-label="password"
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" aria-label="password"
                   aria-describedby="basic-addon1" required/>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"> <fa-icon [icon]="faLock"/> </span>
-                <input type="password" class="form-control" placeholder="Confirm password" aria-label="Confirm password"
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" aria-label="Confirm password"
                   aria-describedby="basic-addon1" required/>
               </div>
             </div>

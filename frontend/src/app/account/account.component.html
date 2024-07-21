@@ -6,22 +6,22 @@
       <h4 class="mb-3"> Your actual credentials </h4>
       <div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="username" placeholder="David Cruz" disabled>
+          <input type="text" class="form-control" id="username" placeholder="David Cruz" [value]="loginService.user[0].username" disabled>
           <label for="username"> Username </label>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="user_email" placeholder="dcruzer92@gmail.com" disabled>
+          <input type="email" class="form-control" id="user_email" placeholder="dcruzer92@gmail.com" [value]="loginService.user[0].email" disabled>
           <label for="user_email">Email address</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="user_password" placeholder="Password" disabled>
+          <input type="password" class="form-control" id="user_password" placeholder="Password" [value]="this.loginService.user[0].password" disabled>
           <label for="user_password">Password</label>
         </div>
       </div>
       
     </div>
     <div class="col-md-6 col-sm-12 mb-3">
-      <h4 class="mb-3"> Update your account </h4>
+      <h4 class="mb-3"> Update account data </h4>
       <form>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="new_username" placeholder="David Cruz">
@@ -35,8 +35,8 @@
           <input type="password" class="form-control" id="new_user_password" placeholder="Password">
           <label for="new_user_password">Password</label>
         </div>
-        <button type="button" class="btn btn-outline-primary me-3 mb-2">Update account</button>
-        <button type="submit" class="btn btn-outline-danger mb-2">Delete account</button>
+        <button type="submit" class="btn btn-outline-primary me-3 mb-2" (click)="updateAccount($event)">Update account</button>
+        <button type="button" class="btn btn-outline-danger mb-2" (click)="deleteAccount()">Delete account</button>
       </form>
     </div>
   </div>

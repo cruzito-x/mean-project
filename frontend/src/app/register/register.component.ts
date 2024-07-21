@@ -3,7 +3,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser, faPhone, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service';
-import { ActivatedRoute } from '@angular/router';
+import Swal from "sweetalert2";
+import $ from "jquery";
 
 @Component({
   selector: 'app-register',
@@ -20,12 +21,9 @@ export class RegisterComponent {
 
   form: FormGroup;
   loginService = inject(LoginService);
-  isLoggedIn = false;
+  isLoggedIn: any = false;
 
-  constructor(private _route: ActivatedRoute) {
-    const isLloggedIn = this._route.snapshot.queryParamMap.get('isLloggedIn');
-    console.log(isLloggedIn);
-
+  constructor() {
     this.form = new FormGroup({
       username: new FormControl(''),
       email: new FormControl(''),
@@ -36,13 +34,43 @@ export class RegisterComponent {
   }
 
   async register() {
-    const response = await this.loginService.register(this.form.value);
-    console.log(response);
-  }
-
-  async login() {
-    const response = await this.loginService.login(this.form.value);
-    this.isLoggedIn = response.isLoggedIn;
-    location.href = '/', this.isLoggedIn;
+    const user = $("#userName").val();
+    const email = $("#userMail").val();
+    const phone = $("#userPhone").val();
+    const address = $("#userAddress").val();
+    const password = $("#password").val();
+    const confirmPassword = $("#confirmPassword").val();
+    
+    if(user !== "" && email !== "" && phone !== "" && address !== "" && password !== "" && confirmPassword !== "") {
+      if(password !== confirmPassword) {
+        Swal.fire({
+          icon: "error",
+          text: "Password don't match, please try again",
+          confirmButtonColor: "#007bff",
+          confirmButtonText: "Accept"
+        });
+        return;
+      } else {
+        await this.loginService.register(this.form.value);
+        this.isLoggedIn = true;
+        
+        Swal.fire({
+          text: "Account created successfully",
+          icon: "success",
+          confirmButtonColor: "#007bff",
+          confirmButtonText: "Accept"
+        }).then(() => {
+          this.loginService.login({ email, password });
+          location.href = "/";
+        });
+      } 
+    } else {
+      Swal.fire({
+        icon: "error",
+        text: "All fields are required, please fill in all the required fields",
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Accept"
+      });
+    }
   }
 }

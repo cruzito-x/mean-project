@@ -14,7 +14,6 @@ export class ClientService {
   }
 
   getClientInfo(): any {
-    console.log(this.items);
     return this.items;
   }
 }
