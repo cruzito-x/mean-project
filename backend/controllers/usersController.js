@@ -16,12 +16,14 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   try {
     const user = await Users.findOne({ email: req.body.email });
-    if (!user) return res.status(404).json({ message: "User not found" });
+    if (!user) return res.status(404).json({ message: "Incorrect username" });
 
     const password = crypto.createHash('md5').update(req.body.password).digest('hex') === user.password;
-    if (!password) return res.status(404).json({ message: "User not found" });
+    if (!password) return res.status(404).json({ message: "Incorrect password" });
 
-    res.status(200).json({ message: "User logged in successfully", token: generateToken(user), isLoggedIn: true });
+    if(!user && !password) return res.status(404).json({ message: "User not found" });
+
+    res.status(200).json({ status: 200, message: "User logged in successfully", token: generateToken(user), isLoggedIn: true });
   } catch(error) {
     res.status(500).json({ message: error.message });
     console.error("Error to login user: ", error.message);
