@@ -111,6 +111,8 @@ export class DetailsComponent implements OnInit {
   }
 
   addToCart(product: Product) {
+    this.cartService.quantity = parseInt($("#quantity").val() as string);
+    console.log(this.cartService.quantity);
     this.cartService.indexSelectedColor(this.indexColor);
     this.cartService.addToCart(product);
   }

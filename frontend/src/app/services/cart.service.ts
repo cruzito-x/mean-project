@@ -7,6 +7,7 @@ export class CartService {
   private items: any[] = [];
   indexColor: number = 0;
   amount: number = 0;
+  quantity:number = 1;
 
   constructor() {}
 
@@ -16,7 +17,7 @@ export class CartService {
     if (existingItem) {
       this.increaseQuantity(existingItem.id, this.indexColor);
     } else {
-      this.items.push({ ...item, indexColor: this.indexColor, quantity: 1 });
+      this.items.push({ ...item, indexColor: this.indexColor, quantity: this.quantity });
       localStorage.setItem('cartList', JSON.stringify(this.items));
     }
   }
@@ -30,17 +31,15 @@ export class CartService {
   }
 
   deleteItemFromCart(item: any) {
-    this.items = this.items.filter((n) => !(n.id === item.id && n.indexColor === item.indexColor)
-    );
+    this.items = this.items.filter((n) => !(n.id === item.id && n.indexColor === item.indexColor));
     localStorage.setItem('cartList', JSON.stringify(this.items));
   }
 
   increaseQuantity(id: number, indexColor: number) {
     let item = this.items.find((n) => n.id === id && n.indexColor === indexColor);
 
-    if (item) item.quantity++;
+    if (item) item.quantity += this.quantity;
 
-    console.log(item);
     localStorage.setItem('cartList', JSON.stringify(this.items));
   }
 
@@ -57,6 +56,7 @@ export class CartService {
       } else {
         item.quantity--;
       }
+      
       localStorage.setItem('cartList', JSON.stringify(this.items));
     }
   }

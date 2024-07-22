@@ -59,7 +59,7 @@
                     <br>
                      <span> Colors:
                       @for(item of products[0].colors; track $index) {
-                        <span class="ms-2 badge rounded-circle bg-{{item.color}}" id="color-{{$index}}" (click)="indexSelectedColor($index); getBorderColor($index)" style="cursor: pointer;"> <span style="visibility: hidden;"> x </span> </span>
+                        <span class="ms-2 badge rounded-circle bg-{{item.color}}" id="color-{{$index}}" (click)="indexSelectedColor($index); getBorderColor($index);" style="cursor: pointer;"> <span style="visibility: hidden;"> x </span> </span>
                       }
                      </span>
                   </div>
