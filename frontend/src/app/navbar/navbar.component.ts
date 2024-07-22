@@ -58,21 +58,33 @@ export class NavbarComponent {
     if(userEmail !== "" && userPassword !== "") {
       const response = await this.loginService.login(this.form.value);
 
-      this.isLoggedIn = response.isLoggedIn;
-      localStorage.setItem("isLoggedIn", this.isLoggedIn);
-      localStorage.setItem("token", response.token);
+      if(response.status !== 200) {
+        Swal.fire({
+          text: "Login failed, please try again",
+          icon: "error",
+          confirmButtonColor: "#007bff",
+          confirmButtonText: "Accept"
+        });
 
-      Swal.fire({
-        text: "☆ Welcome to CinnaTech Store! ☆",
-        icon: "success",
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Accept"
-      }).then(() => {
-        $(".btn-close").click();
-      });
+        return;
+      } else {
+        this.isLoggedIn = response.isLoggedIn;
+        localStorage.setItem("isLoggedIn", this.isLoggedIn);
+        localStorage.setItem("token", response.token);
+
+        Swal.fire({
+          text: "☆ Welcome to CinnaTech Store! ☆",
+          icon: "success",
+          confirmButtonColor: "#007bff",
+          confirmButtonText: "Accept",
+          focusConfirm: true
+        }).then(() => {
+          $(".btn-close").click();
+        });
+      }
     } else {
       Swal.fire({
-        text: "Please enter your email and password",
+        text: "Please fill all fields",
         icon: "error",
         confirmButtonColor: "#007bff",
         confirmButtonText: "Accept"

@@ -30,13 +30,17 @@ export class LoginService {
   }
 
   async login(formValue: any) {
-    const response = await firstValueFrom(
-      this.httpClient.post<any>(
-        `${this.host}/login`, formValue
-      )
-    );
-
-    return response;
+    try {
+      const response = await firstValueFrom(
+        this.httpClient.post<any>(
+          `${this.host}/login`, formValue
+        )
+      );
+  
+      return response;
+    } catch (error) {
+      return error;
+    }
   }
 
   async getUserByToken(token: string) {
