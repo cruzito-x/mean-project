@@ -11,5 +11,6 @@ router.get("/family/:family", productsController.getProductsByFamily);
 router.get("/products/offers", productsController.getProductsOffers);
 router.get("/search/:name", productsController.searchProductsByName);
 router.get("/search/brand/:category/:brand", productsController.searchProductsByBrand);
+router.get("/search/name/:name/category/:category/brand/:brand?", productsController.searchByNameCategoryAndBrand);
 
 module.exports = router;

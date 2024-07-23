@@ -91,3 +91,16 @@ exports.searchProductsByBrand = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 }
+
+exports.searchByNameCategoryAndBrand = async (req, res) => {
+  const name = req.params.name;
+  const category = req.params.category;
+  const brand = req.params.brand;
+
+  try {
+    const products = await Product.find({ 'name': name, 'category_id': category, 'brand.name': brand });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
