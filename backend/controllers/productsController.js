@@ -69,3 +69,25 @@ exports.getProductsOffers = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 }
+
+exports.searchProductsByName = async (req, res) => {
+  const name = req.params.name;
+  try {
+    const products = await Product.find({ 'name': name });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+exports.searchProductsByBrand = async (req, res) => {
+  const brand = req.params.brand;
+  const category = req.params.category;
+
+  try {
+    const products = await Product.find({ 'brand.name': brand }).find({ 'category_id': category });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}

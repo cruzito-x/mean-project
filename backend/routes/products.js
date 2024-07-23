@@ -9,5 +9,7 @@ router.get("/details/:id", productsController.getProductDetails);
 router.get("/brand/:brand", productsController.getProductsByBrand);
 router.get("/family/:family", productsController.getProductsByFamily);
 router.get("/products/offers", productsController.getProductsOffers);
+router.get("/search/:name", productsController.searchProductsByName);
+router.get("/search/brand/:category/:brand", productsController.searchProductsByBrand);
 
 module.exports = router;
