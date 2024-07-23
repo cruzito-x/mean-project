@@ -6,29 +6,8 @@ import { RouterLink } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs';
 import { CartService } from '../services/cart.service';
-
-interface Brand {
-  id: string;
-  name: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  brand: Brand[];
-  category_id: string;
-  category: string;
-  created_at: string;
-  description: string;
-  photo: string;
-  price: number;
-  discount: number;
-  rating: number;
-  stock: number;
-  sub_category: string;
-  technical_specifications: string;
-  updated_at: string | null;
-}
+import { ProductsService } from '../services/products.service';
+import $ from "jquery";
 
 @Component({
   selector: 'app-offers',
@@ -38,39 +17,31 @@ interface Product {
   styleUrl: './offers.component.css'
 })
 export class OffersComponent implements OnInit {
-  products: Product[] = [];
-  brands: Brand[] = [];
   itemsPerPage: number = 8;
   page: number = 1;
   faSearch = faSearch;
   faCartShopping = faCartShopping;
-
   cartService = inject(CartService);
+  productsService = inject(ProductsService);
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
-    this.getOffersProducts();
+    this.productsService.getOffersProducts();
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
     .pipe(map(result => result.matches))
     .subscribe(isSmallScreen => {
       this.itemsPerPage = isSmallScreen ? 6 : 12;
     });
-  }
 
-  getOffersProducts() {
-    fetch("http://localhost:3000/products/products/offers")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error getting offers products');
-      }
-      return response.json();
-    })
-    .then((data: Product[]) => {
-      this.products = data;
-      console.log(this.products);
-    })
+    $("#searchBar").on("keyup", () => {
+      this.productsService.searchProductByName();
+    });
+
+    $("#searchButton").on("click", () => {
+      this.productsService.searchProductByName();
+    });
   }
 
   handlePageChange(event: any) {

@@ -3,31 +3,34 @@
   <hr>
   <div class="row">
     @for(item of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
-    <div class="col-md-3 col-sm-6 mb-3">
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
       <div class="card rounded shadow mb-2 p-2">
         <div class="row">
-          <div class="col-12">
-            <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo" [alt]="item.name"
-              style="height: 300px;">
+          <div class="col-12 d-flex justify-content-center">
+            <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo" [alt]="item.name" style="height: 300px;">
           </div>
           <div class="row">
             <div class="col-12">
               <div class="card-body">
                 <h5 class="card-title fs-6"> {{ (item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
-                <p class="card-text"> Price: <span class="text-primary"> ${{ item.price }} </span> </p>
+                <p class="card-text"> Price: @if(item.discount > 0) {
+                  <span> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
+                } @else {
+                  <span> ${{item.price}} </span>
+                } </p>
               </div>
             </div>
           </div>
         </div>
         <div class="row text-center mb-2">
-          <div class="col-6">
-            <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
+          <div class="col-12 mb-2">
+            <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary w-100"> Details </a>
           </div>
-          <div class="col-6">
+          <div class="col-12">
             @if(cartService.isLoggedIn()) {
-              <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon [icon]="faCartShopping"/> </button>
+              <button class="btn btn-outline-primary w-100" (click)="addToCart(item)"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
             } @else {
-              <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add <fa-icon [icon]="faCartShopping"/> </button>
+              <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
             }
           </div>
         </div>

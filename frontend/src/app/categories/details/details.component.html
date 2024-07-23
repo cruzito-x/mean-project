@@ -13,25 +13,22 @@
               <span>Rating:</span> <span class="text-warning fs-5"> {{ generateRatingStars(products[0].rating) }}
               </span>
             </div>
-            <div class="row">
-              <div class="col-6">
-                @if(products[0].discount > 0) {
-                  <span class="text-primary fs-1">${{ products[0].price - (products[0].price * products[0].discount) }} <span class="text-secondary" style="text-decoration: line-through; font-size: 14px;">${{ products[0].price }}</span> </span>
-                } @else {
-                  <span class="text-primary fs-1">${{ products[0].price }}</span>
-                }
-              </div>
+            <div class="col-12">
+              @if(products[0].discount > 0) {
+                <span class="text-primary fs-1">${{ products[0].price - (products[0].price * products[0].discount) }} <span class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{ products[0].price }}</span> </span>
+              } @else {
+                <span class="text-primary fs-1">${{ products[0].price }}</span>
+              }
             </div>
-            <div class="col-2">
+            
+            <div class="col-lg-2 col-sm-3 mb-2">
               <input class="form-control" type="number" id="quantity" min="1" value="1">
             </div>
-            <div class="col-10">
+            <div class="col-lg-10 col-sm-9 mb-2">
               @if(cartService.isLoggedIn()) {
-                <button class="btn btn-outline-primary w-100" (click)="addToCart(products[0])"> Add to cart <fa-icon [icon]="faCartShopping" />
-                </button>
+                <button class="btn btn-outline-primary w-100" (click)="addToCart(products[0])"> Add to cart <fa-icon [icon]="faCartShopping" /> </button>
               } @else {
-                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping" />
-                </button>
+                <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping" /> </button>
               }
             </div>
           </div>

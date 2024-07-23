@@ -22,6 +22,7 @@ interface Product {
   description: string;
   photo: string;
   price: number;
+  discount: number;
   rating: number;
   stock: number;
   sub_category: string;

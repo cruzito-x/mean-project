@@ -4,14 +4,14 @@
   <div class="row">
     <div class="col-md-12 col-sm-0">
       <div class="row align-items-center">
-        <div class="col-md-2 col-sm-4">
+        <div class="col-lg-2 col-md-3 col-sm-4">
           <label class="mb-3"> Product name </label>
         </div>
-        <div class="col-md-10 col-sm-8">
+        <div class="col-lg-10 col-md-9 col-sm-8">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-              aria-describedby="basic-addon2" id="search">
-            <span class="input-group-text btn btn-outline-primary" id="basic-addon2" id="btn_search"> <fa-icon [icon]="faSearch"/>
+              aria-describedby="basic-addon2" id="searchBar">
+            <span class="input-group-text btn btn-outline-primary" id="searchButton"> <fa-icon [icon]="faSearch"/>
             </span>
           </div>
         </div>
@@ -19,8 +19,8 @@
     </div>
     <div class="col-12">
       <div class="row">
-        @for(item of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
-          <div class="col-md-3 col-sm-6 mb-3">
+        @for(item of productsService.products| paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
             <div class="card rounded shadow mb-2 p-2">
               <div class="row">
                 <div class="col-12">
@@ -30,20 +30,20 @@
                   <div class="col-12">
                     <div class="card-body">
                       <h5 class="card-title fs-6"> {{ (item.category+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
-                      <p class="card-text"> Price: <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} </span> <span class="text-secondary" style="text-decoration:line-through; font-size: 14px;"> ${{ item.price }} </span> </p>
+                      <p class="card-text"> Price: <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} </span> <span class="text-secondary text-decoration-line-through" style=" font-size: 14px;"> ${{ item.price }} </span> </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row text-center mb-2">
-                <div class="col-6">
-                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
+                <div class="col-12 mb-2">
+                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary w-100"> Details </a>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
                   @if(cartService.isLoggedIn()) {
-                    <button class="btn btn-outline-primary" (click)="cartService.addToCart(item)"> Add <fa-icon [icon]="faCartShopping"/> </button>
+                    <button class="btn btn-outline-primary w-100" (click)="cartService.addToCart(item)"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
                   } @else {
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add <fa-icon [icon]="faCartShopping"/> </button>
+                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
                   }
                 </div>
               </div>

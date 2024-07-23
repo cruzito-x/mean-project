@@ -48,8 +48,8 @@
             <div class="position-relative">
               <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="cursor: pointer;">
                 <fa-icon [icon]="faCartShopping"/>
-                <span class="position-absolute top-1 end-2 start-100 end-25 small translate-middle p-2 bg-primary rounded-circle">
-                </span>
+                <span class="position-absolute top-1 me-2 start-100 translate-middle badge rounded-pill bg-primary">
+                  {{ cartService.getItems().length }}</span>
               </a>
             </div>
           } @else {

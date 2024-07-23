@@ -6,43 +6,25 @@ import { faSearch, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
-
-interface Brand {
-  id: string;
-  name: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  brand: Brand[];
-  category_id: string;
-  category: string;
-  created_at: string;
-  description: string;
-  photo: string;
-  price: number;
-  rating: number;
-  stock: number;
-  sub_category: string;
-  technical_specifications: string;
-  updated_at: string | null;
-}
+import { ProductsService } from '../../services/products.service';
+import $ from "jquery";
 
 @Component({
   selector: 'app-category',
   standalone: true,
   imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
   templateUrl: './category.component.html',
-  styles: ``
+  styles: `
+  .form-check-input, .form-check-label {
+    cursor: pointer;
+  }
+  `
 })
 export class CategoryComponent implements OnInit {
   category_id: string = '';
   category: string = '';
   subcategory: string = '';
   subsubcategory: string = '';
-  products: Product[] = [];
-  uniqueBrands: Brand[] = [];
   itemsPerPage: number = 9;
   page: number = 1;
   faSearch = faSearch;
@@ -51,6 +33,7 @@ export class CategoryComponent implements OnInit {
   constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {}
 
   cartService = inject(CartService);
+  productsService = inject(ProductsService);
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -58,8 +41,15 @@ export class CategoryComponent implements OnInit {
       this.category = params['category'];
       this.subcategory = params['subcategory'];
       this.subsubcategory = params['subsubcategory'];
+      this.productsService.getProductsByCategory(this.category_id);
 
-      this.getProductsByCategory(this.category_id);
+      $("#searchBar").on("keyup", () => {
+        this.productsService.searchProductByCategory(this.category_id);
+      });
+  
+      $("#searchButton").on("click", () => {
+        this.productsService.searchProductByCategory(this.category_id);
+      });
     });
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
@@ -69,42 +59,7 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  getProductsByCategory(category: string) {
-    fetch(`http://localhost:3000/products/category/${category}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error getting products by category');
-        }
-        return response.json();
-      })
-      .then((data: Product[]) => {
-        this.products = data;
-        this.uniqueBrands = this.getUniqueBrands(data);
-      })
-      .catch((error) => console.error('Error:', error));
-  }
-
-  getUniqueBrands(products: Product[]): Brand[] {
-    const brandSet: Set<string> = new Set();
-    const uniqueBrands: Brand[] = [];
-
-    products.forEach((product) => {
-      product.brand.forEach((brand) => {
-        if (brand.name && !brandSet.has(brand.name)) {
-          brandSet.add(brand.name);
-          uniqueBrands.push(brand);
-        }
-      });
-    });
-    
-    return uniqueBrands;
-  }
-
   handlePageChange(event: any) {
     this.page = event;
-  }
-
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
   }
 }

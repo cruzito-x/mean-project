@@ -8,23 +8,21 @@
           <label class="mb-2"> Product name </label>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-              aria-describedby="basic-addon2" id="search">
-            <span class="input-group-text btn btn-outline-primary" id="basic-addon2" id="btn_search"> <fa-icon
-                [icon]="faSearch"/>
-            </span>
+              aria-describedby="basic-addon2" id="searchBar">
+            <span class="input-group-text btn btn-outline-primary" id="searchButton"> <fa-icon [icon]="faSearch"/> </span>
           </div>
         </div>
         <div class="col-12">
           <label class="mb-2"> Brands </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="sort" id="sort1" value="asc" checked>
-            <label class="form-check-label" for="sort"> All </label>
+            <input class="form-check-input" type="radio" id="sort1" (click)="this.productsService.getProductsByCategory(this.category_id);" checked />
+            <label class="form-check-label" for="sort1"> All </label>
           </div>
-            @for(item of uniqueBrands; track $index) {
+            @for(item of productsService.uniqueBrands; track $index) {
             <div class="col-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="brand" id="brand{{ $index }}" value="{{ (item.name).toUpperCase() }}">
-                <label class="form-check-label" for="brand{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
+                <input class="form-check-input" type="radio" id="brand-{{ $index }}" value="{{ (item.name).toUpperCase() }}" (click)="productsService.searchByBrand(this.category_id, item.name);" />
+                <label class="form-check-label" for="brand-{{ $index }}" (click)="productsService.searchByBrand(this.category_id, item.name);"> {{ (item.name).toUpperCase() }} </label>
               </div>
             </div>
           }
@@ -33,11 +31,11 @@
     </div>
     <div class="col-md-9 col-sm-12">
       <div class="row">
-        @for(item of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
-          <div class="col-md-4 col-sm-6 mb-3">
+        @for(item of productsService.products| paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-3">
             <div class="card rounded shadow mb-2 p-2">
               <div class="row">
-                <div class="col-12">
+                <div class="col-12 d-flex justify-content-center">
                   <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo"
                     [alt]="item.name" style="height: 300px;">
                 </div>
@@ -45,20 +43,24 @@
                   <div class="col-12">
                     <div class="card-body">
                       <h5 class="card-title fs-6"> {{ ((subsubcategory).replace("_", " ").replace("'s", "").replace("graphic cards", "gpu").replace("intel", "").replace("amd", "")+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
-                      <p class="card-text"> Price: <span class="text-primary"> ${{ item.price }} </span> </p>
+                      <p class="card-text"> Price: @if(item.discount > 0) {
+                        <span> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
+                      } @else {
+                        <span> ${{item.price}} </span>
+                      } </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row text-center mb-2">
-                <div class="col-6">
-                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
+                <div class="col-12 mb-2">
+                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary w-100"> Details </a>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
                   @if(cartService.isLoggedIn()) {
-                    <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon [icon]="faCartShopping"/> </button>
+                    <button class="btn btn-outline-primary w-100" (click)="cartService.addToCart(item)"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
                   } @else {
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add <fa-icon [icon]="faCartShopping"/> </button>
+                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
                   }
                 </div>
               </div>
