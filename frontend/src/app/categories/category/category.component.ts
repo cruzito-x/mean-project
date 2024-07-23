@@ -44,12 +44,13 @@ export class CategoryComponent implements OnInit {
       this.productsService.getProductsByCategory(this.category_id);
 
       $("#searchBar").on("keyup", () => {
-        this.productsService.searchProductByCategory(this.category_id);
+        this.productsService.searchByNameCategoryAndBrand(this.category_id);
       });
   
       $("#searchButton").on("click", () => {
-        this.productsService.searchProductByCategory(this.category_id);
+        this.productsService.searchByNameCategoryAndBrand(this.category_id);
       });
+      
     });
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])

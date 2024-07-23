@@ -13,7 +13,11 @@ import $ from "jquery";
   standalone: true,
   imports: [FontAwesomeModule, FormsModule, ReactiveFormsModule, RouterOutlet, RouterLink],
   templateUrl: "./navbar.component.html",
-  styles: ``
+  styles: `
+  .nav-item, .nav-link {
+    cursor: pointer;
+  }
+  `
 })
 export class NavbarComponent {
   faSearch = faSearch;

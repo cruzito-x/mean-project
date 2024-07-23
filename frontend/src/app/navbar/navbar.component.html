@@ -29,14 +29,14 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         @if(!isLoggedIn) {
         <li class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <label class="nav-link" title="Log in" style="cursor: pointer;">
+          <label class="nav-link" title="Log in">
             <fa-icon [icon]="faUser"/>
           </label>
         </li>
         } @else {
         <li class="nav-item">
           <a href="/account">
-            <label class="nav-link" title="My account" style="cursor: pointer;">
+            <label class="nav-link" title="My account">
               <fa-icon [icon]="faUser"/>
             </label>
           </a>
@@ -46,20 +46,20 @@
         <li class="nav-item">
           @if(cartService.getItems().length > 0) {
             <div class="position-relative">
-              <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="cursor: pointer;">
+              <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <fa-icon [icon]="faCartShopping"/>
                 <span class="position-absolute top-1 me-2 start-100 translate-middle badge rounded-pill bg-primary">
                   {{ cartService.getItems().length }}</span>
               </a>
             </div>
           } @else {
-            <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" style="cursor: pointer;">
+            <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
               <fa-icon [icon]="faCartShopping"/>
             </a>
           }
         </li>
         <li class="nav-item">
-          <a class="nav-link" title="Log out" (click)="logOut()" style="cursor: pointer;">
+          <a class="nav-link" title="Log out" (click)="logOut()">
             <fa-icon [icon]="faSignOut"/>
           </a>
         </li>

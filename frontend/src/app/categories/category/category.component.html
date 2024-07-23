@@ -15,14 +15,14 @@
         <div class="col-12">
           <label class="mb-2"> Brands </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="sort1" (click)="this.productsService.getProductsByCategory(this.category_id);" checked />
-            <label class="form-check-label" for="sort1"> All </label>
+            <input class="form-check-input" type="radio" id="all" value="all" [checked]="this.productsService.selectedBrand === 'all'" (click)="this.productsService.getProductsByCategory(this.category_id); this.productsService.selectBrand('all')" checked />
+            <label class="form-check-label" for="all"> ALL </label>
           </div>
             @for(item of productsService.uniqueBrands; track $index) {
             <div class="col-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" id="brand-{{ $index }}" value="{{ (item.name).toUpperCase() }}" (click)="productsService.searchByBrand(this.category_id, item.name);" />
-                <label class="form-check-label" for="brand-{{ $index }}" (click)="productsService.searchByBrand(this.category_id, item.name);"> {{ (item.name).toUpperCase() }} </label>
+                <input class="form-check-input" type="radio" id="brand-{{ $index }}" name="brand" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.searchByBrand(this.category_id, item.name); this.productsService.selectBrand('brand-'+$index);" />
+                <label class="form-check-label" for="brand-{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
               </div>
             </div>
           }
@@ -44,9 +44,9 @@
                     <div class="card-body">
                       <h5 class="card-title fs-6"> {{ ((subsubcategory).replace("_", " ").replace("'s", "").replace("graphic cards", "gpu").replace("intel", "").replace("amd", "")+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
                       <p class="card-text"> Price: @if(item.discount > 0) {
-                        <span> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
+                        <span class="text-primary"> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
                       } @else {
-                        <span> ${{item.price}} </span>
+                        <span class="text-primary"> ${{item.price}} </span>
                       } </p>
                     </div>
                   </div>
@@ -66,10 +66,10 @@
               </div>
             </div>
           </div>
-        }
-        @empty {
-          <div class="col-12 text-center">
-            <p> No products found in this category </p>
+        } @empty {
+          <div class="col-12 mt-4 pb-3 d-flex justify-content-center">
+            <img src="../assets/img/noProducts.png" class="img-fluid d-md-block d-sm-none w-25">
+            <img src="../assets/img/noProducts.png" class="img-fluid d-md-none w-50">
           </div>
         }
         <div class="col-12 d-flex justify-content-end">

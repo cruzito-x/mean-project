@@ -31,6 +31,8 @@ export class ProductsService {
   brands: Brand[] = [];
   uniqueBrands: Brand[] = [];
   productName: string = '';
+  selectedBrand: string = 'all';
+
   constructor() {}
 
   getOffersProducts() {
@@ -47,6 +49,16 @@ export class ProductsService {
       });
   }
 
+  searchProductByName() {
+    this.productName = $('#searchBar').val()?.toString() || '';
+
+    if (this.productName !== '') {
+      this.searchProducts(this.productName.trim());
+    } else {
+      this.getOffersProducts();
+    }
+  }
+
   searchProducts(productName: string) {
     fetch(`http://localhost:3000/products/search/${productName}`)
       .then((response) => {
@@ -57,19 +69,8 @@ export class ProductsService {
         return response.json();
       })
       .then((data: Product[]) => {
-        console.log('Products search: ', data);
         this.products = data;
       });
-  }
-
-  searchProductByName() {
-    this.productName = $('#searchBar').val()?.toString() || '';
-
-    if (this.productName !== '') {
-      this.searchProducts(this.productName.trim());
-    } else {
-      this.getOffersProducts();
-    }
   }
 
   getProductsByCategory(category: string) {
@@ -85,6 +86,60 @@ export class ProductsService {
         this.uniqueBrands = this.getUniqueBrands(data);
       })
       .catch((error) => console.error('Error:', error));
+  }
+
+  searchProductByCategory(category_id: string) {
+    this.productName = $('#searchBar').val()?.toString() || '';
+
+    if (this.productName !== '') {
+      this.searchProducts(this.productName.trim());
+    } else {
+      this.getProductsByCategory(category_id);
+    }
+  }
+
+  searchByBrand(category_id: string, brand: string) {
+    console.log(category_id, brand);
+    fetch(`http://localhost:3000/products/search/brand/${category_id}/${brand}`)
+    .then((response) => {
+      if(!response.ok) {
+        throw new Error("Error getting products by brand");
+      }
+
+      return response.json();
+    })
+    .then((data: Product[]) => {
+      this.products = data;
+    });
+  }
+
+  searchByNameCategoryAndBrand(category_id: string) {
+    this.productName = $("#searchBar").val()?.toString() || "";
+    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "all";
+
+    if(this.productName !== "") {
+      if(brand === "all") {
+        this.getProductsByCategory(category_id);
+      } else {
+        this.searchInCategory(this.productName.trim(), category_id, brand);
+      }
+    } else {
+      this.getProductsByCategory(category_id);
+    }
+  }
+
+  searchInCategory(productName: string, category_id: string, brand: string) {
+    fetch(`http://localhost:3000/products/search/name/${productName}/category/${category_id}/brand/${brand}`)
+    .then((response) => {
+      if(!response.ok) {
+        throw new Error("Error getting products");
+      }
+
+      return response.json();
+    })
+    .then((data: Product[]) => {
+      this.products = data;
+    });
   }
 
   getUniqueBrands(products: Product[]): Brand[] {
@@ -103,27 +158,7 @@ export class ProductsService {
     return uniqueBrands;
   }
 
-  searchProductByCategory(category_id: string) {
-    this.productName = $('#searchBar').val()?.toString() || '';
-
-    if (this.productName !== '') {
-      this.searchProducts(this.productName.trim());
-    } else {
-      this.getProductsByCategory(category_id);
-    }
-  }
-
-  searchByBrand(category_id: string, brand: string) {
-    fetch(`http://localhost:3000/products/search/brand/${category_id}/${brand}`)
-    .then((response) => {
-      if(!response.ok) {
-        throw new Error("Error getting products by brand");
-      }
-
-      return response.json();
-    })
-    .then((data: Product[]) => {
-      this.products = data;
-    });
+  selectBrand(brand: string): void {
+    this.selectedBrand = brand;
   }
 }

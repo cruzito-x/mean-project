@@ -18,7 +18,7 @@ import $ from "jquery";
 export class BrandsComponent implements OnInit {
   faSearch = faSearch;
   page = 1;
-  itemsPerPage = 20;
+  itemsPerPage = 24;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
@@ -30,7 +30,7 @@ export class BrandsComponent implements OnInit {
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
       .pipe(map(result => result.matches))
       .subscribe(isSmallScreen => {
-        this.itemsPerPage = isSmallScreen ? 10 : 20;
+        this.itemsPerPage = isSmallScreen ? 6 : 24;
       });
 
       $("#searchBar").on("keyup", () => {

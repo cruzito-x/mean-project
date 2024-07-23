@@ -2,42 +2,43 @@
   <h3 class="mt-3"> Our brands </h3>
   <hr>
   <div class="row">
-    <div class="col-lg-3 col-md-12 col-sm-12">
+    <div class="col-lg-6 col-sm-12">
       <label class="mb-2"> Brand name </label>
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search" id="searchBar" aria-label="Search"
           aria-describedby="basic-addon2">
-        <span class="input-group-text btn btn-outline-primary" id="searchButton"> <fa-icon [icon]="faSearch"/>
+        <span class="input-group-text btn btn-outline-primary" id="searchButton"> <fa-icon [icon]="faSearch" />
         </span>
       </div>
     </div>
-    <div class="col-lg-9 col-md-12 col-sm-12">
-      <div class="row d-flex align-items-center">
-        <div class="col-lg-1 col-md-2 col-sm-2">
-          <label class="mb-2"> Sort by </label>
-        </div>
-        <div class="col-lg-5 col-md-4 col-sm-5 justify-content-start">
-          <select class="form-select form-select-md mb-2 w-100" aria-label="Small select example">
-            <option value="nameAsc" selected>Name: A-Z</option>
-            <option value="nameDesc">Name: Z-A</option>
-          </select>
-        </div>
+    <div class="col-lg-6 col-sm-12">
+      <label class="mb-2"> Sort by </label>
+      <div class="input-group mb-3">
+        <select class="form-select form-select-md mb-2 w-100" aria-label="Small select example">
+          <option value="nameAsc" selected>Name: A-Z</option>
+          <option value="nameDesc">Name: Z-A</option>
+        </select>
       </div>
-      <div class="row">
-        @for(item of brandsService.brands | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track item.id) {
-        <div class="col-md-3 col-sm-6 mb-3">
-          <a [routerLink]="['/brand', (item.name).trim().toLowerCase().replace(' ', '')]">
-            <div class="card rounded shadow p-2">
-              <img class="img-fluid rounded" src="{{'http://localhost:3000/'+item.photo}}"
-                alt="{{(item.name).toLowerCase()}}" style="height: 150px;" />
-            </div>
-          </a>
+    </div>
+  </div>
+  <div class="row">
+    @for(item of brandsService.brands | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track item.id) {
+    <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+      <a [routerLink]="['/brand', (item.name).trim().toLowerCase().replace(' ', '')]">
+        <div class="card rounded shadow p-2">
+          <img class="img-fluid rounded" src="{{'http://localhost:3000/'+item.photo}}"
+            alt="{{(item.name).toLowerCase()}}" style="height: 150px;" />
         </div>
-        }
-        <div class="col-12 d-flex justify-content-end">
-          <pagination-controls previousLabel="" nextLabel="" (pageChange)="handlePageChange($event)" />
-        </div>
-      </div>
+      </a>
+    </div>
+    } @empty {
+    <div class="col-12 mt-5 mb-5 pb-5 d-flex justify-content-center">
+      <img src="../assets/img/noProducts.png" class="img-fluid d-md-block d-sm-none w-25">
+      <img src="../assets/img/noProducts.png" class="img-fluid d-md-none d-sm-block w-50">
+    </div>
+    }
+    <div class="col-12 mt-4 mb-4 pb-1 d-flex justify-content-end">
+      <pagination-controls previousLabel="" nextLabel="" (pageChange)="handlePageChange($event)" />
     </div>
   </div>
 </div>
