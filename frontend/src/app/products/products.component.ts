@@ -6,101 +6,57 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { CartService } from '../services/cart.service';
-
-interface Brand {
-  id: string;
-  name: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  brand: Brand[];
-  category_id: string;
-  category: string;
-  created_at: string;
-  description: string;
-  photo: string;
-  price: number;
-  rating: number;
-  stock: number;
-  sub_category: string;
-  technical_specifications: string;
-  updated_at: string | null;
-}
+import { ProductsService } from '../services/products.service';
+import $ from "jquery";
 
 @Component({
   selector: 'app-products',
   standalone: true,
   imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
   templateUrl: './products.component.html',
-  styles: ``
+  styles: `
+  .form-check-input, .form-check-label {
+    cursor: pointer;
+  }
+  `
 })
 export class ProductsComponent {
-  brands: Brand[] = [];
-  products: Product[] = [];
-  uniqueBrands: Brand[] = [];
   faCartShopping = faCartShopping;
   faSearch = faSearch;
-  familyName: string = '';
+  category: string = '';
   itemsPerPage = 9;
   page = 1;
   cartService = inject(CartService);
+  productsService = inject(ProductsService);
 
   constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
 
     this.route.params.subscribe((params) => {
-      this.familyName = params['category'];
+      this.category = params['category'];
 
-      this.getProductsByFamilyName(this.familyName);
       return this.route;
     });
+
+    this.productsService.getProductsHomeByCategory(this.category);
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
     .pipe(map(result => result.matches))
     .subscribe(isSmallScreen => {
-      this.itemsPerPage = isSmallScreen ? 10 : 9;
+      this.itemsPerPage = isSmallScreen ? 5 : 9;
     });
-  }
 
-  getProductsByFamilyName(familyName: string) {
-    fetch(`http://localhost:3000/products/family/${familyName}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error getting products by family name');
-      }
-      return response.json();
-    })
-    .then((data: Product[]) => {
-      this.products = data;
-      this.uniqueBrands = this.getUniqueBrands(data);
-      }
-    )
-  }
-
-  getUniqueBrands(products: Product[]): Brand[] {
-    const brandSet: Set<string> = new Set();
-    const uniqueBrands: Brand[] = [];
-
-    products.forEach((product) => {
-      product.brand.forEach((brand) => {
-        if (brand.name && !brandSet.has(brand.name)) {
-          brandSet.add(brand.name);
-          uniqueBrands.push(brand);
-        }
-      });
+    $("#searchBar").on("keyup", () => {
+      this.productsService.searchProductByName();
     });
-    
-    return uniqueBrands;
+
+    $("#searchButton").on("click", () => {
+      this.productsService.searchProductByName();
+    });
   }
 
   handlePageChange(event: any) {
     this.page = event;
-  }
-
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
   }
 }

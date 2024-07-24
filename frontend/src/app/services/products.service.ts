@@ -145,6 +145,35 @@ export class ProductsService {
     });
   }
 
+  getProductsHomeByCategory(familyName: string) {
+    fetch(`http://localhost:3000/products/family/${familyName}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error getting products by family name');
+      }
+      return response.json();
+    })
+    .then((data: Product[]) => {
+      this.products = data;
+      this.uniqueBrands = this.getUniqueBrands(data);
+      }
+    );
+  }
+
+  getProductsByBrand(brand: string) {
+    fetch(`http://localhost:3000/products/brand/${brand}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error getting product details');
+        }
+        return response.json();
+      })
+      .then((data: Product[]) => {
+        this.products = data;
+      })
+      .catch((error) => console.error('Error:', error));
+  }
+
   getUniqueBrands(products: Product[]): Brand[] {
     const brandSet: Set<string> = new Set();
     const uniqueBrands: Brand[] = [];

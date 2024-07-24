@@ -1,5 +1,5 @@
 <div class="container p-2 mt-3">
-  <h3> {{ familyName.toUpperCase().replace('_', ' ').replace('CPU', "CPU'S") }} </h3>
+  <h3> {{ category.toUpperCase().replace('_', ' ').replace('CPU', "CPU'S") }} </h3>
   <hr>
   <div class="row">
     <div class="col-md-3 col-sm-0">
@@ -8,36 +8,40 @@
           <label class="mb-2"> Product name </label>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-              aria-describedby="basic-addon2" id="search">
-            <span class="input-group-text btn btn-outline-primary" id="basic-addon2" id="btn_search"> <fa-icon
+              aria-describedby="searchButton" id="searchBar">
+            <span class="input-group-text btn btn-outline-primary" id="searchButton"> <fa-icon
                 [icon]="faSearch"/>
             </span>
           </div>
         </div>
         <div class="col-12">
           <label class="mb-2"> Brands </label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="sort" id="all" value="asc" checked>
-            <label class="form-check-label" for="all"> ALL </label>
-          </div>
-            @for(item of uniqueBrands; track $index) {
-            <div class="col-12">
+          <div class="row">
+            <div class="col-md-12 col-sm-2">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="brand" id="brand{{ $index }}" value="{{ (item.name).toUpperCase() }}">
-                <label class="form-check-label" for="brand{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
+                <input class="form-check-input" type="radio" id="all" value="all" [checked]="this.productsService.selectedBrand === 'all'" (click)="this.productsService.getProductsByCategory(''); this.productsService.selectBrand('all')" checked />
+                <label class="form-check-label" for="all"> ALL </label>
               </div>
             </div>
-          }
+            @for(item of productsService.uniqueBrands; track $index) {
+              <div class="col-md-12 col-sm-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="brand-{{ $index }}" name="brand" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.searchByNameCategoryAndBrand(this.productsService.products[0].category_id); this.productsService.selectBrand('brand-'+$index);" />
+                  <label class="form-check-label" for="brand-{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
+                </div>
+              </div>
+            }
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-9 col-sm-12">
       <div class="row">
-        @for(item of products | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
+        @for(item of productsService.products| paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track $index) {
           <div class="col-md-4 col-sm-6 mb-3">
             <div class="card rounded shadow mb-2 p-2">
               <div class="row">
-                <div class="col-12">
+                <div class="col-12 d-flex justify-content-center">
                   <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo"
                     [alt]="item.name" style="height: 300px;">
                 </div>
@@ -45,29 +49,33 @@
                   <div class="col-12">
                     <div class="card-body">
                       <h5 class="card-title fs-6"> {{ (item.category+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
-                      <p class="card-text"> Price: <span class="text-primary"> ${{ item.price }} </span> </p>
+                      <p class="card-text"> Price: @if(item.discount > 0) {
+                        <span class="text-primary"> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
+                      } @else {
+                        <span class="text-primary"> ${{item.price}} </span>
+                      } </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row text-center mb-2">
-                <div class="col-6">
-                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary"> Details </a>
+                <div class="col-12 mb-2">
+                  <a [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]" class="btn btn-outline-primary w-100"> Details </a>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
                   @if(cartService.isLoggedIn()) {
-                    <button class="btn btn-outline-primary" (click)="addToCart(item)"> Add <fa-icon [icon]="faCartShopping"/> </button>
+                    <button class="btn btn-outline-primary w-100" (click)="this.cartService.addToCart(item)"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
                   } @else {
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add <fa-icon [icon]="faCartShopping"/> </button>
+                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Add to cart <fa-icon [icon]="faCartShopping"/> </button>
                   }
                 </div>
               </div>
             </div>
           </div>
-        }
-        @empty {
-          <div class="col-12 text-center">
-            <p> No products found in this category </p>
+        } @empty {
+          <div class="col-12 mt-4 pb-3 d-flex justify-content-center">
+            <img src="../assets/img/noProducts.png" class="img-fluid d-md-block d-sm-none w-25">
+            <img src="../assets/img/noProducts.png" class="img-fluid d-md-none w-50">
           </div>
         }
         <div class="col-12 d-flex justify-content-end">

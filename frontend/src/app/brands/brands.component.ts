@@ -13,7 +13,11 @@ import $ from "jquery";
   standalone: true,
   imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
   templateUrl: './brands.component.html',
-  styles: ``
+  styles: `
+  .form-select {
+    cursor: pointer;
+  }
+  `
 })
 export class BrandsComponent implements OnInit {
   faSearch = faSearch;
