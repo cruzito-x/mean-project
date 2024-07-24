@@ -50,6 +50,7 @@ export class CategoryComponent implements OnInit {
       $("#searchButton").on("click", () => {
         this.productsService.searchByNameCategoryAndBrand(this.category_id);
       });
+
       
     });
 

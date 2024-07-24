@@ -21,7 +21,7 @@
             @for(item of productsService.uniqueBrands; track $index) {
             <div class="col-12">
               <div class="form-check">
-                <input class="form-check-input" type="radio" id="brand-{{ $index }}" name="brand" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.searchByBrand(this.category_id, item.name); this.productsService.selectBrand('brand-'+$index);" />
+                <input class="form-check-input" type="radio" id="brand-{{ $index }}" name="brand" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.searchByNameCategoryAndBrand(this.category_id); this.productsService.selectBrand('brand-'+$index);" />
                 <label class="form-check-label" for="brand-{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
               </div>
             </div>

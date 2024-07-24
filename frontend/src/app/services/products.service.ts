@@ -121,10 +121,15 @@ export class ProductsService {
       if(brand === "all") {
         this.getProductsByCategory(category_id);
       } else {
+        console.log(brand);
         this.searchInCategory(this.productName.trim(), category_id, brand);
       }
     } else {
-      this.getProductsByCategory(category_id);
+      if(brand ===  "all") {
+        this.getProductsByCategory(category_id);
+      } else {
+        this.searchByBrand(category_id, brand);
+      }
     }
   }
 
