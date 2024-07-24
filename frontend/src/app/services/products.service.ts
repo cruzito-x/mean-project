@@ -99,7 +99,6 @@ export class ProductsService {
   }
 
   searchByBrand(category_id: string, brand: string) {
-    console.log(category_id, brand);
     fetch(`http://localhost:3000/products/search/brand/${category_id}/${brand}`)
     .then((response) => {
       if(!response.ok) {
@@ -121,7 +120,6 @@ export class ProductsService {
       if(brand === "all") {
         this.getProductsByCategory(category_id);
       } else {
-        console.log(brand);
         this.searchInCategory(this.productName.trim(), category_id, brand);
       }
     } else {

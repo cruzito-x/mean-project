@@ -69,11 +69,11 @@ export class DetailsComponent implements OnInit {
 
   getBorderColor(index: number): void {
     $("span[id^='color-']").css({
-      border: "2px solid transparent"
+      border: "2px"
     });
 
     $("span .bg-white").css({
-      border: "1px solid #cacbcf"
+      border: "2px solid #cacbcf"
     });
     
     $("#color-"+index).css({

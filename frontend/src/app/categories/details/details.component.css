@@ -1,3 +1,9 @@
+.rounded-color {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
 .bg-gray {
   background-color: #c9c9c9;
   color: #333333;
@@ -46,6 +52,21 @@
 .bg-yellow {
   background-color: #ffc107;
   color: #ffffff;
+}
+
+.bg-white-blue {
+  background-image: linear-gradient(to left, #007bff 50%, #e4e4e4 50%);
+  transform: rotate(45deg);
+}
+
+.bg-black-green {
+  background-image: linear-gradient(to left, #28a745 50%, #000000 50%);
+  transform: rotate(45deg);
+}
+
+.bg-black-gray {
+  background-image: linear-gradient(to left, #c9c9c9 50%, #000000 50%);
+  transform: rotate(45deg);
 }
 
 .text-bg-low {
