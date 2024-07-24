@@ -36,7 +36,7 @@ function generateToken(user) {
     userRole: user.role
   };
 
-  return jwt.sign(payload, 'jwt for cinnatech store', { expiresIn: '1h' });
+  return jwt.sign(payload, 'jwt for cinnatech store', { expiresIn: '2h' });
 }
 
 exports.getDetails = async (req, res) => {
