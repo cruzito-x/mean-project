@@ -184,7 +184,8 @@
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}} </p>
                 <p class="card-title">
-                  <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  <a class="text-decoration-none text-black"
+                    [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                     {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
                   </a>
                 </p>
@@ -192,20 +193,22 @@
                 <div class="row text-center">
                   <div class="col-12 mb-2">
                     @if(item.discount > 0) {
-                      <span> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
+                    <span> ${{ item.price - (item.price*item.discount) }} <span
+                        class="text-secondary text-decoration-line-through"
+                        style="font-size: 14px;">${{item.price}}</span> </span>
                     } @else {
-                      <span> ${{item.price}} </span>
+                    <span> ${{item.price}} </span>
                     }
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                      <button class="btn btn-outline-primary w-100" (click)="addToCart(item)">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
+                    <button class="btn btn-outline-primary w-100" (click)="addToCart(item)">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
                     } @else {
-                      <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
+                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
                     }
                   </div>
                 </div>
@@ -223,80 +226,88 @@
   </div>
 
   @if(products.length > 0) {
-    <div id="productsCarousel" class="carousel slide d-md-none mt-2" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="row">
-            @for(item of products.slice(0, 2); track $index) {
-          <div class="col-xl col-md col-sm-6 p-3">
+  <div id="productsCarousel" class="carousel slide d-md-none mt-2" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+        aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row">
+          @for(item of products.slice(0, 2); track $index) {
+          <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+                style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
-                <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
-                </a>
+                <a class="text-decoration-none text-black"
+                  [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}} </a>
                 <hr>
                 <div class="row text-center">
                   <div class="col-12 mb-2">
                     @if(item.discount > 0) {
-                      <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }} </span> </span>
+                    <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span
+                        class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }}
+                      </span> </span>
                     } @else {
-                      <span class="me-4">${{item.price}}</span>
+                    <span class="me-4">${{item.price}}</span>
                     }
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                      <button class="btn btn-outline-primary" (click)="addToCart(item)">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
+                    <button class="btn btn-outline-primary" (click)="addToCart(item)">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
                     } @else {
-                      <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
                     }
                   </div>
                 </div>
               </div>
             </div>
           </div>
-            }
-          </div>
+          }
         </div>
-        <div class="carousel-item">
+      </div>
+      <div class="carousel-item">
         <div class="row">
           @for(item of products.slice(2, 4); track $index) {
-          <div class="col-xl col-md col-sm-6 p-3">
+          <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+                style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
-                <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                <a class="text-decoration-none text-black"
+                  [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                   {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
                 </a>
                 <hr>
                 <div class="row text-center">
                   <div class="col-12 mb-2">
                     @if(item.discount > 0) {
-                      <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }} </span> </span>
+                    <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span
+                        class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }}
+                      </span> </span>
                     } @else {
-                      <span class="me-4">${{item.price}}</span>
+                    <span class="me-4">${{item.price}}</span>
                     }
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                      <button class="btn btn-outline-primary" (click)="addToCart(item)">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
+                    <button class="btn btn-outline-primary" (click)="addToCart(item)">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
                     } @else {
-                      <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
                     }
                   </div>
                 </div>
@@ -304,60 +315,64 @@
             </div>
           </div>
           }
-        </div>
-        </div>
-        <div class="carousel-item">
-        <div class="row">
-          @for(item of products.slice(4, 6); track $index) {
-          <div class="col-xl col-md col-sm-6 p-3">
-            <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}" style="height: 175px;">
-              <div class="card-body">
-                <p class="category text-secondary"> {{item.category}} </p>
-                <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
-                </a>
-                <hr>
-                <div class="row text-center">
-                  <div class="col-12 mb-2">
-                    @if(item.discount > 0) {
-                      <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }} </span> </span>
-                    } @else {
-                      <span class="me-4">${{item.price}}</span>
-                    }
-                  </div>
-                  <div class="col-12">
-                    @if(isLoggedIn()) {
-                      <button class="btn btn-outline-primary" (click)="addToCart(item)">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
-                    } @else {
-                      <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add to cart <fa-icon [icon]="faCartShopping" />
-                      </button>
-                    }
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          }
-        </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#productsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#productsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="carousel-item">
+        <div class="row">
+          @for(item of products.slice(4, 6); track $index) {
+          <div class="col-sm-6 p-3">
+            <div class="card rounded shadow-sm">
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+                style="height: 175px;">
+              <div class="card-body">
+                <p class="category text-secondary"> {{item.category}} </p>
+                <a class="text-decoration-none text-black"
+                  [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                </a>
+                <hr>
+                <div class="row text-center">
+                  <div class="col-12 mb-2">
+                    @if(item.discount > 0) {
+                    <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span
+                        class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }}
+                      </span> </span>
+                    } @else {
+                    <span class="me-4">${{item.price}}</span>
+                    }
+                  </div>
+                  <div class="col-12">
+                    @if(isLoggedIn()) {
+                    <button class="btn btn-outline-primary" (click)="addToCart(item)">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
+                    } @else {
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Add to cart <fa-icon [icon]="faCartShopping" />
+                    </button>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#productsCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productsCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
   } @else {
-    <div class="d-md-none col-sm-12 text-center">
-      <img src="../assets/img/noProducts.png" class="img-fluid w-50">
-    </div>
+  <div class="d-md-none col-sm-12 text-center">
+    <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+  </div>
   }
 
   @defer (on viewport) {
@@ -366,36 +381,39 @@
       <h5> Most popular </h5>
       <ul class="text-start list-group list-group-flush mt-4">
         @if(products.length > 0) {
-          @for(item of products.slice(0, 5); track $index) {
-            @if(item.rating >= 3) {
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-                    <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
-                  </div>
-                  <div class="col-lg-7 col-md-12 col-sm-9 ms-3">
-                    <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
-                    </a>
-                    <div class="align-items-center">
-                      <span> Price:
-                        @if(item.discount > 0) {
-                          <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }} </span> </span>
-                        } @else {
-                          <span class="text-primary">${{item.price}}</span>
-                        }
-                      </span> <br>
-                      <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            }
-          }
-        } @else {
-          <div class="col-md-12 col-sm-12 text-center">
-            <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+        @for(item of products.slice(0, 5); track $index) {
+        @if(item.rating >= 3) {
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
+              <a class="text-decoration-none text-black"
+                [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+              </a>
+              <div class="align-items-center">
+                <span> Price:
+                  @if(item.discount > 0) {
+                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span
+                      class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }}
+                    </span> </span>
+                  } @else {
+                  <span class="text-primary">${{item.price}}</span>
+                  }
+                </span> <br>
+                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+              </div>
+            </div>
           </div>
+        </li>
+        }
+        }
+        } @else {
+        <div class="col-md-12 col-sm-12 text-center">
+          <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+        </div>
         }
       </ul>
     </div>
@@ -403,34 +421,36 @@
       <h5> Most popular categories </h5>
       <ul class="text-start list-group list-group-flush mt-4">
         @if(products.length > 0) {
-          @for(item of products.slice(0, 5); track $index) {
-            @if(item.rating >= 3) {
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-                    <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
-                  </div>
-                  <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
-                    {{(item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()}}
-                    <div class="align-items-center">
-                      <span> Price:
-                        @if(item.discount > 0) {
-                          <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }} </span> </span>
-                        } @else {
-                          <span class="text-primary">${{item.price}}</span>
-                        }
-                      </span> <br>
-                      <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            }
-          }
-        } @else {
-          <div class="col-md-12 col-sm-12 text-center">
-            <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+        @for(item of products.slice(0, 5); track $index) {
+        @if(item.rating >= 3) {
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
+              {{(item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()}}
+              <div class="align-items-center">
+                <span> Price:
+                  @if(item.discount > 0) {
+                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span
+                      class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }}
+                    </span> </span>
+                  } @else {
+                  <span class="text-primary">${{item.price}}</span>
+                  }
+                </span> <br>
+                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+              </div>
+            </div>
           </div>
+        </li>
+        }
+        }
+        } @else {
+        <div class="col-md-12 col-sm-12 text-center">
+          <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+        </div>
         }
       </ul>
     </div>
@@ -438,48 +458,51 @@
       <h5> Best rated </h5>
       <ul class="text-start list-group list-group-flush mt-4">
         @if(products.length > 0) {
-          @for(item of bestRatedProducts.slice(0, 5); track $index) {
-            @if(item.rating >= 3) {
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-                    <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
-                  </div>
-                  <div class="col-lg-7 col-md-12 col-sm-9 ms-3">
-                    <a class="text-decoration-none text-black" [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                      {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
-                    </a>
-                    <div class="align-items-center">
-                      <span> Price:
-                        @if(item.discount > 0) {
-                          <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }} </span> </span>
-                        } @else {
-                          <span class="text-primary">${{item.price}}</span>
-                        } </span> <br>
-                        <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              }
-            }
-          } @else {
-            <div class="col-md-12 col-sm-12 text-center">
-              <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+        @for(item of bestRatedProducts.slice(0, 5); track $index) {
+        @if(item.rating >= 3) {
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
             </div>
-          }
-        </ul>
-      </div>
+            <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
+              <a class="text-decoration-none text-black"
+                [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
+                {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+              </a>
+              <div class="align-items-center">
+                <span> Price:
+                  @if(item.discount > 0) {
+                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span
+                      class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }}
+                    </span> </span>
+                  } @else {
+                  <span class="text-primary">${{item.price}}</span>
+                  } </span> <br>
+                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+              </div>
+            </div>
+          </div>
+        </li>
+        }
+        }
+        } @else {
+        <div class="col-md-12 col-sm-12 text-center">
+          <img src="../assets/img/noProducts.png" class="img-fluid w-50">
+        </div>
+        }
+      </ul>
     </div>
+  </div>
   } @placeholder {
-    <div class="row text-center mt-4">
-      <div class="col-12">
-        <div class="spinner-grow text-primary" role="status"></div>
-        <div class="spinner-grow text-primary ms-2 me-2" role="status"></div>
-        <div class="spinner-grow text-primary me-2" role="status"></div>
-        <div class="spinner-grow text-primary me-2" role="status"></div>
-        <div class="spinner-grow text-primary" role="status"></div>
-      </div>
+  <div class="row text-center mt-4">
+    <div class="col-12">
+      <div class="spinner-grow text-primary" role="status"></div>
+      <div class="spinner-grow text-primary ms-2 me-2" role="status"></div>
+      <div class="spinner-grow text-primary me-2" role="status"></div>
+      <div class="spinner-grow text-primary me-2" role="status"></div>
+      <div class="spinner-grow text-primary" role="status"></div>
     </div>
+  </div>
   }
 </div>

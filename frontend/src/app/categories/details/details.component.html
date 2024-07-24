@@ -54,11 +54,13 @@
                       }
                     </span>
                     <br>
-                     <span class="mt-1 d-flex align-items-center"> Colors:
-                      @for(item of products[0].colors; track $index) {
-                        <span class="ms-2 d-inline-block rounded-color bg-{{item.color}}" id="color-{{$index}}" (click)="indexSelectedColor($index); getBorderColor($index);" style="cursor: pointer;"></span>
-                      }
-                     </span>
+                     @if(products[0].colors.length > 0) {
+                      <span class="mt-1 d-flex align-items-center"> Colors:
+                        @for(item of products[0].colors; track $index) {
+                          <span class="ms-2 d-inline-block rounded-color bg-{{item.color}}" id="color-{{$index}}" (click)="indexSelectedColor($index); getBorderColor($index);" style="cursor: pointer;"></span>
+                        }
+                       </span>
+                     }
                   </div>
                 </div>
               </div>

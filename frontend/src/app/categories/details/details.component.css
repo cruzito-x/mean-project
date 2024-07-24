@@ -55,7 +55,7 @@
 }
 
 .bg-white-blue {
-  background-image: linear-gradient(to left, #007bff 50%, #e4e4e4 50%);
+  background-image: linear-gradient(to left, #007bff 50%, #f7f7f7 50%);
   transform: rotate(45deg);
 }
 

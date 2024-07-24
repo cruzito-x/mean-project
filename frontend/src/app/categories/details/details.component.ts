@@ -73,7 +73,7 @@ export class DetailsComponent implements OnInit {
     });
 
     $("span .bg-white").css({
-      border: "2px solid #cacbcf"
+      border: "1px solid #cacbcf"
     });
     
     $("#color-"+index).css({
