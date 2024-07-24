@@ -51,13 +51,13 @@ export class CategoryComponent implements OnInit {
         this.productsService.searchByNameCategoryAndBrand(this.category_id);
       });
 
-      
+
     });
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
     .pipe(map(result => result.matches))
     .subscribe(isSmallScreen => {
-      this.itemsPerPage = isSmallScreen ? 10 : 9;
+      this.itemsPerPage = isSmallScreen ? 5 : 9;
     });
   }
 
