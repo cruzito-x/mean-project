@@ -167,7 +167,7 @@
   </div>
 
   <div id="productsCarouselIndicators" class="carousel slide d-none d-md-flex">
-    <div class="carousel-indicators">
+    <div class="carousel-indicators d-none">
       <button type="button" data-bs-target="#productsCarouselIndicators" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#productsCarouselIndicators" data-bs-slide-to="1"
@@ -176,7 +176,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row">
-          @for(item of products; track $index) {
+          @for(item of this.productsService.products; track $index) {
           <div class="col-lg-2 col-md-4 col-sm-6">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
@@ -202,7 +202,7 @@
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                    <button class="btn btn-outline-primary w-100" (click)="addToCart(item)">
+                    <button class="btn btn-outline-primary w-100" (click)="this.cartService.addToCart(item)">
                       Add to cart <fa-icon [icon]="faCartShopping" />
                     </button>
                     } @else {
@@ -225,7 +225,7 @@
     </div>
   </div>
 
-  @if(products.length > 0) {
+  @if(this.productsService.products.length > 0) {
   <div id="productsCarousel" class="carousel slide d-md-none mt-2" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#productsCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -236,7 +236,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="row">
-          @for(item of products.slice(0, 2); track $index) {
+          @for(item of this.productsService.products.slice(0, 2); track $index) {
           <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
@@ -259,7 +259,7 @@
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                    <button class="btn btn-outline-primary" (click)="addToCart(item)">
+                    <button class="btn btn-outline-primary" (click)="this.cartService.addToCart(item)">
                       Add to cart <fa-icon [icon]="faCartShopping" />
                     </button>
                     } @else {
@@ -277,7 +277,7 @@
       </div>
       <div class="carousel-item">
         <div class="row">
-          @for(item of products.slice(2, 4); track $index) {
+          @for(item of this.productsService.products.slice(2, 4); track $index) {
           <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
@@ -301,7 +301,7 @@
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                    <button class="btn btn-outline-primary" (click)="addToCart(item)">
+                    <button class="btn btn-outline-primary" (click)="this.cartService.addToCart(item)">
                       Add to cart <fa-icon [icon]="faCartShopping" />
                     </button>
                     } @else {
@@ -319,7 +319,7 @@
       </div>
       <div class="carousel-item">
         <div class="row">
-          @for(item of products.slice(4, 6); track $index) {
+          @for(item of this.productsService.products.slice(4, 6); track $index) {
           <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
@@ -343,7 +343,7 @@
                   </div>
                   <div class="col-12">
                     @if(isLoggedIn()) {
-                    <button class="btn btn-outline-primary" (click)="addToCart(item)">
+                    <button class="btn btn-outline-primary" (click)="this.cartService.addToCart(item)">
                       Add to cart <fa-icon [icon]="faCartShopping" />
                     </button>
                     } @else {
@@ -380,9 +380,8 @@
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @if(products.length > 0) {
-        @for(item of products.slice(0, 5); track $index) {
-        @if(item.rating >= 3) {
+        @if(this.productsService.products.length > 0) {
+        @for(item of this.productsService.products.slice(0, 5); track $index) {
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
@@ -403,12 +402,11 @@
                   <span class="text-primary">${{item.price}}</span>
                   }
                 </span> <br>
-                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+                <span> Rating: <span class="text-warning"> {{this.productsService.generateRatingStars(item.rating)}} </span> </span>
               </div>
             </div>
           </div>
         </li>
-        }
         }
         } @else {
         <div class="col-md-12 col-sm-12 text-center">
@@ -420,9 +418,8 @@
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular categories </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @if(products.length > 0) {
-        @for(item of products.slice(0, 5); track $index) {
-        @if(item.rating >= 3) {
+        @if(this.productsService.products.length > 0) {
+        @for(item of this.productsService.products.slice(0, 5); track $index) {
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
@@ -440,12 +437,11 @@
                   <span class="text-primary">${{item.price}}</span>
                   }
                 </span> <br>
-                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+                <span> Rating: <span class="text-warning"> {{this.productsService.generateRatingStars(item.rating)}} </span> </span>
               </div>
             </div>
           </div>
         </li>
-        }
         }
         } @else {
         <div class="col-md-12 col-sm-12 text-center">
@@ -457,8 +453,8 @@
     <div class="col-md-4 mt-3 col-sm-12">
       <h5> Best rated </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @if(products.length > 0) {
-        @for(item of bestRatedProducts.slice(0, 5); track $index) {
+        @if(this.productsService.products.length > 0) {
+        @for(item of this.productsService.bestRatedProducts.slice(0, 5); track $index) {
         @if(item.rating >= 3) {
         <li class="list-group-item">
           <div class="row">
@@ -479,7 +475,7 @@
                   } @else {
                   <span class="text-primary">${{item.price}}</span>
                   } </span> <br>
-                <span> Rating: <span class="text-warning"> {{generateRatingStars(item.rating)}} </span> </span>
+                <span> Rating: <span class="text-warning"> {{this.productsService.generateRatingStars(item.rating)}} </span> </span>
               </div>
             </div>
           </div>

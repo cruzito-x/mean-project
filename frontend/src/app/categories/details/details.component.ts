@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping, faInfoCircle, faTags } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import $ from 'jquery';
+import { ProductsService } from '../../services/products.service';
 
 interface Brand {
   id: string;
@@ -51,10 +52,12 @@ export class DetailsComponent implements OnInit {
   faCartShopping = faCartShopping;
   faInfoCircle = faInfoCircle;
   faTags = faTags;
-  cartService = inject(CartService);
   product_id: string = '';
   activeTab: string = 'description';
   indexColor = 0;
+
+  cartService = inject(CartService);
+  productsService = inject(ProductsService);
 
   constructor(private route: ActivatedRoute) {}
 
@@ -93,16 +96,6 @@ export class DetailsComponent implements OnInit {
         this.products = data;
       })
       .catch((error) => console.error('Error:', error));
-  }
-
-  generateRatingStars(rating: number) {
-    let stars = '';
-
-    for (let n = 0; n < rating; n++) {
-      stars += '★';
-    }
-
-    return stars;
   }
 
   indexSelectedColor(indexSelectedColor: number) {

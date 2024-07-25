@@ -1,7 +1,12 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from "@angular/core";
+import { CartService } from "./cart.service";
 
 interface Brand {
   id: string;
+  name: string;
+}
+
+interface Colors {
   name: string;
 }
 
@@ -14,6 +19,7 @@ interface Product {
   created_at: string;
   description: string;
   photo: string;
+  colors: Colors[];
   price: number;
   discount: number;
   rating: number;
@@ -24,37 +30,78 @@ interface Product {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ProductsService {
   products: Product[] = [];
+  bestRatedProducts: Product[] = [];
   brands: Brand[] = [];
   uniqueBrands: Brand[] = [];
-  productName: string = '';
-  selectedBrand: string = 'all';
+  productName: string = "";
+  selectedBrand: string = "all";
   page: number = 1;
+
+  cartService = inject(CartService);
 
   constructor() {}
 
-  /* Functionallity for offers view */
-  getOffersProducts() {
-    fetch('http://localhost:3000/products/products/offers')
+  /* Functionallity for home view */
+
+  getAllProducts() {
+    fetch('http://localhost:3000/products')
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error getting offers products');
+          throw new Error('Error to get products');
         }
         return response.json();
       })
       .then((data: Product[]) => {
-        console.log('Products offer: ', data);
+        this.products = data.slice(0, 6);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
+
+  getBestRatedProducts() {
+    fetch('http://localhost:3000/products/bestRated')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error to get best rated products');
+        }
+        return response.json();
+      })
+      .then((data: Product[]) => {
+        this.bestRatedProducts = data.slice(0, 6);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  /* Functionallity for offers view */
+  getOffersProducts() {
+    fetch("http://localhost:3000/products/products/offers")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error getting offers products");
+        }
+        return response.json();
+      })
+      .then((data: Product[]) => {
+        console.log("Products offer: ", data);
         this.products = data;
       });
   }
 
   searchProductByName() {
-    this.productName = $('#searchBar').val()?.toString() || '';
+    this.productName = $("#searchBar").val()?.toString() || "";
 
-    if (this.productName !== '') {
+    if (this.productName !== "") {
       this.searchProducts(this.productName.trim());
     } else {
       this.getOffersProducts();
@@ -65,7 +112,7 @@ export class ProductsService {
     fetch(`http://localhost:3000/products/search/${productName}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error searching products');
+          throw new Error("Error searching products");
         }
 
         return response.json();
@@ -81,7 +128,7 @@ export class ProductsService {
     fetch(`http://localhost:3000/products/category/${category}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error getting products by category');
+          throw new Error("Error getting products by category");
         }
         return response.json();
       })
@@ -89,13 +136,13 @@ export class ProductsService {
         this.products = data;
         this.uniqueBrands = this.getUniqueBrands(data);
       })
-      .catch((error) => console.error('Error:', error));
+      .catch((error) => console.error("Error:", error));
   }
 
   searchProductByCategory(category_id: string) {
-    this.productName = $('#searchBar').val()?.toString() || '';
+    this.productName = $("#searchBar").val()?.toString() || "";
 
-    if (this.productName !== '') {
+    if (this.productName !== "") {
       this.searchProducts(this.productName.trim());
     } else {
       this.getProductsByCategory(category_id);
@@ -118,7 +165,7 @@ export class ProductsService {
 
   searchByNameCategoryAndBrand(category_id: string) {
     this.productName = $("#searchBar").val()?.toString() || "";
-    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "all";
+    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "";
 
     if(this.productName !== "") {
       if(brand === "all") {
@@ -152,7 +199,7 @@ export class ProductsService {
   /* Functionallity for products/:subcategory view */
   searchByNameSubcategoryAndBrand(subcategory: string) {
     this.productName = $("#searchBar").val()?.toString() || "";
-    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "all";
+    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "";
 
     if(this.productName !== "") {
       if(brand === "all") {
@@ -167,13 +214,15 @@ export class ProductsService {
         this.searchBySubcategoryAndBrand(subcategory, brand);
       }
     }
+
+    console.log("Subcategory:", subcategory, "Brand:", brand, "Product:", this.productName);
   }
 
   getProductsBySubcategory(subcategory: string) {
     fetch(`http://localhost:3000/products/subcategory/${subcategory}`)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Error getting products by sub category');
+        throw new Error("Error getting products by sub category");
       }
       return response.json();
     })
@@ -217,14 +266,14 @@ export class ProductsService {
     fetch(`http://localhost:3000/products/brand/${brand}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error getting product details');
+          throw new Error("Error getting product details");
         }
         return response.json();
       })
       .then((data: Product[]) => {
         this.products = data;
       })
-      .catch((error) => console.error('Error:', error));
+      .catch((error) => console.error("Error:", error));
   }
 
   /* Aditional functions */
@@ -242,6 +291,20 @@ export class ProductsService {
     });
 
     return uniqueBrands;
+  }
+
+  generateRatingStars(rating: number) {
+    let stars = "";
+
+    for (let n = 0; n < rating; n++) {
+      stars += "★";
+    }
+
+    while (stars.length < 5) {
+      stars += "☆";
+    }
+
+    return stars;
   }
 
   selectBrand(brand: string): void {
