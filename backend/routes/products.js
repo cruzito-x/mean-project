@@ -7,10 +7,12 @@ router.get("/bestRated", productsController.getBestRatedProducts);
 router.get("/category/:id", productsController.getProductsByCategory);
 router.get("/details/:id", productsController.getProductDetails);
 router.get("/brand/:brand", productsController.getProductsByBrand);
-router.get("/family/:family", productsController.getProductsByFamily);
+router.get("/subcategory/:subcategory", productsController.getProductsByFamily);
 router.get("/products/offers", productsController.getProductsOffers);
 router.get("/search/:name", productsController.searchProductsByName);
-router.get("/search/brand/:category/:brand", productsController.searchProductsByBrand);
-router.get("/search/name/:name/category/:category/brand/:brand?", productsController.searchByNameCategoryAndBrand);
+router.get("/search/category/:category/brand/:brand", productsController.searchProductsByCategoryAndBrand);
+router.get("/search/name/:name/category/:category/brand/:brand", productsController.searchByNameCategoryAndBrand);
+router.get("/search/name/:name/subcategory/:subcategory/brand/:brand", productsController.searchByNameSubcategoryAndBrand);
+router.get("/search/subcategory/:subcategory/brand/:brand", productsController.searchProductsBySubcategoryAndBrand);
 
 module.exports = router;

@@ -52,9 +52,9 @@ exports.getProductsByBrand = async (req, res) => {
 }
 
 exports.getProductsByFamily = async (req, res) => {
-  const familyName = req.params.family;
+  const subcategory = req.params.subcategory;
   try {
-    const products = await Product.find({ 'sub_category' : familyName });
+    const products = await Product.find({ 'sub_category' : subcategory });
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -80,12 +80,12 @@ exports.searchProductsByName = async (req, res) => {
   }
 }
 
-exports.searchProductsByBrand = async (req, res) => {
-  const brand = req.params.brand;
+exports.searchProductsByCategoryAndBrand = async (req, res) => {
   const category = req.params.category;
+  const brand = req.params.brand;
 
   try {
-    const products = await Product.find({ 'brand.name': brand }).find({ 'category_id': category });
+    const products = await Product.find({ 'category_id': category }).find({ 'brand.name': brand });
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -99,6 +99,31 @@ exports.searchByNameCategoryAndBrand = async (req, res) => {
 
   try {
     const products = await Product.find({ 'name': name, 'category_id': category, 'brand.name': brand });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+exports.searchByNameSubcategoryAndBrand = async (req, res) => {
+  const name = req.params.name;
+  const subcategory = req.params.subcategory;
+  const brand = req.params.brand;
+
+  try {
+    const products = await Product.find({ 'name': name, 'sub_category': subcategory, 'brand.name': brand });
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+exports.searchProductsBySubcategoryAndBrand = async (req, res) => {
+  const subcategory = req.params.subcategory;
+  const brand = req.params.brand;
+
+  try {
+    const products = await Product.find({ 'subcategory': subcategory }).find({ 'brand.name': brand });
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
