@@ -26,7 +26,6 @@ export class CategoryComponent implements OnInit {
   subcategory: string = '';
   subsubcategory: string = '';
   itemsPerPage: number = 9;
-  page: number = 1;
   faSearch = faSearch;
   faCartShopping = faCartShopping;
 
@@ -51,7 +50,6 @@ export class CategoryComponent implements OnInit {
         this.productsService.searchByNameCategoryAndBrand(this.category_id);
       });
 
-
     });
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
@@ -59,9 +57,5 @@ export class CategoryComponent implements OnInit {
     .subscribe(isSmallScreen => {
       this.itemsPerPage = isSmallScreen ? 5 : 9;
     });
-  }
-
-  handlePageChange(event: any) {
-    this.page = event;
   }
 }

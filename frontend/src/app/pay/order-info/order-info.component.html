@@ -8,19 +8,19 @@
         <div class="row">
           <div class="col-6 text-start">Sub-Total</div>
           <div class="col-6 text-end">
-            <span> ${{ cartService.getSubTotal() }} </span>
+            <span> ${{ this.cartService.getSubTotal() }} </span>
           </div>
         </div>
         <div class="row">
           <div class="col-6 text-start"> Shipping cost </div>
           <div class="col-6 text-end">
-            <span> ${{ cartService.shippingCost() }} </span>
+            <span> ${{ this.cartService.shippingCost() }} </span>
           </div>
         </div>
       </div>
       <div class="col-12 text-center">
         <hr>
-        <span> ${{ cartService.getSubTotal() + cartService.shippingCost() }} </span>
+        <span> ${{ this.cartService.getSubTotal() + this.cartService.shippingCost() }} </span>
       </div>
     </div>
   </div>

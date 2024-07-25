@@ -19,7 +19,6 @@ export class BrandProductsComponent implements OnInit {
   faCartShopping = faCartShopping;
   brand_name: string = '';
   itemsPerPage = 9;
-  page = 1;
   cartService = inject(CartService);
   productsService = inject(ProductsService);
 
@@ -32,7 +31,6 @@ export class BrandProductsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.brand_name = params['brand'];
 
-      this.productsService.getProductsByBrand(this.brand_name);
       return this.route;
     });
 
@@ -42,9 +40,7 @@ export class BrandProductsComponent implements OnInit {
       .subscribe((isSmallScreen) => {
         this.itemsPerPage = isSmallScreen ? 10 : 9;
       });
-  }
 
-  handlePageChange(event: any) {
-    this.page = event;
+      this.productsService.getProductsByBrand(this.brand_name);
   }
 }

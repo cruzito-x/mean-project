@@ -23,9 +23,8 @@ import $ from "jquery";
 export class ProductsComponent {
   faCartShopping = faCartShopping;
   faSearch = faSearch;
-  category: string = '';
+  subcategory: string = '';
   itemsPerPage = 9;
-  page = 1;
   cartService = inject(CartService);
   productsService = inject(ProductsService);
 
@@ -34,12 +33,12 @@ export class ProductsComponent {
   ngOnInit(): void {
 
     this.route.params.subscribe((params) => {
-      this.category = params['category'];
+      this.subcategory = params['category'];
 
       return this.route;
     });
 
-    this.productsService.getProductsHomeByCategory(this.category);
+    this.productsService.getProductsBySubcategory(this.subcategory);
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
     .pipe(map(result => result.matches))
@@ -48,15 +47,11 @@ export class ProductsComponent {
     });
 
     $("#searchBar").on("keyup", () => {
-      this.productsService.searchProductByName();
+      this.productsService.searchByNameSubcategoryAndBrand(this.subcategory);
     });
 
     $("#searchButton").on("click", () => {
-      this.productsService.searchProductByName();
+      this.productsService.searchByNameSubcategoryAndBrand(this.subcategory);
     });
-  }
-
-  handlePageChange(event: any) {
-    this.page = event;
   }
 }

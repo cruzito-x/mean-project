@@ -19,14 +19,4 @@ export class CartListComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.validateCart();
   }
-
-  deleteItemFromCart = (item: any) => {
-    this.cartService.indexSelectedColor(this.indexColor);
-    this.cartService.deleteItemFromCart(item);
-  }
-
-  getTotalPrice = () => {
-    this.cartService.indexSelectedColor(this.indexColor);
-    return this.cartService.getSubTotal();
-  }
 }

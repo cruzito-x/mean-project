@@ -5,21 +5,21 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="me-3 text-end">
-    @if(cartService.getItems().length > 0) {
-      <label class="text-danger" (click)="cartService.clearCart()" style="cursor: pointer; margin-top: -50px;"> X Clear cart </label>
+    @if(this.cartService.getItems().length > 0) {
+      <label class="text-danger" (click)="this.cartService.clearCart()" style="cursor: pointer; margin-top: -50px;"> X Clear cart </label>
     }
   </div>
   <div class="offcanvas-body">
     <div class="row">
       <div class="col-12">
-        @for (item of cartService.getItems(); track $index) {
+        @for (item of this.cartService.getItems(); track $index) {
         <div class="row">
           <div class="col-4">
             <div class="position-relative">
               <img src="http://localhost:3000/{{item.photo}}" alt="Product" class="img-fluid"
                 style="width: 100px; height: 100px;" />
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                (click)="deleteItemFromCart(item)" style="cursor: pointer;"> x </span>
+                (click)="this.cartService.deleteItemFromCart(item)" style="cursor: pointer;"> x </span>
             </div>
           </div>
           <div class="col-8">
@@ -27,10 +27,10 @@
             <p> {{ item.quantity }} x ${{ item.price }} </p>
             <div class="row mt-2">
               <div class="col-6 text-center">
-                <button type="button" class="btn btn-outline-danger w-100" (click)="cartService.decreaseQuantity(item.id, item.indexColor)"> <span> - </span> </button>
+                <button type="button" class="btn btn-outline-danger w-100" (click)="this.cartService.decreaseQuantity(item.id, item.indexColor)"> <span> - </span> </button>
               </div>
               <div class="col-6 text-center">
-                <button type="button" class="btn btn-outline-primary w-100" (click)="cartService.increaseQuantity(item.id, item.indexColor)"> <span> + </span> </button>
+                <button type="button" class="btn btn-outline-primary w-100" (click)="this.cartService.increaseQuantity(item.id, item.indexColor)"> <span> + </span> </button>
               </div>
             </div>
           </div>
@@ -43,9 +43,9 @@
         }
       </div>
 
-      @if(cartService.getItems().length > 0) {
+      @if(this.cartService.getItems().length > 0) {
       <div class="col-6 text-start d-flex align-items-center">
-        <label class="medium"> Sub-Total: ${{ cartService.getSubTotal() }} </label>
+        <label class="medium"> Sub-Total: ${{ this.cartService.getSubTotal() }} </label>
       </div>
       <div class="col-6 align-items-center">
         <a [routerLink]="['/pay']">

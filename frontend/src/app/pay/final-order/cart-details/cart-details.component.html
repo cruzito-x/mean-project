@@ -1,6 +1,6 @@
 <div class="container p-2 mt-3">
   <div class="row">
-    @for (item of cartService.getItems(); track $index) {
+    @for (item of this.cartService.getItems(); track $index) {
     <div class="col-md-2 col-sm-3">
       <img src="http://localhost:3000/{{item.photo}}" alt="Product" class="img-fluid"
           style="width: 100px; height: 100px;" />

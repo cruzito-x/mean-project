@@ -44,12 +44,12 @@
         }
         @if(isLoggedIn) {
         <li class="nav-item">
-          @if(cartService.getItems().length > 0) {
+          @if(this.cartService.getItems().length > 0) {
             <div class="position-relative">
               <a class="nav-link" title="My cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                 <fa-icon [icon]="faCartShopping"/>
                 <span class="position-absolute top-1 me-2 start-100 translate-middle badge rounded-pill bg-primary">
-                  {{ cartService.getItems().length }}</span>
+                  {{ this.cartService.getItems().length }}</span>
               </a>
             </div>
           } @else {

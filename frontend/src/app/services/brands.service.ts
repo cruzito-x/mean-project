@@ -13,6 +13,7 @@ interface Brands {
 })
 export class BrandsService {
   brands: Brands[] = [];
+  page = 1;
 
   constructor() {}
 

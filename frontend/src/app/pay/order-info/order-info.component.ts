@@ -10,12 +10,4 @@ import { CartService } from '../../services/cart.service';
 })
 export class OrderInfoComponent {
   cartService = inject(CartService);
-  
-  getTotalPrice = () => {
-    return this.cartService.getSubTotal();
-  }
-
-  shippingCost() {
-    return this.cartService.shippingCost();
-  }
 }

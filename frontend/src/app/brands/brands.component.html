@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="row">
-    @for(item of brandsService.brands | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; track item.id) {
+    @for(item of brandsService.brands | paginate: { itemsPerPage: itemsPerPage, currentPage: this.brandsService.page }; track item.id) {
     <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
       <a [routerLink]="['/brand', (item.name).trim().toLowerCase().replace(' ', '')]">
         <div class="card rounded shadow p-2">
@@ -38,7 +38,7 @@
     </div>
     }
     <div class="col-12 mt-4 mb-4 pb-1 d-flex justify-content-end">
-      <pagination-controls previousLabel="" nextLabel="" (pageChange)="handlePageChange($event)" />
+      <pagination-controls previousLabel="" nextLabel="" (pageChange)="this.productsService.handlePageChange($event)" />
     </div>
   </div>
 </div>

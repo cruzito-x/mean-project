@@ -18,7 +18,6 @@ import $ from "jquery";
 })
 export class OffersComponent implements OnInit {
   itemsPerPage: number = 8;
-  page: number = 1;
   faSearch = faSearch;
   faCartShopping = faCartShopping;
   cartService = inject(CartService);
@@ -42,9 +41,5 @@ export class OffersComponent implements OnInit {
     $("#searchButton").on("click", () => {
       this.productsService.searchProductByName();
     });
-  }
-
-  handlePageChange(event: any) {
-    this.page = event;
   }
 }

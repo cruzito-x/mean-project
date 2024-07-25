@@ -7,6 +7,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { BrandsService } from '../services/brands.service';
 import $ from "jquery";
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-brands',
@@ -21,12 +22,12 @@ import $ from "jquery";
 })
 export class BrandsComponent implements OnInit {
   faSearch = faSearch;
-  page = 1;
   itemsPerPage = 24;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   brandsService = inject(BrandsService);
+  productsService = inject(ProductsService);
 
   ngOnInit(): void {
     this.brandsService.getAllBrands();
@@ -37,16 +38,12 @@ export class BrandsComponent implements OnInit {
         this.itemsPerPage = isSmallScreen ? 6 : 24;
       });
 
-      $("#searchBar").on("keyup", () => {
-        this.brandsService.searchBrandByName();
-      });
-  
-      $("#searchButton").on("click", () => {
-        this.brandsService.searchBrandByName();
-      });
-  }
+    $("#searchBar").on("keyup", () => {
+      this.brandsService.searchBrandByName();
+    });
 
-  handlePageChange(event: any) {
-    this.page = event;
+    $("#searchButton").on("click", () => {
+      this.brandsService.searchBrandByName();
+    });
   }
 }
