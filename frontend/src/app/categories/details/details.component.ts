@@ -6,40 +6,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import $ from 'jquery';
 import { ProductsService } from '../../services/products.service';
 
-interface Brand {
-  id: string;
-  name: string;
-}
-
-type Colors = {
-  id: string;
-  color: string;
-};
-
-interface Tags {
-  name: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  brand: Brand[];
-  category_id: string;
-  category: string;
-  created_at: string;
-  description: string;
-  photo: string;
-  colors: Colors[];
-  price: number;
-  discount: number;
-  rating: number;
-  stock: number;
-  sub_category: string;
-  tags: Tags[];
-  technical_specifications: string;
-  updated_at: string | null;
-}
-
 @Component({
   selector: 'app-details',
   standalone: true,
@@ -48,7 +14,6 @@ interface Product {
   styleUrl: './details.component.css',
 })
 export class DetailsComponent implements OnInit {
-  products: Product[] = [];
   faCartShopping = faCartShopping;
   faInfoCircle = faInfoCircle;
   faTags = faTags;
@@ -65,9 +30,10 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.product_id = params['id'];
 
-      this.getProductDetails(this.product_id);
       return this.route;
     });
+
+    this.productsService.getProductDetails(this.product_id);
   }
 
   getBorderColor(index: number): void {
@@ -84,26 +50,12 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  getProductDetails(product: string) {
-    fetch(`http://localhost:3000/products/details/${product}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error getting product details');
-        }
-        return response.json();
-      })
-      .then((data: Product[]) => {
-        this.products = data;
-      })
-      .catch((error) => console.error('Error:', error));
-  }
-
   indexSelectedColor(indexSelectedColor: number) {
     this.cartService.indexSelectedColor(indexSelectedColor);
     this.indexColor = indexSelectedColor;
   }
 
-  addToCart(product: Product) {
+  addToCart(product: any) {
     this.cartService.quantity = parseInt($("#quantity").val() as string);
     this.cartService.indexSelectedColor(this.indexColor);
     this.cartService.addToCart(product);

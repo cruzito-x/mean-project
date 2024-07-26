@@ -6,8 +6,16 @@ interface Brand {
   name: string;
 }
 
-interface Colors {
+interface Tags {
   name: string;
+}
+
+interface Photo {
+  url: string;
+}
+
+interface Colors {
+  color: string;
 }
 
 interface Product {
@@ -18,7 +26,8 @@ interface Product {
   category: string;
   created_at: string;
   description: string;
-  photo: string;
+  tags: Tags[];
+  photo: Photo[];
   colors: Colors[];
   price: number;
   discount: number;
@@ -199,7 +208,7 @@ export class ProductsService {
   /* Functionallity for products/:subcategory view */
   searchByNameSubcategoryAndBrand(subcategory: string) {
     this.productName = $("#searchBar").val()?.toString() || "";
-    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "";
+    let brand: string = $("#"+this.selectedBrand).val()?.toString().toLowerCase() || "all";
 
     if(this.productName !== "") {
       if(brand === "all") {
@@ -214,8 +223,6 @@ export class ProductsService {
         this.searchBySubcategoryAndBrand(subcategory, brand);
       }
     }
-
-    console.log("Subcategory:", subcategory, "Brand:", brand, "Product:", this.productName);
   }
 
   getProductsBySubcategory(subcategory: string) {
@@ -274,6 +281,21 @@ export class ProductsService {
         this.products = data;
       })
       .catch((error) => console.error("Error:", error));
+  }
+
+  /* */
+  getProductDetails(product: string) {
+    fetch(`http://localhost:3000/products/details/${product}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error getting product details');
+        }
+        return response.json();
+      })
+      .then((data: Product[]) => {
+        this.products = data;
+      })
+      .catch((error) => console.error('Error:', error));
   }
 
   /* Aditional functions */

@@ -19,13 +19,13 @@
     </div>
     <div class="col-12">
       <div class="row">
-        @for(item of productsService.products| paginate: { itemsPerPage: itemsPerPage, currentPage: this.productsService.page }; track $index) {
-          @if(productsService.products[0].discount > 0) {
+        @for(item of this.productsService.products| paginate: { itemsPerPage: itemsPerPage, currentPage: this.productsService.page }; track $index) {
+          @if(this.productsService.products[0].discount > 0) {
             <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
               <div class="card rounded shadow mb-2 p-2">
                 <div class="row">
                   <div class="col-12">
-                    <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo" [alt]="item.name" style="height: 300px;">
+                    <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo[0].url" [alt]="item.name" style="height: 300px;">
                   </div>
                   <div class="row">
                     <div class="col-12">

@@ -179,7 +179,7 @@
           @for(item of this.productsService.products; track $index) {
           <div class="col-lg-2 col-md-4 col-sm-6">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}} </p>
@@ -239,7 +239,7 @@
           @for(item of this.productsService.products.slice(0, 2); track $index) {
           <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
@@ -280,7 +280,7 @@
           @for(item of this.productsService.products.slice(2, 4); track $index) {
           <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
@@ -322,7 +322,7 @@
           @for(item of this.productsService.products.slice(4, 6); track $index) {
           <div class="col-sm-6 p-3">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo}}" alt="{{item.name}}"
+              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
@@ -385,7 +385,7 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
               <a class="text-decoration-none text-black"
@@ -423,7 +423,7 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
               {{(item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()}}
@@ -459,7 +459,7 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
               <a class="text-decoration-none text-black"
