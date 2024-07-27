@@ -16,7 +16,13 @@
           <div class="row mt-2">
             <div class="col-md-10 col-sm-8">
               <label class="medium"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
-              <p> {{ item.quantity }} x ${{ item.price }} </p>
+              <p> {{ item.quantity }} x @if(item.discount === 0) {
+                <span class="text-primary"> ${{ item.price }} </span>
+              } @else {
+                <span class="text-primary">
+                  ${{ item.price - (item.price*item.discount) }} <span class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{item.price}} </span>
+                </span>
+              } </p>
             </div>
             <div class="col-md-2 col-sm-4 d-flex align-items-center">
               <button type="button" class="btn btn-outline-danger w-50 me-2" (click)="this.cartService.decreaseQuantity(item.id, item.indexColor)"> <span> - </span> </button>
