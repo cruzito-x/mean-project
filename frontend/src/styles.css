@@ -20,3 +20,7 @@
   -webkit-line-clamp: 3;
   white-space: normal;
 }
+
+.text-breaker-sm {
+  -webkit-line-clamp: 2;
+}

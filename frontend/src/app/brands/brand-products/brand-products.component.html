@@ -1,4 +1,14 @@
-<div class="container p-2 mt-3">
+<div class="container ps-2 mt-2">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="/"> <fa-icon [icon]="faHome" /> </a></li>
+      <li class="breadcrumb-item"> <a class="text-decoration-none" href="/brands"> Brands </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> {{ (brand_name+' products').toUpperCase() }} </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container mt-2">
   <h3> {{ (brand_name+' products').toUpperCase() }} </h3>
   <hr>
   <div class="row">

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -16,6 +16,7 @@ import { ProductsService } from '../../services/products.service';
   styles: ``,
 })
 export class BrandProductsComponent implements OnInit {
+  faHome = faHome;
   faCartShopping = faCartShopping;
   brand_name: string = '';
   itemsPerPage = 9;

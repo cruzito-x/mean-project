@@ -62,8 +62,6 @@ export class CartService {
   }
 
   getSubTotal() {
-    console.log(this.items);
-
     if(this.items[0].discount === 0) {
       return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
     } else {

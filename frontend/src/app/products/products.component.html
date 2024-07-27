@@ -1,4 +1,13 @@
-<div class="container p-2 mt-3">
+<div class="container ps-2 mt-2">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="/"> <fa-icon [icon]="faHome" /> </a> </li>
+      <li class="breadcrumb-item active" aria-current="page"> {{ subcategory.toUpperCase().replace('_', ' ').replace('CPU', "CPU'S") }} </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container p-2">
   <h3> {{ subcategory.toUpperCase().replace('_', ' ').replace('CPU', "CPU'S") }} </h3>
   <hr>
   <div class="row">
@@ -21,7 +30,7 @@
               </div>
             </div>
             @for(item of this.productsService.uniqueBrands; track $index) {
-              <div class="col-md-12 col-sm-3">
+              <div class="col-md-12 col-sm-3 mb-2">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" id="brand-{{ $index }}" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.selectBrand('brand-'+$index); this.productsService.searchByNameSubcategoryAndBrand(subcategory);" />
                   <label class="form-check-label" for="brand-{{ $index }}"> {{ (item.name).toUpperCase() }} </label>

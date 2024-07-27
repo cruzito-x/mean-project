@@ -1,6 +1,6 @@
 <div class="container p-2">
   <div class="row">
-    @for(category of categories; track category.id) {
+    @for(category of this.categoriesService.categories; track category.id) {
     <div class="col-lg-3 col-sm-6">
       <div class="card mb-4 rounded shadow">
         <img class="card-img-top" src="{{'http://localhost:3000/'+category.photo}}" alt="{{ category.name }}">

@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSearch, faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSearch, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
@@ -26,6 +26,7 @@ export class CategoryComponent implements OnInit {
   subcategory: string = '';
   subsubcategory: string = '';
   itemsPerPage: number = 9;
+  faHome = faHome;
   faSearch = faSearch;
   faCartShopping = faCartShopping;
 

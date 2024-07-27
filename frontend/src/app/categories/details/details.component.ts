@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping, faInfoCircle, faTags } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCartShopping, faInfoCircle, faTags } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import $ from 'jquery';
 import { ProductsService } from '../../services/products.service';
@@ -15,6 +15,7 @@ import { ProductsService } from '../../services/products.service';
   styleUrl: './details.component.css',
 })
 export class DetailsComponent implements OnInit {
+  faHome = faHome;
   faCartShopping = faCartShopping;
   faInfoCircle = faInfoCircle;
   faTags = faTags;

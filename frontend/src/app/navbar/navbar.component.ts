@@ -36,18 +36,6 @@ export class NavbarComponent {
     this.isLoggedIn = localStorage.getItem("isLoggedIn") || false;
   }
 
-  logOut() {
-    Swal.fire({
-      text: "☆ Thanks for visit CinnaTech Store! ☆",
-      icon: "success",
-      confirmButtonColor: "#007bff",
-      confirmButtonText: "Accept"
-    }).then(() => {
-      localStorage.clear();
-      window.location.href = "/";
-    });
-  }
-
   constructor() {
     this.form = new FormGroup({
       email: new FormControl(""),

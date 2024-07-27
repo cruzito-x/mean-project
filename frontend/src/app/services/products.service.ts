@@ -85,7 +85,7 @@ export class ProductsService {
         return response.json();
       })
       .then((data: Product[]) => {
-        this.bestRatedProducts = data.slice(0, 6);
+        this.bestRatedProducts = data;
       })
       .catch((error) => {
         console.error('Error:', error);

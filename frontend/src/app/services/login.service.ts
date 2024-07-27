@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom, Observable } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { firstValueFrom } from 'rxjs';
 import Swal from 'sweetalert2';
 
 interface Users {
@@ -16,6 +17,7 @@ export class LoginService {
   private httpClient = inject(HttpClient);
   private host: string;
   public user: Users[] = [];
+  private jwtHelper = new JwtHelperService();
 
   constructor() {
     this.host = 'http://localhost:3000/users';
@@ -43,8 +45,8 @@ export class LoginService {
     }
   }
 
-  async getUserByToken(token: string) {
-    fetch(`${this.host}/details`, {
+  async getUserByToken(token: string): Promise<any> {
+    return fetch(`${this.host}/details`, {
       method: 'get',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -63,6 +65,30 @@ export class LoginService {
     .catch(error => {
       console.error('Error:', error);
     });
+  }
+
+  isTokenExpired(token: string): boolean {
+    return this.jwtHelper.isTokenExpired(token);
+  }
+
+  logOut() {
+    Swal.fire({
+      text: "☆ Thanks for visit CinnaTech Store! ☆",
+      icon: "success",
+      confirmButtonColor: "#007bff",
+      confirmButtonText: "Accept"
+    }).then(() => {
+      localStorage.clear();
+      window.location.href = "/";
+    });
+  }
+
+  expiredToken() {
+    const token: any = localStorage.getItem("token");
+    if (this.isTokenExpired(token) && token !== null) {
+      this.logOut();
+      localStorage.clear();
+    }
   }
 
   async updateUser(token: string, formValue: any) {

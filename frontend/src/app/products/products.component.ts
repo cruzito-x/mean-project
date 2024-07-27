@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
@@ -21,6 +21,7 @@ import $ from "jquery";
   `
 })
 export class ProductsComponent {
+  faHome = faHome;
   faCartShopping = faCartShopping;
   faSearch = faSearch;
   subcategory: string = '';

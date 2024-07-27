@@ -1,7 +1,18 @@
-<div class="container p-2 mt-3">
+<div class="container ps-2 mt-2">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> <a href="/"> <fa-icon [icon]="faHome" /> </a> </li>
+      <li class="breadcrumb-item"> <a class="text-decoration-none" href="/categories">  Categories </a> </li>
+      <li class="breadcrumb-item"> <a class="text-decoration-none" href="/categories"> {{ this.productsService.products[0].category.toUpperCase() }} </a> </li>
+      <li class="breadcrumb-item active" aria-current="page"> {{ this.productsService.products[0].name.toUpperCase() }} </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container p-2">
   <div class="row">
     <div class="col-12">
-      <h3> {{ (this.productsService.products[0].category+' '+this.productsService.products[0].brand[0].name +' '+ this.productsService.products[0].name).toUpperCase() }} </h3>
+      <h3> {{ (this.productsService.products[0].category.replace("consoles", "console")+" "+this.productsService.products[0].brand[0].name +" "+ this.productsService.products[0].name).toUpperCase() }} </h3>
       <hr>
       <div class="row">
         <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">

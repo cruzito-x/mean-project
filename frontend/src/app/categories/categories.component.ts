@@ -1,18 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-interface Subcategory {
-  id: string;
-  name: string;
-  subcategories: Subcategory[];
-}
-
-interface Categories {
-  id: number;
-  name: string;
-  photo: string;
-  subcategories: Subcategory[];
-}
+import { CategoriesService } from '../services/categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -22,25 +10,9 @@ interface Categories {
   styles: ``
 })
 export class CategoriesComponent implements OnInit {
-  categories: Categories[] = [];
+  categoriesService = inject(CategoriesService);
 
   ngOnInit() {
-    this.getAllCategories();
-  }
-
-  getAllCategories() {
-    fetch('http://localhost:3000/categories')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error to get categories');
-        }
-        return response.json();
-      })
-      .then((data: Categories[]) => {
-        this.categories = data;
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    this.categoriesService.getAllCategories();
   }
 }

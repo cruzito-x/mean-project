@@ -244,7 +244,7 @@
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
-                <a class="text-decoration-none text-black"
+                <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                   [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                   {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}} </a>
                 <hr>
@@ -285,7 +285,7 @@
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
-                <a class="text-decoration-none text-black"
+                <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                   [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                   {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
                 </a>
@@ -327,7 +327,7 @@
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary"> {{item.category}} </p>
-                <a class="text-decoration-none text-black"
+                <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                   [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                   {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
                 </a>
@@ -389,7 +389,7 @@
               <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
-              <a class="text-decoration-none text-black"
+              <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                 [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                 {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
               </a>
@@ -419,26 +419,20 @@
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular categories </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @if(this.productsService.products.length > 0) {
-        @for(item of this.productsService.products.slice(0, 5); track $index) {
+        @if(this.categoriesService.categories.length > 0) {
+        @for(item of this.categoriesService.categories; track $index) {
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
-              <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
+              <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
             </div>
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
-              {{(item.category +' ' + item.brand[0].name +' ' + item.name).toUpperCase()}}
+              <span class="text-breaker"> {{item.name.toUpperCase()}} </span>
               <div class="align-items-center">
-                <span> Price:
-                  @if(item.discount > 0) {
-                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span
-                      class="text-secondary" style="text-decoration:line-through; font-size: 12px;"> ${{ item.price }}
-                    </span> </span>
-                  } @else {
-                  <span class="text-primary">${{item.price}}</span>
-                  }
-                </span> <br>
-                <span> Rating: <span class="text-warning"> {{this.productsService.generateRatingStars(item.rating)}} </span> </span>
+                <span> Most popular cat: {{ item.subcategories[0].name }}
+                  <span> Most popular: <a class="text-decoration-none text-breaker text-breaker-sm text-primary" [routerLink]="['/category', item.name.toLowerCase().replace(' ', '_'), item.subcategories[0].name.toLowerCase().replace(' ', '_'), item.subcategories[0].subcategories[0].name.toLowerCase().replace(' ', '_').replace('', ''), item.subcategories[0].subcategories[0].id]"> {{ item.subcategories[0].subcategories[0].name }} </a>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -455,7 +449,7 @@
       <h5> Best rated </h5>
       <ul class="text-start list-group list-group-flush mt-4">
         @if(this.productsService.products.length > 0) {
-        @for(item of this.productsService.bestRatedProducts.slice(0, 5); track $index) {
+        @for(item of this.productsService.bestRatedProducts; track $index) {
         @if(item.rating >= 3) {
         <li class="list-group-item">
           <div class="row">
@@ -463,7 +457,7 @@
               <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
-              <a class="text-decoration-none text-black"
+              <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                 [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                 {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
               </a>
