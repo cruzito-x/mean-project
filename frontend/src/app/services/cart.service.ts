@@ -62,7 +62,13 @@ export class CartService {
   }
 
   getSubTotal() {
-    return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
+    console.log(this.items);
+
+    if(this.items[0].discount === 0) {
+      return this.items.reduce((total, item) => total + item.price * item.quantity, 0);
+    } else {
+      return this.items.reduce((total, item) => total + (item.price - (item.price * item.discount)) * item.quantity, 0);
+    }
   }
 
   validateCart() {
