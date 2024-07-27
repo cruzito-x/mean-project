@@ -12,7 +12,7 @@ exports.getAllProducts = async (req, res) => {
 
 exports.getBestRatedProducts = async (req, res) => {
   try {
-    const bestRated = await Product.find().sort({ 'rating': -1 });
+    const bestRated = await Product.find().sort({ 'rating': -1 }).limit(5);
     res.status(200).json(bestRated);
   } catch (error) {
     res.status(500).json({ message: error.message });
