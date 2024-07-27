@@ -198,7 +198,7 @@
                         class="text-secondary text-decoration-line-through"
                         style="font-size: 14px;">${{item.price}}</span> </span>
                     } @else {
-                    <span> ${{item.price}} </span>
+                    <span class="text-primary"> ${{item.price}} </span>
                     }
                   </div>
                   <div class="col-12">
@@ -249,13 +249,13 @@
                   {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}} </a>
                 <hr>
                 <div class="row text-center">
-                  <div class="col-12 mb-2">
+                  <div class="col-12 mb-2"> Price:
                     @if(item.discount > 0) {
-                    <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span
+                    <span class="text-primary me-4">${{ item.price - (item.price*item.discount) }} <span
                         class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }}
                       </span> </span>
                     } @else {
-                    <span class="me-4">${{item.price}}</span>
+                    <span class="text-primary me-4">${{item.price}}</span>
                     }
                   </div>
                   <div class="col-12">
@@ -291,13 +291,13 @@
                 </a>
                 <hr>
                 <div class="row text-center">
-                  <div class="col-12 mb-2">
+                  <div class="col-12 mb-2"> Price:
                     @if(item.discount > 0) {
-                    <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span
+                    <span class="text-primary me-4">${{ item.price - (item.price*item.discount) }} <span
                         class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }}
                       </span> </span>
                     } @else {
-                    <span class="me-4">${{item.price}}</span>
+                    <span class="text-primary me-4">${{item.price}}</span>
                     }
                   </div>
                   <div class="col-12">
@@ -333,13 +333,13 @@
                 </a>
                 <hr>
                 <div class="row text-center">
-                  <div class="col-12 mb-2">
+                  <div class="col-12 mb-2">Price:
                     @if(item.discount > 0) {
-                    <span class="me-4"> ${{ item.price - (item.price*item.discount) }} <span
+                    <span class="text-primary me-4"> ${{ item.price - (item.price*item.discount) }} <span
                         class="text-secondary text-decoration-line-through" style="font-size: 14px;"> ${{ item.price }}
                       </span> </span>
                     } @else {
-                    <span class="me-4">${{item.price}}</span>
+                    <span class="text-primary me-4">${{item.price}}</span>
                     }
                   </div>
                   <div class="col-12">
@@ -429,8 +429,8 @@
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
               <span class="text-breaker"> {{item.name.toUpperCase()}} </span>
               <div class="align-items-center">
-                <span> Most popular cat: {{ item.subcategories[0].name }}
-                  <span> Most popular: <a class="text-decoration-none text-breaker text-breaker-sm text-primary" [routerLink]="['/category', item.name.toLowerCase().replace(' ', '_'), item.subcategories[0].name.toLowerCase().replace(' ', '_'), item.subcategories[0].subcategories[0].name.toLowerCase().replace(' ', '_').replace('', ''), item.subcategories[0].subcategories[0].id]"> {{ item.subcategories[0].subcategories[0].name }} </a>
+                <span> Category: {{ item.subcategories[0].name }} <br>
+                  <span> Sub-category: <a class="text-decoration-none text-primary" [routerLink]="['/category', item.name.toLowerCase().replace(' ', '_'), item.subcategories[0].name.toLowerCase().replace(' ', '_'), item.subcategories[0].subcategories[0].name.toLowerCase().replace(' ', '_').replace('', ''), item.subcategories[0].subcategories[0].id]"> {{ item.subcategories[0].subcategories[0].name }} </a>
                   </span>
                 </span>
               </div>
