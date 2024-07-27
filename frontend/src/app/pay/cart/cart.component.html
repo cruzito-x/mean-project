@@ -15,7 +15,7 @@
         <div class="col-md-10 col-sm-8 text-start">
           <div class="row mt-2">
             <div class="col-md-10 col-sm-8">
-              <label class="medium"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
+              <label class="medium text-breaker"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
               <p> {{ item.quantity }} x @if(item.discount === 0) {
                 <span class="text-primary"> ${{ item.price }} </span>
               } @else {

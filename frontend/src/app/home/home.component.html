@@ -179,11 +179,11 @@
           @for(item of this.productsService.products; track $index) {
           <div class="col-lg-2 col-md-4 col-sm-6">
             <div class="card rounded shadow-sm">
-              <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
+              <img class="img-fluid rounded-top p-2" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}} </p>
-                <p class="card-title">
+                <p class="card-title text-breaker">
                   <a class="text-decoration-none text-black"
                     [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                     {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
