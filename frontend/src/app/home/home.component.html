@@ -192,8 +192,9 @@
                 <hr>
                 <div class="row text-center">
                   <div class="col-12 mb-2">
+                    Price:
                     @if(item.discount > 0) {
-                    <span> ${{ item.price - (item.price*item.discount) }} <span
+                    <span class="text-primary"> ${{ item.price - (item.price*item.discount) }} <span
                         class="text-secondary text-decoration-line-through"
                         style="font-size: 14px;">${{item.price}}</span> </span>
                     } @else {

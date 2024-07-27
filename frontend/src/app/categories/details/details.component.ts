@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { CartService } from '../../services/cart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping, faInfoCircle, faTags } from '@fortawesome/free-solid-svg-icons';
@@ -24,11 +25,14 @@ export class DetailsComponent implements OnInit {
   cartService = inject(CartService);
   productsService = inject(ProductsService);
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private titleService: Title) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.product_id = params['id'];
+
+      const title = `CinnaTech Store | ${this.productsService.products[0].name} details`
+      this.titleService.setTitle(title);
 
       return this.route;
     });

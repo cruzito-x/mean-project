@@ -20,12 +20,12 @@ export const routes: Routes = [
   { path: "account", component: AccountComponent },
   { path: "categories", component: CategoriesComponent },
   { path: "category/:category/:subcategory/:subsubcategory/:id", component: CategoryComponent },
-  { path: "details/:name/:id", component: DetailsComponent},
+  { path: "details/:name/:id", component: DetailsComponent },
   { path: "offers", component: OffersComponent },
-  { path: "brands", component: BrandsComponent},
-  { path: "brand/:brand", component: BrandProductsComponent},
-  { path: "pay", component: PayComponent},
-  { path: "products/:category", component: ProductsComponent},
+  { path: "brands", component: BrandsComponent },
+  { path: "brand/:brand", component: BrandProductsComponent },
+  { path: "pay", component: PayComponent },
+  { path: "products/:category", component: ProductsComponent },
   { path: "cinnatech/:info", component: FooterDetailsComponent },
   { path: "**", component: NotFoundComponent }
 ];

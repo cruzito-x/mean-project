@@ -22,9 +22,14 @@
   border: solid 1px #cacbcf;
 }
 
-.bg-blue, .bg-neon-blue {
+.bg-blue {
   background-color: #007bff;
   color: #ffffff;
+}
+
+.bg-red-blue {
+  background-image: linear-gradient(to left, #ff514a 50%, #007bff 50%);
+  transform: rotate(45deg);
 }
 
 .bg-purple {
@@ -54,11 +59,6 @@
 
 .bg-turquoise {
   background-color: #00bdc3;
-  color: #ffffff;
-}
-
-.bg-yellow {
-  background-color: #ffc107;
   color: #ffffff;
 }
 

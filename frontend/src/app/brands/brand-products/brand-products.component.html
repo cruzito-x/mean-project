@@ -10,13 +10,13 @@
             <img class="img-fluid rounded-top" [src]="'http://localhost:3000/'+item.photo[0].url" [alt]="item.name" style="height: 300px;">
           </div>
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 p-0">
               <div class="card-body">
                 <h5 class="card-title fs-6"> {{ (item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
                 <p class="card-text"> Price: @if(item.discount > 0) {
-                  <span> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
+                  <span class="text-primary"> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
                 } @else {
-                  <span> ${{item.price}} </span>
+                  <span class="text-primary"> ${{item.price}} </span>
                 } </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 interface Brands {
   id: number;
@@ -9,19 +9,18 @@ interface Brands {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class BrandsService {
   brands: Brands[] = [];
-  page = 1;
 
   constructor() {}
 
   getAllBrands() {
-    fetch('http://localhost:3000/brands')
+    fetch("http://localhost:3000/brands")
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error to get brands');
+          throw new Error("Error to get brands");
         }
         return response.json();
       })
@@ -29,12 +28,12 @@ export class BrandsService {
         this.brands = data;
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   }
 
   searchBrandByName() {
-    let brand = $("#searchBar").val()?.toString() || '';
+    let brand = $("#searchBar").val()?.toString() || "";
 
     if(brand !== "") {
       this.searchBrands(brand.trim());
@@ -47,7 +46,7 @@ export class BrandsService {
     fetch(`http://localhost:3000/brands/search/${brand}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Error searching brand');
+          throw new Error("Error searching brand");
         }
 
         return response.json();

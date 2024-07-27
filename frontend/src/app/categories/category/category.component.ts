@@ -40,16 +40,17 @@ export class CategoryComponent implements OnInit {
       this.category = params['category'];
       this.subcategory = params['subcategory'];
       this.subsubcategory = params['subsubcategory'];
-      this.productsService.getProductsByCategory(this.category_id);
+    });
 
-      $("#searchBar").on("keyup", () => {
-        this.productsService.searchByNameCategoryAndBrand(this.category_id);
-      });
-  
-      $("#searchButton").on("click", () => {
-        this.productsService.searchByNameCategoryAndBrand(this.category_id);
-      });
+    this.productsService.getProductsByCategory(this.category_id);
+    this.productsService.selectBrand("all");
 
+    $("#searchBar").on("keyup", () => {
+      this.productsService.searchByNameCategoryAndBrand(this.category_id);
+    });
+    
+    $("#searchButton").on("click", () => {
+      this.productsService.searchByNameCategoryAndBrand(this.category_id);
     });
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])

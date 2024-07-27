@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-4">
             <div class="position-relative">
-              <img src="http://localhost:3000/{{item.photo}}" alt="Product" class="img-fluid"
+              <img src="http://localhost:3000/{{item.photo[0].url}}" alt="Product" class="img-fluid"
                 style="width: 100px; height: 100px;" />
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 (click)="this.cartService.deleteItemFromCart(item)" style="cursor: pointer;"> x </span>

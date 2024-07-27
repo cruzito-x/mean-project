@@ -6,9 +6,9 @@
       <div class="row">
         <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
           <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-3">
+            <div class="col-lg-2 col-md-3 col-sm-3 d-md-block d-none">
               @for(item of this.productsService.products[0].photo; track $index) {
-                <img src="http://localhost:3000/{{ item.url }}" alt="" class="img-fluid p-2 rounded w-75 mb-2" style="border: 1.5px solid #cacbcf;">
+                <img src="http://localhost:3000/{{ item.url }}" alt="" class="img-fluid p-2 rounded w-75 mb-2">
               }
             </div>
             <div class="col-lg-10 col-md-9 col-sm-9 d-flex justify-content-center">
