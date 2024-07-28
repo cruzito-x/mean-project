@@ -28,7 +28,7 @@
 }
 
 .bg-red-blue {
-  background-image: linear-gradient(to left, #ff514a 50%, #007bff 50%);
+  background-image: linear-gradient(to right, #ff514a 50%, #007bff 50%);
   transform: rotate(45deg);
 }
 
