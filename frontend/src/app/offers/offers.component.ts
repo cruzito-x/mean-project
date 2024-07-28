@@ -14,7 +14,7 @@ import $ from "jquery";
   standalone: true,
   imports: [FontAwesomeModule, RouterLink, NgxPaginationModule],
   templateUrl: './offers.component.html',
-  styleUrl: './offers.component.css'
+  styles: ``
 })
 export class OffersComponent implements OnInit {
   itemsPerPage: number = 8;

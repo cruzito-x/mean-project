@@ -55,7 +55,7 @@
                 <div class="row">
                   <div class="col-12 p-0">
                     <div class="card-body">
-                      <h5 class="card-title text-breaker fs-6"> {{ ((subsubcategory).replace("_", " ").replace("'s", "").replace("graphic cards", "gpu").replace("intel", "").replace("amd", "")+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
+                      <h5 class="card-title text-breaker fs-6" style="height: 38.38px;"> {{ ((subsubcategory).replace("_", " ").replace("'s", "").replace("graphic cards", "gpu").replace("intel", "").replace("amd", "")+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </h5>
                       <p class="card-text"> Price: @if(item.discount > 0) {
                         <span class="text-primary"> ${{ item.price - (item.price*item.discount) }}  <span  class="text-secondary text-decoration-line-through" style="font-size: 14px;">${{item.price}}</span> </span>
                       } @else {

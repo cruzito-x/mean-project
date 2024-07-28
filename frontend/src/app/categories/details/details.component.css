@@ -63,17 +63,22 @@
 }
 
 .bg-white-blue {
-  background-image: linear-gradient(to left, #007bff 50%, #f7f7f7 50%);
+  background-image: linear-gradient(to right, #f7f7f7 50%, #007bff 50%);
   transform: rotate(45deg);
 }
 
 .bg-black-green {
-  background-image: linear-gradient(to left, #28a745 50%, #000000 50%);
+  background-image: linear-gradient(to right, #000000 50%, #28a745 50%);
   transform: rotate(45deg);
 }
 
 .bg-black-gray {
-  background-image: linear-gradient(to left, #c9c9c9 50%, #000000 50%);
+  background-image: linear-gradient(to right, #000000 50%, #c9c9c9 50%);
+  transform: rotate(45deg);
+}
+
+.bg-black-red {
+  background-image: linear-gradient(to right, #000000 50%, #FE0009 50%);
   transform: rotate(45deg);
 }
 

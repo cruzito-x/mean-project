@@ -183,10 +183,10 @@
                 style="height: 175px;">
               <div class="card-body">
                 <p class="category text-secondary">{{item.category}} </p>
-                <p class="card-title text-breaker">
+                <p class="card-title text-breaker" style="height: 72px;">
                   <a class="text-decoration-none text-black"
                     [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                    {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                    {{(item.category.replace("consoles", "console") + " " + item.brand[0].name + " " + item.name).toUpperCase()}}
                   </a>
                 </p>
                 <hr>
@@ -246,7 +246,7 @@
                 <p class="category text-secondary"> {{item.category}} </p>
                 <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                   [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}} </a>
+                  {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}} </a>
                 <hr>
                 <div class="row text-center">
                   <div class="col-12 mb-2"> Price:
@@ -287,7 +287,7 @@
                 <p class="category text-secondary"> {{item.category}} </p>
                 <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                   [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                  {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
                 </a>
                 <hr>
                 <div class="row text-center">
@@ -329,7 +329,7 @@
                 <p class="category text-secondary"> {{item.category}} </p>
                 <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                   [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                  {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                  {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
                 </a>
                 <hr>
                 <div class="row text-center">
@@ -391,7 +391,7 @@
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
               <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                 [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
               </a>
               <div class="align-items-center">
                 <span> Price:
@@ -430,7 +430,7 @@
               <span class="text-breaker"> {{item.name.toUpperCase()}} </span>
               <div class="align-items-center">
                 <span> Category: {{ item.subcategories[0].name }} <br>
-                  <span> Sub-category: <a class="text-decoration-none text-primary" [routerLink]="['/category', item.name.toLowerCase().replace(' ', '_'), item.subcategories[0].name.toLowerCase().replace(' ', '_'), item.subcategories[0].subcategories[0].name.toLowerCase().replace(' ', '_').replace('', ''), item.subcategories[0].subcategories[0].id]"> {{ item.subcategories[0].subcategories[0].name }} </a>
+                  <span> Principal section: <a class="text-decoration-none text-primary" [routerLink]="['/category', item.name.toLowerCase().replace(' ', '_'), item.subcategories[0].name.toLowerCase().replace(' ', '_'), item.subcategories[0].subcategories[0].name.toLowerCase().replace(' ', '_').replace('', ''), item.subcategories[0].subcategories[0].id]"> {{ item.subcategories[0].subcategories[0].name }} </a>
                   </span>
                 </span>
               </div>
@@ -459,7 +459,7 @@
             <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
               <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                 [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
-                {{(item.category + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
+                {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
               </a>
               <div class="align-items-center">
                 <span> Price:
