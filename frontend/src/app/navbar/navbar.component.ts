@@ -4,14 +4,14 @@ import { faSearch, faUser, faCartShopping, faSignOut, faEnvelope, faLock } from 
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginService } from "../services/login.service";
 import { CartService } from "../services/cart.service";
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { RouterOutlet } from "@angular/router";
 import Swal from "sweetalert2";
 import $ from "jquery";
 
 @Component({
   selector: "app-navbar",
   standalone: true,
-  imports: [FontAwesomeModule, FormsModule, ReactiveFormsModule, RouterOutlet, RouterLink],
+  imports: [FontAwesomeModule, FormsModule, ReactiveFormsModule, RouterOutlet],
   templateUrl: "./navbar.component.html",
   styles: `
   .nav-item, .nav-link {

@@ -25,11 +25,17 @@ export class BrandsService {
         return response.json();
       })
       .then((data: Brands[]) => {
-        this.brands = data;
+        this.brands = data.sort((a, b) => a.name.localeCompare(b.name));
       })
       .catch((error) => {
         console.error("Error:", error);
       });
+  }
+
+  sortBrands(event: Event): void {
+    let order = (event.target as HTMLSelectElement).value;
+    
+    order === "asc" ? this.brands.sort((a, b) => a.name.localeCompare(b.name)) : this.brands.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   searchBrandByName() {
