@@ -1,5 +1,5 @@
 <div class="container p-2">
-  <div id="carouselExampleCaptions" class="carousel slide pt-2">
+  <div id="carouselExampleCaptions" class="carousel slide pt-2" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
@@ -14,7 +14,7 @@
           class="d-block w-100 rounded" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5> Build your computer!</h5>
-          <p>You can go to our local, we will build your PC.</p>
+          <p> You can go to our local, we will build your PC. </p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
@@ -22,7 +22,7 @@
           class="d-block w-100 rounded" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5> New models </h5>
-          <p>Come to our local to get the new products!</p>
+          <p> Come to our local to get the new products! </p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
@@ -30,7 +30,7 @@
           class="d-block w-100 rounded" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5> Gamer accesories </h5>
-          <p> For gaming and productivity</p>
+          <p> For gaming and productivity. </p>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
           <div class="card shadow">
             <img class="img-fluid rounded" src="../assets/img/consoles.jpg" alt="">
             <div class="overlay">
-              <span>Consoles</span>
+              <span> Consoles </span>
             </div>
           </div>
         </a>
@@ -122,7 +122,7 @@
           <div class="card shadow">
             <img class="img-fluid rounded" src="../assets/img/peripherals.jpg" alt="">
             <div class="overlay">
-              <span>Peripherals</span>
+              <span> Peripherals </span>
             </div>
           </div>
         </a>
@@ -132,7 +132,7 @@
           <div class="card shadow">
             <img class="img-fluid rounded" src="../assets/img/intel.jpg" alt="">
             <div class="overlay">
-              <span>Intel CPU's</span>
+              <span> Intel CPU's </span>
             </div>
           </div>
         </a>
@@ -142,7 +142,7 @@
           <div class="card shadow">
             <img class="img-fluid rounded" src="../assets/img/amd.jpg" alt="">
             <div class="overlay">
-              <span>AMD CPU's</span>
+              <span> AMD CPU's </span>
             </div>
           </div>
         </a>
@@ -152,7 +152,7 @@
           <div class="card shadow">
             <img class="img-fluid rounded" src="../assets/img/gpu.jpg" alt="">
             <div class="overlay">
-              <span>GPU's</span>
+              <span> GPU's </span>
             </div>
           </div>
         </a>
@@ -238,7 +238,7 @@
       <div class="carousel-item active">
         <div class="row">
           @for(item of this.productsService.products.slice(0, 2); track $index) {
-          <div class="col-sm-6 p-3">
+          <div class="col-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
@@ -279,7 +279,7 @@
       <div class="carousel-item">
         <div class="row">
           @for(item of this.productsService.products.slice(2, 4); track $index) {
-          <div class="col-sm-6 p-3">
+          <div class="col-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">
@@ -321,7 +321,7 @@
       <div class="carousel-item">
         <div class="row">
           @for(item of this.productsService.products.slice(4, 6); track $index) {
-          <div class="col-sm-6 p-3">
+          <div class="col-6 p-3">
             <div class="card rounded shadow-sm">
               <img class="img-fluid rounded-top" src="{{'http://localhost:3000/'+item.photo[0].url}}" alt="{{item.name}}"
                 style="height: 175px;">

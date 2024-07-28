@@ -7,7 +7,7 @@
   </nav>
 </div>
 
-<div class="container p-2">
+<div class="container mt-2">
   <h3> {{ subcategory.toUpperCase().replace('_', ' ').replace('CPU', "CPU'S") }} </h3>
   <hr>
   <div class="row">
@@ -29,13 +29,15 @@
                 <label class="form-check-label" for="all"> ALL </label>
               </div>
             </div>
-            @for(item of this.productsService.uniqueBrands; track $index) {
-              <div class="col-md-12 col-sm-3 mb-2">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" id="brand-{{ $index }}" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.selectBrand('brand-'+$index); this.productsService.searchByNameSubcategoryAndBrand(subcategory);" />
-                  <label class="form-check-label" for="brand-{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
+            @if(this.productsService.uniqueBrands.length > 1) {
+              @for(item of this.productsService.uniqueBrands; track $index) {
+                <div class="col-md-12 col-sm-3 mb-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" id="brand-{{ $index }}" value="{{ (item.name).toUpperCase() }}" [checked]="this.productsService.selectedBrand === 'brand-'+$index" (click)="this.productsService.selectBrand('brand-'+$index); this.productsService.searchByNameSubcategoryAndBrand(subcategory);" />
+                    <label class="form-check-label" for="brand-{{ $index }}"> {{ (item.name).toUpperCase() }} </label>
+                  </div>
                 </div>
-              </div>
+              }
             }
           </div>
         </div>
