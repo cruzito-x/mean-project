@@ -2,13 +2,12 @@
   <div class="row">
     @for (item of this.cartService.getItems(); track $index) {
     <div class="col-md-2 col-sm-3">
-      <img src="http://localhost:3000/{{item.photo}}" alt="Product" class="img-fluid"
-          style="width: 100px; height: 100px;" />
+      <img src="http://localhost:3000/{{ item.photo[0].url }}" alt="Product" class="img-fluid" style="width: 100px; height: 100px;" />
     </div>
     <div class="col-md-10 col-sm-9 text-start">
       <div class="row mt-2">
         <div class="col-12">
-          <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+'('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
+          <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+' ('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
         </div>
         <p> {{ item.quantity }} x ${{ item.price }} </p>
       </div>

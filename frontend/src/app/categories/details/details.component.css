@@ -82,6 +82,11 @@
   transform: rotate(45deg);
 }
 
+.bg-silver {
+  background-color: #cccccc;
+  color: #333333;
+}
+
 .text-bg-low {
   background-color: #f57040;
 }
