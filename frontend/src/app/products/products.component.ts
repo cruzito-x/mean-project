@@ -40,6 +40,7 @@ export class ProductsComponent {
     });
 
     this.productsService.getProductsBySubcategory(this.subcategory);
+    this.productsService.selectBrand('all');
 
     this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
     .pipe(map(result => result.matches))
