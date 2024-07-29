@@ -8,8 +8,8 @@
           <div class="position-absolute">
             <img src="http://localhost:3000/{{item.photo[0].url}}" alt="Product" class="img-fluid"
               style="width: 100px; height: 100px;" />
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-              (click)="this.cartService.deleteItemFromCart(item)" style="cursor: pointer;"> x </span>
+            <span class="position-absolute top-1 me-1 start-75 translate-middle badge rounded-pill bg-danger"
+              (click)="this.cartService.deleteItemFromCart(item)" style="cursor: pointer; font-size: 12px;"> x </span>
           </div>
         </div>
         <div class="col-md-10 col-sm-8 text-start">
