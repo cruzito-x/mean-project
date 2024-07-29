@@ -123,7 +123,7 @@ exports.searchProductsBySubcategoryAndBrand = async (req, res) => {
   const brand = req.params.brand;
 
   try {
-    const products = await Product.find({ 'subcategory': subcategory }).find({ 'brand.name': brand });
+    const products = await Product.find({ 'sub_category': subcategory }).find({ 'brand.name': brand });
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
