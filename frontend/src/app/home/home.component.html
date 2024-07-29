@@ -385,10 +385,10 @@
         @for(item of this.productsService.products.slice(0, 5); track $index) {
         <li class="list-group-item">
           <div class="row">
-            <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
+            <div class="col-4">
               <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
+            <div class="col-8">
               <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                 [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                 {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
@@ -423,10 +423,10 @@
         @for(item of this.categoriesService.categories; track $index) {
         <li class="list-group-item">
           <div class="row">
-            <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
+            <div class="col-4">
               <img class="rounded" src="{{'http://localhost:3000/'+item.photo}}" height="100px">
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
+            <div class="col-8">
               <span class="text-breaker"> {{item.name.toUpperCase()}} </span>
               <div class="align-items-center">
                 <span> Category: {{ item.subcategories[0].name }} <br>
@@ -453,10 +453,10 @@
         @if(item.rating >= 3) {
         <li class="list-group-item">
           <div class="row">
-            <div class="col-lg-3 col-md-12 col-sm-3 d-flex justify-content-center">
+            <div class="col-4">
               <img class="rounded" src="{{'http://localhost:3000/'+item.photo[0].url}}" height="100px">
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-7 ms-3">
+            <div class="col-8">
               <a class="text-decoration-none text-breaker text-breaker-sm text-black"
                 [routerLink]="['/details', item.name.toLowerCase().replace(' ', '_').replace('/', '_').replace('(needs gpu)', '').replace('(no needs gpu)', '').trim(), item.id]">
                 {{(item.category.replace("consoles", "console") + ' ' + item.brand[0].name + ' ' + item.name).toUpperCase()}}
