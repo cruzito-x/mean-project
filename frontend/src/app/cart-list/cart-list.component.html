@@ -23,7 +23,11 @@
             </div>
           </div>
           <div class="col-8">
-            <label class="medium text-breaker"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
+            @if(item.colors[item.indexColor].color != "default") {
+              <label class="medium text-breaker"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
+            } @else {
+              <label class="medium text-breaker"> {{ (item.category+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </label>
+            }
             <p> {{ item.quantity }} x @if(item.discount === 0) {
               <span class="text-primary"> ${{ item.price }} </span>
             } @else {

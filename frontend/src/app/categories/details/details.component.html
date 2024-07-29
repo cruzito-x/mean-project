@@ -12,7 +12,7 @@
 <div class="container p-2">
   <div class="row">
     <div class="col-12">
-      <h3> {{ (this.productsService.products[0].category.replace("consoles", "console")+" "+this.productsService.products[0].brand[0].name +" "+ this.productsService.products[0].name).toUpperCase() }} </h3>
+      <h3> {{ (this.productsService.products[0].category.replace("consoles", "console").replace("others", this.productsService.products[0].sub_category)+" "+this.productsService.products[0].brand[0].name +" "+ this.productsService.products[0].name).toUpperCase() }} </h3>
       <hr>
       <div class="row">
         <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
@@ -94,7 +94,7 @@
                       }
                     </span>
                     <br>
-                     @if(this.productsService.products[0].colors.length > 0) {
+                     @if(this.productsService.products[0].colors[0].color != "default") {
                       <span class="mt-1 d-flex align-items-center"> Colors:
                         @for(item of this.productsService.products[0].colors; track $index) {
                           <span class="ms-2 d-inline-block rounded-color bg-{{item.color}}" id="color-{{$index}}" (click)="indexSelectedColor($index); getBorderColor($index);" style="cursor: pointer;"></span>
