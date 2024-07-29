@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="col-8">
-            @if(item.colors[item.indexColor].color != "default") {
+            @if(item.colors[0].color !== "default") {
               <label class="medium text-breaker"> {{ (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase() }} </label>
             } @else {
               <label class="medium text-breaker"> {{ (item.category+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </label>

@@ -7,7 +7,11 @@
     <div class="col-md-10 col-sm-9 text-start">
       <div class="row mt-2">
         <div class="col-12">
-          <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+' ('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
+          @if(item.colors[0].color !== "default") {
+            <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name+' ('+item.colors[item.indexColor].color+')').toUpperCase() }} </label>
+          } @else {
+            <label class="medium"> {{ (item.sub_category+' '+item.category+' '+item.brand[0].name+' '+item.name).toUpperCase() }} </label>
+          }
         </div>
         <p> {{ item.quantity }} x ${{ item.price }} </p>
       </div>
