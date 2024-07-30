@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUser, faShippingFast, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCreditCard, faShoppingCart, faShippingFast, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { OrderInfoComponent } from "../order-info/order-info.component";
 import { PayStepsService } from '../../services/pay-steps.service';
 import { CartService } from '../../services/cart.service';
@@ -34,6 +34,8 @@ export class ClientInfoComponent {
   departments: Departments[] = [];
   municipalities: Municipalities[] = [];
   faUser = faUser;
+  faCreditCard = faCreditCard;
+  faShoppingCart = faShoppingCart;
   faShippingFast = faShippingFast;
   faAngleRight = faAngleRight;
   faAngleLeft = faAngleLeft;
@@ -89,7 +91,7 @@ export class ClientInfoComponent {
       });
 
       if(clientName !== "" && clientEmail !== "" && clientPhone !== "" && additionalComments !== "") {
-        item.push({ clientName: clientName, clientEmail: clientEmail, department: department, municipality: this.getMunicipalities(department), clientPhone: clientPhone, additionalComments: additionalComments});
+        item.push({ clientName: clientName, clientEmail: clientEmail, department: department, municipality: this.getMunicipalities(department), clientPhone: clientPhone, additionalComments: additionalComments });
 
         if(this.clientService.getClientInfo().length === 0) {
           this.clientService.clientInfo(item);

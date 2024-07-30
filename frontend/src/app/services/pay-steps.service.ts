@@ -14,8 +14,8 @@ export class PayStepsService {
   
   nextStep() {
     this.currentStep++;
-    if (this.currentStep > 4) {
-      this.currentStep = 4;
+    if (this.currentStep > 3) {
+      this.currentStep = 3;
     }
   }
   

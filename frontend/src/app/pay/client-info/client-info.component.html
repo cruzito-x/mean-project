@@ -1,4 +1,4 @@
-<div class="row p-2">
+<div class="row p-2 mt-2">
   <div class="col-md-9 col-sm-12">
     <div class="row">
       <div class="col-md-6 col-sm-12">
@@ -82,10 +82,10 @@
     <div class="row mb-3">
       <div class="col-6 text-start">
         <button class="btn btn-outline-primary me-3" (click)="pay_steps.prevStep()">
-          <fa-icon [icon]="faAngleLeft"/> My cart list </button>
+          <fa-icon [icon]="faAngleLeft"/> My cart list <fa-icon [icon]="faShoppingCart" /> </button>
       </div>
       <div class="col-6 text-end">
-        <button class="btn btn-outline-primary" id="saveClientInfo"> Payment <fa-icon [icon]="faAngleRight"/> </button>
+        <button class="btn btn-outline-primary" id="saveClientInfo"> <fa-icon [icon]="faCreditCard" /> Payment <fa-icon [icon]="faAngleRight"/> </button>
       </div>
     </div>
   </div>

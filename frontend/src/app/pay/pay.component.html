@@ -1,12 +1,12 @@
-<div class="container p-2 mt-3">
+<div class="container p-2 mt-2">
   <div class="stepper">
     <div class="step" [class]="{'active': pay_steps.currentStep === 1}" (click)="pay_steps.showStep(1)"> Cart </div>
     <div class="step" [class]="{'active': pay_steps.currentStep === 2}" (click)="pay_steps.showStep(2)"> Client info </div>
     <div class="step" [class]="{'active': pay_steps.currentStep === 3}" (click)="pay_steps.showStep(3)"> Payment </div>
-    <div class="step" [class]="{'active': pay_steps.currentStep === 4}" (click)="pay_steps.showStep(4)"> Order </div>
+    <!-- <div class="step" [class]="{'active': pay_steps.currentStep === 4}" (click)="pay_steps.showStep(4)"> Order </div> -->
   </div>
 
-  <div class="step-content" [class]="{'active': pay_steps.currentStep === 1}">
+  <div class="step-content mb-5" [class]="{'active': pay_steps.currentStep === 1}">
     <app-cart />
   </div>
   <div class="step-content" [class]="{'active': pay_steps.currentStep === 2}">
@@ -15,7 +15,7 @@
   <div class="step-content" [class]="{'active': pay_steps.currentStep === 3}">
     <app-payment class="col-md-9 col-sm-12" />
   </div>
-  <div class="step-content" [class]="{'active': pay_steps.currentStep === 4}">
+  <!-- <div class="step-content" [class]="{'active': pay_steps.currentStep === 4}">
     <app-final-order />
-  </div>
+  </div> -->
 </div>
