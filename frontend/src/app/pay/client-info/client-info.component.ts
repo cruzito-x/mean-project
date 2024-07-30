@@ -76,22 +76,28 @@ export class ClientInfoComponent {
       let clientName = $("#clientName").val();
       let clientEmail = $("#clientEmail").val();
       let clientPhone = $("#clientPhone").val();
-      let additionalComments = $("#additionalComments").text();
+      let additionalComments = $("#additionalComments").val();
+      let address;
+      let referencePoint;
       let department: any;
       let municipality: any;
 
       $("#pickAtStore").on("click", () => {
         department = "San Salvador";
         municipality = "San Salvador";
+        address = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
+        referencePoint = "Between Plaza Merliot Street and Rosa de Lima Street";
       });
 
       $("#homeShipping").on("click", () => {
         department = parseInt($("#floatingSelectDepartments").val() as string);
         municipality = parseInt($("#floatingSelectMunicipalities").val() as string);
+        address = $("#address").val() as string;
+        referencePoint = $("#referencePoint").val() as string;
       });
 
       if(clientName !== "" && clientEmail !== "" && clientPhone !== "" && additionalComments !== "") {
-        item.push({ clientName: clientName, clientEmail: clientEmail, department: department, municipality: this.getMunicipalities(department), clientPhone: clientPhone, additionalComments: additionalComments });
+        item.push({ clientName: clientName, clientEmail: clientEmail, department: department, municipality: this.getMunicipalities(department), clientPhone: clientPhone, additionalComments: additionalComments, address: address, referencePoint: referencePoint});
 
         if(this.clientService.getClientInfo().length === 0) {
           this.clientService.clientInfo(item);
@@ -99,6 +105,9 @@ export class ClientInfoComponent {
 
         this.pay_steps.nextStep();
       }
+
+      console.log(clientName, clientEmail, clientPhone, additionalComments, address, referencePoint);
+      console.log(item);
     });
   }
 

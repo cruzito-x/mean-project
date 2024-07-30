@@ -61,6 +61,8 @@ export class PaymentComponent {
           }).then((result) => {
             if (result.isConfirmed) {
               this.printBill(details);
+              location.href = "/";
+              localStorage.removeItem("cartList");
             } else {
               location.href = "/";
               localStorage.removeItem("cartList");
