@@ -36,8 +36,8 @@ export class ClientInfoComponent {
   clientAddress: string = "";
   referencePoint: string = "";
   departmentId: number = 0;
-  department: any;
-  municipality: any;
+  department: any = "Ahuachapán";
+  municipality: any = "Ahuachapán"; 
   faUser = faUser;
   faCreditCard = faCreditCard;
   faShoppingCart = faShoppingCart;
@@ -128,8 +128,6 @@ export class ClientInfoComponent {
 
         this.pay_steps.nextStep();
       }
-
-      console.log(item);
     });
   }
 
