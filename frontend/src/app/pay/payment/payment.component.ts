@@ -61,8 +61,6 @@ export class PaymentComponent {
           }).then((result) => {
             if (result.isConfirmed) {
               this.printBill(details);
-              // localStorage.removeItem("cartList");
-              // localStorage.removeItem("clientInfo");
             } else {
               location.href = "/";
               localStorage.removeItem("cartList");
@@ -172,7 +170,10 @@ export class PaymentComponent {
       doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 61, { align: "center" });
       
       doc.save("Receipt-" + details.id + ".pdf");
-      // window.location.href = "/";
+      
+      window.location.href = "/";
+      localStorage.removeItem("cartList");
+      localStorage.removeItem("clientInfo");
     } catch(error) {
       console.error("Error saving bill: ", error);
     }

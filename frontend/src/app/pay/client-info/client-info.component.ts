@@ -53,6 +53,10 @@ export class ClientInfoComponent {
     this.getMunicipalities(0);
     this.clientInfo();
 
+    if(this.cartService.getItems().length === 0) {
+      window.location.href = "/";
+    }
+
     $("#homeShipping").on("click", () => {
       $("#homeShippingCol1, #homeShippingCol2").removeClass("d-none");
       $("#pickAtStoreSpace").addClass("d-none");
@@ -69,8 +73,7 @@ export class ClientInfoComponent {
       });
   
       $("#floatingSelectMunicipalities").on("change", () => {
-        this.cartService.amount = parseFloat($("#floatingSelectMunicipalities").val() as string);
-        this.municipality = this.municipalities[parseInt($("#floatingSelectMunicipalities").val() as string)].nombre
+        this.municipality = $("#floatingSelectMunicipalities").val();
       });
       
       this.cartService.amount = 2.95;
@@ -128,6 +131,8 @@ export class ClientInfoComponent {
 
         this.pay_steps.nextStep();
       }
+
+      console.log(item);
     });
   }
 
