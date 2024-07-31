@@ -51,12 +51,29 @@ export class ClientInfoComponent {
   ngOnInit(): void {
     this.getDepartments();
     this.getMunicipalities(0);
+    this.clientInfo();
 
     $("#homeShipping").on("click", () => {
       $("#homeShippingCol1, #homeShippingCol2").removeClass("d-none");
       $("#pickAtStoreSpace").addClass("d-none");
       $("#pickAtStore").addClass('btn-outline-primary').removeClass("btn-primary");
       $("#homeShipping").removeClass('btn-outline-primary').addClass("btn-primary");
+      
+      $("#clientAddress").val("");
+      $("#referencePoint").val("");
+
+      $("#floatingSelectDepartments").on("change", () => {
+        this.departmentId = parseInt($("#floatingSelectDepartments").val() as string);
+        this.getMunicipalities(this.departmentId);
+        this.department = this.departments[parseInt($("#floatingSelectDepartments").val() as string)].nombre;
+      });
+  
+      $("#floatingSelectMunicipalities").on("change", () => {
+        this.cartService.amount = parseFloat($("#floatingSelectMunicipalities").val() as string);
+        this.municipality = this.municipalities[parseInt($("#floatingSelectMunicipalities").val() as string)].nombre
+      });
+      
+      this.cartService.amount = 2.95;
     });
 
     $("#pickAtStore").on("click", () => {
@@ -65,41 +82,42 @@ export class ClientInfoComponent {
       $("#message").html("Excelent! <br> Now you can go to our store to recieve your package");
       $("#pickAtStore").removeClass("btn-outline-primary").addClass("btn-primary");
       $("#homeShipping").addClass("btn-outline-primary").removeClass("btn-primary");
-    });
 
-    $("#floatingSelectDepartments").on("change", () => {
-      this.departmentId = parseInt($("#floatingSelectDepartments").val() as string);
-      this.getMunicipalities(this.departmentId);
-    });
-
-    $("#floatingSelectMunicipalities").on("change", () => {
-      this.cartService.amount = parseFloat($("#floatingSelectMunicipalities").val() as string);
-    });
-
-    $("#pickAtStore").click(() => {
-      this.clientAddress = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
-      this.referencePoint = "Between Plaza Merliot Street and Rosa de Lima Street";
-      this.department = "";
-      this.municipality = "";
+      $("#clientAddress").val("C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América");
+      $("#referencePoint").val("Between Plaza Merliot Street and Rosa de Lima Street");
+      this.department = "La Libertad";
+      this.municipality = "Santa Tecla";
       this.cartService.amount = 0;
     });
 
-    $("#homeShipping").click(() => {
-      this.department = this.departments[parseInt($("#floatingSelectDepartments").val() as string)].nombre;
-      this.municipality = this.municipalities[parseInt($("#floatingSelectMunicipalities").val() as string)].nombre
-      this.clientAddress = $("#clientAddress").val() as string;
-      this.referencePoint = $("#referencePoint").val() as string;
-    });
+    $('textarea').each(function() {
+      const textarea: any = $(this);
+      let maxLength = textarea.attr('maxlength');
+      let charCount = $(`#remaining-${textarea.index('textarea') + 1}`);
 
+      textarea.on('input', function() {
+        let remaining = maxLength - textarea.val().length;
+        charCount.text(`${remaining} / ${maxLength}`);
+      });
+  });
+  }
+
+  clientInfo() {
     $("#saveClientInfo").on("click", () => {
       let item: any = [];
       let clientName = $("#clientName").val();
       let clientEmail = $("#clientEmail").val();
       let clientPhone = $("#clientPhone").val();
       let additionalComments = $("#additionalComments").val();
+      let clientAddress = $("#clientAddress").val();
+      let referencePoint = $("#referencePoint").val();
 
-      if(clientName !== "" && clientEmail !== "" && clientPhone !== "") {
-        item.push({ clientName: clientName, clientEmail: clientEmail, department: this.department, municipality: this.municipality, clientPhone: clientPhone, additionalComments: additionalComments, clientAddress: this.clientAddress, referencePoint: this.referencePoint });
+      if(clientName !== "" && clientEmail !== "" && clientPhone !== "" && clientAddress !== "") {
+        if(referencePoint === "") {
+          referencePoint = "No reference point";
+        }
+
+        item.push({ clientName: clientName, clientEmail: clientEmail, department: this.department, municipality: this.municipality, clientPhone: clientPhone, additionalComments: additionalComments, clientAddress: clientAddress, referencePoint: referencePoint });
 
         if(this.clientService.getClientInfo().length === 0) {
           this.clientService.clientInfo(item);

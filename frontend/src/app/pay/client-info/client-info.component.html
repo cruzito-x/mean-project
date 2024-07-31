@@ -25,8 +25,8 @@
             <div class="col-12">
               <div class="form-floating mb-3">
                 <textarea class="form-control" formControlName="additionalComments" id="additionalComments" placeholder="Additional comments"
-                  style="height: 100px"></textarea>
-                <label for="additionalComments">Additional comments</label>
+                  style="height: 100px" maxlength="50"></textarea>
+                <label for="additionalComments">Additional comments <span id="remaining-1"> (Max. 50)</span> </label>
               </div>
             </div>
           </div>
@@ -56,8 +56,8 @@
                 </div>
                 <div class="form-floating mb-3">
                   <textarea class="form-control" formControlName="clientAddress" id="clientAddress" placeholder="Address"
-                    style="height: 100px"></textarea>
-                  <label for="clientAddress"> Address </label>
+                    style="height: 100px" maxlength="50" required></textarea>
+                  <label for="clientAddress"> Address <span id="remaining-2"> (Max. 50)</span> </label>
                 </div>
               </div>
               <div class="col-md-6 col-sm-12 d-none" id="homeShippingCol2">
@@ -71,8 +71,8 @@
                 </div>
                 <div class="form-floating mb-3">
                   <textarea class="form-control" formControlName="referencePoint" id="referencePoint" placeholder="Reference point"
-                    style="height: 100px"></textarea>
-                  <label for="referencePoint"> Reference point </label>
+                    style="height: 100px" maxlength="20"></textarea>
+                  <label for="referencePoint"> Reference point <span id="remaining-3"> (Max. 20)</span> </label>
                 </div>
               </div>
           </div>

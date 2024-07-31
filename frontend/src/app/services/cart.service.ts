@@ -62,12 +62,13 @@ export class CartService {
   }
 
   getSubTotal() {
-    if(this.items[0].discount === 0) {
-      return this.items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
-    } else {
-      return this.items.reduce((total, item) => total + (item.price - (item.price * item.discount)) * item.quantity, 0).toFixed(2);
-    }
+    return this.items.reduce((total, item) => {
+      const priceAfterDiscount = item.discount > 0  ? item.price - (item.price * item.discount)  : item.price;
+      
+      return total + priceAfterDiscount * item.quantity;
+    }, 0);
   }
+  
 
   getTotal(): number {
     const subTotal = Number(this.getSubTotal());

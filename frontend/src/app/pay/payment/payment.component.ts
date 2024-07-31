@@ -51,18 +51,18 @@ export class PaymentComponent {
       onApprove: (data: any, actions: any) => {
         return actions.order.capture().then((details: any) => {
           Swal.fire({
-            text: "Your payment has been processed successfully! \nYou want print your bill?",
+            text: "Your payment has been processed successfully!",
             icon: "success",
             confirmButtonColor: "#007bff",
-            confirmButtonText: "Print bill",
+            confirmButtonText: "Get receipt",
             showCancelButton: true,
             cancelButtonText: "Go to principal",
             cancelButtonColor: "#dc3545"
           }).then((result) => {
             if (result.isConfirmed) {
               this.printBill(details);
-              localStorage.removeItem("cartList");
-              localStorage.removeItem("clientInfo");
+              // localStorage.removeItem("cartList");
+              // localStorage.removeItem("clientInfo");
             } else {
               location.href = "/";
               localStorage.removeItem("cartList");
@@ -84,6 +84,7 @@ export class PaymentComponent {
       let cartList: any[] = JSON.parse(localStorage.getItem("cartList") || "{}");
       let clientInfo: any[] = JSON.parse(localStorage.getItem("clientInfo") || "{}");
       let address: string = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
+      let referencePoint: string = "Between Plaza Merliot Street and Rosa de Lima Street";
       
       doc.setFontSize(18);
       doc.setFont("helvetica", "bold");
@@ -111,17 +112,17 @@ export class PaymentComponent {
       Amount: $${ details.purchase_units[0].amount.value }
       Date: ${moment( details.create_time).format("yyyy/MM/dd") }
       Payment status: ${ details.status }
-      Paid by: ${ details.payer.name.given_name+" "+details.payer.name.surname }
+      Paid by: ${ details.payer.name.given_name, " ", details.payer.name.surname }
       E-mail: ${ details.payer.email_address }
       `;
       
       const rightColumnText = `
-      Client: ${clientInfo[0].clientName}
-      Phone: ${clientInfo[0].clientPhone}
-      Address: ${clientInfo[0].clientAddress !== address ? clientInfo[0].clientAddress : 'Pick at the store'}
-      Reference point: ${clientInfo[0].referencePoint}
-      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${this.cartService.shippingCost()}` : "No shipping cost"}
-      Additional comments: ${clientInfo[0].additionalComments !== "" ? `${clientInfo[0].additionalComments}` : "No additional comments"}
+      Client: ${ clientInfo[0].clientName }
+      Phone: ${ clientInfo[0].clientPhone }
+      Address: ${ clientInfo[0].clientAddress !== address ? clientInfo[0].clientAddress : "Pick at the store" }
+      Reference point: ${ clientInfo[0].referencePoint !== referencePoint ? clientInfo[0].referencePoint : referencePoint }
+      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${ this.cartService.shippingCost() } (${ clientInfo[0].department }, ${ clientInfo[0].municipality })` : "No shipping cost" }
+      ${ clientInfo[0].additionalComments !== "" ? `Additional comments: ${ clientInfo[0].additionalComments }` : ""}
       `;
       
       const rightText = doc.splitTextToSize(rightColumnText, 75);
@@ -130,10 +131,10 @@ export class PaymentComponent {
       doc.text(rightText, 115, 75);
   
       (doc as any).autoTable({
-        startY: 110,
+        startY: 115,
         head: [['Product', 'Quantity', 'Price', "Discount"]],
         body: cartList.map((item: any) => [
-          item.name, 
+          (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase(), 
           item.quantity, 
           "$" + item.price, item.discount > 0 ? "$" + (item.price - (item.price - (item.price * item.discount))).toFixed(2) : "$0"]),
         theme: 'striped',
@@ -166,7 +167,7 @@ export class PaymentComponent {
       doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 26, { align: "center" });
   
       doc.save("Receipt-" + details.id + ".pdf");
-      window.location.href = "/";
+      // window.location.href = "/";
     } catch(error) {
       console.error("Error saving bill: ", error);
     }
