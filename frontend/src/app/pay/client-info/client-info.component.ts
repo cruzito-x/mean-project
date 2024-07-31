@@ -10,7 +10,7 @@ import { ClientService } from '../../services/client.service';
 interface Municipalities {
   id_mun: string,
   nombre: string,
-  precio: number
+  precio: number;
 }
 
 interface Departments {
@@ -33,6 +33,11 @@ interface Departments {
 export class ClientInfoComponent {
   departments: Departments[] = [];
   municipalities: Municipalities[] = [];
+  clientAddress: string = "";
+  referencePoint: string = "";
+  departmentId: number = 0;
+  department: any;
+  municipality: any;
   faUser = faUser;
   faCreditCard = faCreditCard;
   faShoppingCart = faShoppingCart;
@@ -63,12 +68,27 @@ export class ClientInfoComponent {
     });
 
     $("#floatingSelectDepartments").on("change", () => {
-      let departmentId: number = parseInt($("#floatingSelectDepartments").val() as string) || 0;
-      this.getMunicipalities(departmentId);
+      this.departmentId = parseInt($("#floatingSelectDepartments").val() as string);
+      this.getMunicipalities(this.departmentId);
     });
 
     $("#floatingSelectMunicipalities").on("change", () => {
       this.cartService.amount = parseFloat($("#floatingSelectMunicipalities").val() as string);
+    });
+
+    $("#pickAtStore").click(() => {
+      this.clientAddress = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
+      this.referencePoint = "Between Plaza Merliot Street and Rosa de Lima Street";
+      this.department = "";
+      this.municipality = "";
+      this.cartService.amount = 0;
+    });
+
+    $("#homeShipping").click(() => {
+      this.department = this.departments[parseInt($("#floatingSelectDepartments").val() as string)].nombre;
+      this.municipality = this.municipalities[parseInt($("#floatingSelectMunicipalities").val() as string)].nombre
+      this.clientAddress = $("#clientAddress").val() as string;
+      this.referencePoint = $("#referencePoint").val() as string;
     });
 
     $("#saveClientInfo").on("click", () => {
@@ -77,36 +97,20 @@ export class ClientInfoComponent {
       let clientEmail = $("#clientEmail").val();
       let clientPhone = $("#clientPhone").val();
       let additionalComments = $("#additionalComments").val();
-      let address;
-      let referencePoint;
-      let department: any;
-      let municipality: any;
 
-      $("#pickAtStore").on("click", () => {
-        department = "San Salvador";
-        municipality = "San Salvador";
-        address = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
-        referencePoint = "Between Plaza Merliot Street and Rosa de Lima Street";
-      });
-
-      $("#homeShipping").on("click", () => {
-        department = parseInt($("#floatingSelectDepartments").val() as string);
-        municipality = parseInt($("#floatingSelectMunicipalities").val() as string);
-        address = $("#address").val() as string;
-        referencePoint = $("#referencePoint").val() as string;
-      });
-
-      if(clientName !== "" && clientEmail !== "" && clientPhone !== "" && additionalComments !== "") {
-        item.push({ clientName: clientName, clientEmail: clientEmail, department: department, municipality: this.getMunicipalities(department), clientPhone: clientPhone, additionalComments: additionalComments, address: address, referencePoint: referencePoint});
+      if(clientName !== "" && clientEmail !== "" && clientPhone !== "") {
+        item.push({ clientName: clientName, clientEmail: clientEmail, department: this.department, municipality: this.municipality, clientPhone: clientPhone, additionalComments: additionalComments, clientAddress: this.clientAddress, referencePoint: this.referencePoint });
 
         if(this.clientService.getClientInfo().length === 0) {
+          this.clientService.clientInfo(item);
+        } else {
+          localStorage.removeItem("clientInfo");
           this.clientService.clientInfo(item);
         }
 
         this.pay_steps.nextStep();
       }
 
-      console.log(clientName, clientEmail, clientPhone, additionalComments, address, referencePoint);
       console.log(item);
     });
   }
@@ -132,8 +136,8 @@ export class ClientInfoComponent {
       }
       return response.json();
     })
-    .then((data: any) => { // Use 'any' type here for simplicity; adjust as per your API response
-      this.municipalities = data.municipios; // Assuming 'municipios' is the array of municipalities in your response
+    .then((data: any) => {
+      this.municipalities = data.municipios;
     });
   }
 }

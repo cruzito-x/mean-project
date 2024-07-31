@@ -69,6 +69,13 @@ export class CartService {
     }
   }
 
+  getTotal(): number {
+    const subTotal = Number(this.getSubTotal());
+    const shippingCost = Number(this.shippingCost());
+    const total = subTotal + shippingCost;
+    return Math.round(total * 100) / 100;
+  }
+
   validateCart() {
     if (this.items != null) {
       this.items = JSON.parse(localStorage.getItem('cartList') || '[]');

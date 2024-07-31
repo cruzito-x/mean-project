@@ -7,24 +7,24 @@
           <div class="row">
             <div class="col-md-6 col-sm-12">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="clientName" placeholder="e.g. Jhon Doe" required>
+                <input type="text" class="form-control" formControlName="clientName" id="clientName" placeholder="e.g. David Alejandro Cruz Cruz" required>
                 <label for="clientName">Name</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="clientPhone" placeholder="e.g. +503 7825-0214" required>
+                <input type="text" class="form-control" formControlName="clientPhone" id="clientPhone" placeholder="e.g. +503 7825-0214" required>
                 <label for="clientPhone">Phone</label>
               </div>
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="clientEmail" placeholder="e.g. name@example.com"
+                <input type="email" class="form-control" formControlName="clientEmail" id="clientEmail" placeholder="e.g. name@domain.com"
                   required>
                 <label for="clientEmail">Email</label>
               </div>
             </div>
             <div class="col-12">
               <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Additional comments" id="AddotionalComments"
+                <textarea class="form-control" formControlName="additionalComments" id="additionalComments" placeholder="Additional comments"
                   style="height: 100px"></textarea>
                 <label for="additionalComments">Additional comments</label>
               </div>
@@ -55,9 +55,9 @@
                   <label for="floatingSelect"> Departments </label>
                 </div>
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" id="address" placeholder="Address"
+                  <textarea class="form-control" formControlName="clientAddress" id="clientAddress" placeholder="Address"
                     style="height: 100px"></textarea>
-                  <label for="address"> Address </label>
+                  <label for="clientAddress"> Address </label>
                 </div>
               </div>
               <div class="col-md-6 col-sm-12 d-none" id="homeShippingCol2">
@@ -70,7 +70,7 @@
                   <label for="floatingSelect"> Municipality </label>
                 </div>
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" id="referencePoint" placeholder="Reference point"
+                  <textarea class="form-control" formControlName="referencePoint" id="referencePoint" placeholder="Reference point"
                     style="height: 100px"></textarea>
                   <label for="referencePoint"> Reference point </label>
                 </div>

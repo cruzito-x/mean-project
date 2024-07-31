@@ -42,7 +42,7 @@ export class PaymentComponent {
             {
               amount: {
                 currency_code: 'USD',
-                value: this.cartService.getSubTotal()
+                value: this.cartService.getTotal()
               }
             }
           ]
@@ -54,18 +54,19 @@ export class PaymentComponent {
             text: "Your payment has been processed successfully! \nYou want print your bill?",
             icon: "success",
             confirmButtonColor: "#007bff",
-            confirmButtonText: "Print",
+            confirmButtonText: "Print bill",
             showCancelButton: true,
             cancelButtonText: "Go to principal",
             cancelButtonColor: "#dc3545"
           }).then((result) => {
             if (result.isConfirmed) {
               this.printBill(details);
-              location.href = "/";
               localStorage.removeItem("cartList");
+              localStorage.removeItem("clientInfo");
             } else {
               location.href = "/";
               localStorage.removeItem("cartList");
+              localStorage.removeItem("clientInfo");
             }
           });
           console.log(details);
@@ -78,74 +79,96 @@ export class PaymentComponent {
   }
 
   async printBill(details: any) {
-    const doc = new jsPDF();
-  
-    doc.setFontSize(18);
-    doc.setFont("helvetica", "bold");
-    doc.text("CinnaTech Store - Receipt of purchase", 105, 20, { align: "center" });
-  
-    doc.setFontSize(12);
-    doc.setFont("helvetica", "normal");
-    doc.text("CinnaTech S.A DE C.V.", 105, 30, { align: "center" });
-    doc.text("C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América", 105, 36, { align: "center" });
-    doc.text("Phone: (+503) 2527-8000", 105, 42, { align: "center" });
-    doc.text("E-mail: cinnatechstore@gmail.com", 105, 48, { align: "center" });
-  
-    doc.setLineWidth(0.5);
-    doc.line(15, 55, 195, 55);
-  
-    doc.setFontSize(15);
-    doc.setFont("helvetica", "bold");
-    doc.text("PayPal transaction details", 105, 65, { align: "center" });
-  
-    doc.setFontSize(11);
-    doc.setFont("helvetica", "normal");
-    const detailsText = `
-    Transaction ID: ${details.id}
-    Amount: $${details.purchase_units[0].amount.value}
-    Date: ${moment(details.create_time).format("yyyy-MM-dd")}
-    Payment status: ${details.status}
-    Client name: ${details.payer.name.given_name} ${details.payer.name.surname}
-    Client e-mail: ${details.payer.email_address}
-    `;
+    try {
+      const doc = new jsPDF();
+      let cartList: any[] = JSON.parse(localStorage.getItem("cartList") || "{}");
+      let clientInfo: any[] = JSON.parse(localStorage.getItem("clientInfo") || "{}");
+      let address: string = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
+      
+      doc.setFontSize(18);
+      doc.setFont("helvetica", "bold");
+      doc.text("CinnaTech Store - Receipt of purchase", 105, 20, { align: "center" });
+      
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.text("CinnaTech S.A DE C.V.", 105, 30, { align: "center" });
+      doc.text(address, 105, 36, { align: "center" });
+      doc.text("Phone: (+503) 2527-8000", 105, 42, { align: "center" });
+      doc.text("E-mail: cinnatechstore@gmail.com", 105, 48, { align: "center" });
+      
+      doc.setLineWidth(0.5);
+      doc.line(15, 55, 195, 55);
+      
+      doc.setFontSize(15);
+      doc.setFont("helvetica", "bold");
+      doc.text("Transaction details", 105, 65, { align: "center" });
+      
+      doc.setFontSize(9);
+      doc.setFont("helvetica", "normal");
 
-    doc.text(detailsText, 15, 75);
-
-    let cartList: any[] = JSON.parse(localStorage.getItem("cartList") || "{}");
-
-    (doc as any).autoTable({
-      startY: 110,
-      head: [['Product', 'Quantity', 'Price', "Discount"]],
-      body: cartList.map((item: any) => [item.name, item.quantity, "$"+item.price, item.discount > 0 ? "$"+(item.price - (item.price - (item.price * item.discount))).toFixed(2) : "$0"]),
-      theme: 'striped',
-      styles: {
-        cellPadding: 5,
-        fontSize: 11,
-      },
-      headStyles: {
-        fillColor: ["#cfe2ff"],
-        textColor: ["#000000"],
-        halign: "center"
-      },
-      bodyStyles: {
-        textColor: ["#000000"],
-        halign: "center"
-      },
-      alternateRowStyles: {
-        fillColor: ["#ffffff"]
-      }
-    });
+      const leftColumnText = `
+      Transaction ID: ${ details.id }
+      Amount: $${ details.purchase_units[0].amount.value }
+      Date: ${moment( details.create_time).format("yyyy/MM/dd") }
+      Payment status: ${ details.status }
+      Paid by: ${ details.payer.name.given_name+" "+details.payer.name.surname }
+      E-mail: ${ details.payer.email_address }
+      `;
+      
+      const rightColumnText = `
+      Client: ${clientInfo[0].clientName}
+      Phone: ${clientInfo[0].clientPhone}
+      Address: ${clientInfo[0].clientAddress !== address ? clientInfo[0].clientAddress : 'Pick at the store'}
+      Reference point: ${clientInfo[0].referencePoint}
+      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${this.cartService.shippingCost()}` : "No shipping cost"}
+      Additional comments: ${clientInfo[0].additionalComments !== "" ? `${clientInfo[0].additionalComments}` : "No additional comments"}
+      `;
+      
+      const rightText = doc.splitTextToSize(rightColumnText, 75);
   
-    let posY = (doc as any).lastAutoTable.finalY;
+      doc.text(leftColumnText, 15, 75);
+      doc.text(rightText, 115, 75);
   
-    doc.setLineWidth(0.5);
-    doc.line(15, posY + 10, 195, posY + 10);
+      (doc as any).autoTable({
+        startY: 110,
+        head: [['Product', 'Quantity', 'Price', "Discount"]],
+        body: cartList.map((item: any) => [
+          item.name, 
+          item.quantity, 
+          "$" + item.price, item.discount > 0 ? "$" + (item.price - (item.price - (item.price * item.discount))).toFixed(2) : "$0"]),
+        theme: 'striped',
+        styles: {
+          cellPadding: 5,
+          fontSize: 10,
+        },
+        headStyles: {
+          fillColor: ["#cfe2ff"],
+          textColor: ["#000000"],
+          halign: "center"
+        },
+        bodyStyles: {
+          textColor: ["#000000"],
+          halign: "center"
+        },
+        alternateRowStyles: {
+          fillColor: ["#ffffff"]
+        }
+      });
   
-    doc.setFontSize(10);
-    doc.setFont("helvetica", "normal");
-    doc.text("Thank you for your purchase!", 105, posY + 20, { align: "center" });
-    doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 26, { align: "center" });
+      let posY = (doc as any).lastAutoTable.finalY;
   
-    doc.save("Receipt-" + details.id + ".pdf");
-  }
+      doc.setLineWidth(0.5);
+      doc.line(15, posY + 10, 195, posY + 10);
+  
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text("Thank you for your purchase!", 105, posY + 20, { align: "center" });
+      doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 26, { align: "center" });
+  
+      doc.save("Receipt-" + details.id + ".pdf");
+      window.location.href = "/";
+    } catch(error) {
+      console.error("Error saving bill: ", error);
+    }
+  }  
 }
