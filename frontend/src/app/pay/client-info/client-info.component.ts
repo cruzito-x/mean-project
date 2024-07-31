@@ -99,7 +99,7 @@ export class ClientInfoComponent {
         let remaining = maxLength - textarea.val().length;
         charCount.text(`${remaining} / ${maxLength}`);
       });
-  });
+    });
   }
 
   clientInfo() {

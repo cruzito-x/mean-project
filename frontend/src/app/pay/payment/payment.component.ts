@@ -114,22 +114,10 @@ export class PaymentComponent {
       Paid by: ${ details.payer.name.given_name } ${ details.payer.name.surname}
       E-mail: ${ details.payer.email_address }
       `;
-      
-      const rightColumnText = `
-      Client: ${ clientInfo[0].clientName }
-      Phone: ${ clientInfo[0].clientPhone }
-      Address: ${ clientInfo[0].clientAddress !== address ? clientInfo[0].clientAddress : "Pick at the store" }
-      Reference point: ${ clientInfo[0].referencePoint !== referencePoint ? clientInfo[0].referencePoint : referencePoint }
-      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${ this.cartService.shippingCost() } (${ clientInfo[0].municipality })` : "No shipping cost" }
-      `;
-      
-      const rightText = doc.splitTextToSize(rightColumnText, 75);
-  
       doc.text(leftColumnText, 15, 75);
-      doc.text(rightText, 115, 75);
   
       (doc as any).autoTable({
-        startY: 110,
+        startY: 105,
         head: [['Product', 'Quantity', 'Price', "Discount"]],
         body: cartList.map((item: any) => [
           (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase(), 
@@ -155,24 +143,33 @@ export class PaymentComponent {
       });
   
       let posY = (doc as any).lastAutoTable.finalY;
+
+      doc.setFontSize(15);
+      doc.setFont("helvetica", "bold");
+      doc.text("Client details", 105, posY + 10, { align: "center" });
+      
+      doc.setFontSize(9);
+      doc.setFont("helvetica", "normal");
+
+      const client = `
+      Client: ${ clientInfo[0].clientName }
+      Phone: ${ clientInfo[0].clientPhone }
+      Address: ${ clientInfo[0].clientAddress !== address ? clientInfo[0].clientAddress : "Pick at the store" }
+      Reference point: ${ clientInfo[0].referencePoint !== referencePoint ? clientInfo[0].referencePoint : referencePoint }
+      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${ this.cartService.shippingCost() } (${ clientInfo[0].department+" - "+clientInfo[0].municipality })` : "No shipping cost" }
+      ${ clientInfo[0].additionalComments !== "" ? `Additional comments: ${ clientInfo[0].additionalComments }` : "No additional comments"}
+      `;
+
+      doc.text(client, 15, posY + 15);
       
       doc.setFontSize(10);
       doc.setFont("helvetica", "normal");
       
-      const additionalCommentsText = clientInfo[0].additionalComments !== "" ? `Additional comments:\n${clientInfo[0].additionalComments}` : "";
-      const additionalCommentsY = clientInfo[0].additionalComments !== "" ? posY + 10 : posY + 10;
-      const additionalCommentsLineY = additionalCommentsY + (clientInfo[0].additionalComments !== "" ? 10 : 0);
-      const thankYouTextY = additionalCommentsY + (clientInfo[0].additionalComments !== "" ? 20 : 10);
-      const contactUsTextY = thankYouTextY + (clientInfo[0].additionalComments !== "" ? 6 : 6);
-      
-      if (additionalCommentsText) {
-        doc.text(additionalCommentsText, 15, additionalCommentsY);
-      }
-      
       doc.setLineWidth(0.5);
-      doc.line(15, additionalCommentsLineY, 195, additionalCommentsLineY);
-      doc.text("Thank you for your purchase!", 105, thankYouTextY, { align: "center" });
-      doc.text("If you have any questions, please do not hesitate to contact us", 105, contactUsTextY, { align: "center" });
+      doc.line(15, posY + 45, 195, posY + 45);
+      
+      doc.text("Thank you for your purchase!", 105, posY + 55, { align: "center" });
+      doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 61, { align: "center" });
       
       doc.save("Receipt-" + details.id + ".pdf");
       // window.location.href = "/";
