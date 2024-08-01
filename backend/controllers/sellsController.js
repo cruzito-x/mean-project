@@ -10,7 +10,6 @@ exports.saveReceiptData = async (req, res) => {
 
     res.status(200).json(sell);
   } catch (error) {
-    // Maneja cualquier error que ocurra
     res.status(500).json({ message: error.message });
   }
 }

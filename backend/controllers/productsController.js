@@ -149,39 +149,44 @@ exports.updateProductStock = async (req, res) => {
   try {
     // Crete a promesise for individual stock update
     const updatePromises = updates.map(async ({ productId, quantity }) => {
-      console.log(`Procesando actualización para el producto con ID ${productId} y cantidad ${quantity}`);
+      console.log(`Proccesing update for the product with ID ${productId} and quantity ${quantity}`);
 
       // Verify if the product exists and if this have suficient stock
       const result = await Product.findOne({ id: productId });
 
       if (!result) {
-        console.error(`Producto con ID ${productId} no encontrado.`);
-        throw new Error(`Producto con ID ${productId} no encontrado.`);
+        console.error(`Producto with ID ${productId} not found`);
+        throw new Error(`Product with ID ${productId} not found`);
       }
 
       if (result.stock < quantity) {
-        console.error(`Stock insuficiente para el producto con ID ${productId}.`);
-        throw new Error(`Stock insuficiente para el producto con ID ${productId}.`);
+        console.error(`Insuficient stock for the product with ID ${productId}.`);
+        throw new Error(`Insuficient stock for the product with ID ${productId}.`);
       }
 
-      // Update the stock
+      // Update the stock and total_sold
       const updateResult = await Product.updateOne(
         { id: productId },
-        { $inc: { stock: -quantity } } // $inc is used to decrease the stock
+        { 
+          $inc: { 
+            stock: -quantity, // $inc is used to decrease the stock
+            total_sold: +quantity // $inc is used to increase the total_sold
+          } 
+        }
       );
 
       if (updateResult.nModified === 0) {
-        console.error(`No se pudo actualizar el producto con ID ${productId}.`);
-        throw new Error(`No se pudo actualizar el producto con ID ${productId}.`);
+        console.error(`Can't update the product with ID ${productId}.`);
+        throw new Error(`Can't update the product with ID ${productId}.`);
       }
 
-      console.log(`Stock actualizado para el producto con ID ${productId}.`);
+      console.log(`Stock and total_sold updated for the product with ID ${productId}.`);
     });
 
     // Execute all promises
     await Promise.all(updatePromises);
-
-    res.status(200).json({ message: 'Stock actualizado correctamente.' });
+    
+    res.status(200).json({ message: 'Stock and total_sold has been updated correctly.' });
   } catch (error) {
     console.error('Error en la actualización de stock:', error);
     res.status(500).json({ error: error.message });
