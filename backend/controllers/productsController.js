@@ -10,6 +10,15 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
+exports.getMostPopularProducts = async (req, res) => {
+  try {
+    const products = await Product.find().sort({ 'total_sold': -1 }).limit(5);
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 exports.getBestRatedProducts = async (req, res) => {
   try {
     const bestRated = await Product.find().sort({ 'rating': -1 }).limit(5);

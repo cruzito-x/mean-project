@@ -30,6 +30,7 @@ const productSchema = new mongoose.Schema({
   colors: [colorSchema],
   technical_specifications: String,
   rating: Number,
+  total_sold: Number,
   created_at: Date,
   updated_at: Date,
 });
