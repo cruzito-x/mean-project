@@ -131,8 +131,6 @@ export class ClientInfoComponent {
 
         this.pay_steps.nextStep();
       }
-
-      console.log(item);
     });
   }
 

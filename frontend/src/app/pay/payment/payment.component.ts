@@ -6,6 +6,7 @@ import { PayStepsService } from '../../services/pay-steps.service';
 import { PaymentService } from '../../services/payment.service';
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
+import { SellsService } from '../../services/sells.service';
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -29,6 +30,7 @@ export class PaymentComponent {
   amount = 0;
   cartService = inject(CartService);
   productsService = inject(ProductsService);
+  sellsService = inject(SellsService);
   pay_steps = inject(PayStepsService);
   cartList: any[] = JSON.parse(localStorage.getItem("cartList") || "{}");
   clientInfo: any[] = JSON.parse(localStorage.getItem("clientInfo") || "{}");
@@ -99,7 +101,7 @@ export class PaymentComponent {
       
       doc.setLineWidth(0.5);
       doc.line(15, 55, 195, 55);
-      
+
       doc.setFontSize(15);
       doc.setFont("helvetica", "bold");
       doc.text("Transaction details", 105, 65, { align: "center" });
@@ -107,16 +109,17 @@ export class PaymentComponent {
       doc.setFontSize(9);
       doc.setFont("helvetica", "normal");
 
-      const leftColumnText = `
+      const transaction = `
       Transaction ID: ${ details.id }
       Amount: $${ details.purchase_units[0].amount.value }
-      Date: ${moment( details.create_time).format("yyyy/MM/dd") }
+      Date: ${moment(details.create_time).format("YYYY/MM/DD")}
       Payment status: ${ details.status }
-      Paid by: ${ details.payer.name.given_name } ${ details.payer.name.surname}
+      Paid by: ${ details.payer.name.given_name } ${ details.payer.name.surname }
       E-mail: ${ details.payer.email_address }
       `;
-      doc.text(leftColumnText, 15, 75);
-  
+      
+      doc.text(transaction, 15, 75);
+      
       (doc as any).autoTable({
         startY: 105,
         head: [['Product', 'Quantity', 'Price', "Discount"]],
@@ -142,9 +145,9 @@ export class PaymentComponent {
           fillColor: ["#ffffff"]
         }
       });
-  
+      
       let posY = (doc as any).lastAutoTable.finalY;
-
+      
       doc.setFontSize(15);
       doc.setFont("helvetica", "bold");
       doc.text("Client details", 105, posY + 10, { align: "center" });
@@ -160,25 +163,50 @@ export class PaymentComponent {
       Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${ this.cartService.shippingCost() } (${ this.clientInfo[0].department+" - "+this.clientInfo[0].municipality })` : "No shipping cost" }
       ${ this.clientInfo[0].additionalComments !== "" ? `Additional comments: ${ this.clientInfo[0].additionalComments }` : "No additional comments"}
       `;
-
-      doc.text(client, 15, posY + 15);
       
+      doc.text(client, 15, posY + 15);
+
       doc.setFontSize(10);
       doc.setFont("helvetica", "normal");
-      
+
       doc.setLineWidth(0.5);
       doc.line(15, posY + 45, 195, posY + 45);
-      
+
       doc.text("Thank you for your purchase!", 105, posY + 55, { align: "center" });
       doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 61, { align: "center" });
-      
+
       doc.save("Receipt-" + details.id + ".pdf");
 
-      window.location.href = "/";
+      // Combine details and client info
+      const receiptData: any = {
+        transaction_id: details.id,
+        amount: details.purchase_units[0].amount.value,
+        date: moment(details.create_time).format("yyyy/MM/dd"),
+        payment_status: details.status,
+        paid_by: `${details.payer.name.given_name} ${details.payer.name.surname}`,
+        email: details.payer.email_address,
+        products: this.cartList.map((item: any) => ({
+          name: `${item.category} ${item.brand[0].name} ${item.name} (${item.colors[item.indexColor].color.replace("-", " ")})`,
+          quantity: item.quantity,
+          price: item.price,
+          discount: item.discount > 0 ? item.price - (item.price - (item.price * item.discount)) : 0
+        })),
+        client_details: {
+          client: this.clientInfo[0].clientName,
+          phone: this.clientInfo[0].clientPhone,
+          address: this.clientInfo[0].clientAddress !== address ? this.clientInfo[0].clientAddress : "Pick at the store",
+          reference_point: this.clientInfo[0].referencePoint !== referencePoint ? this.clientInfo[0].referencePoint : referencePoint,
+          shipping_cost: this.cartService.shippingCost() > 0 ? `$${this.cartService.shippingCost()} (${this.clientInfo[0].department} - ${this.clientInfo[0].municipality})` : "No shipping cost",
+          additional_comments: this.clientInfo[0].additionalComments
+        }
+      };
+      
+      this.sellsService.saveSellsData(receiptData);
+      location.href = "/";
       localStorage.removeItem("cartList");
       localStorage.removeItem("clientInfo");
-    } catch(error) {
+    } catch (error) {
       console.error("Error saving bill: ", error);
     }
-  }  
+  }
 }
