@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.productsService.getAllProducts();
+    this.productsService.getMosPopularProducts();
     this.productsService.getBestRatedProducts();
     this.categoriesService.getMostPopularCategories();
     this.isLoggedIn();

@@ -27,12 +27,13 @@ interface Product {
   created_at: string;
   description: string;
   tags: Tags[];
+  stock: number;
   photo: Photo[];
   colors: Colors[];
   price: number;
   discount: number;
   rating: number;
-  stock: number;
+  total_sold: number;
   sub_category: string;
   technical_specifications: string;
   updated_at: string | null;
@@ -43,6 +44,7 @@ interface Product {
 })
 export class ProductsService {
   products: Product[] = [];
+  mostPopular: Product[] = [];
   bestRatedProducts: Product[] = [];
   brands: Brand[] = [];
   uniqueBrands: Brand[] = [];
@@ -92,6 +94,19 @@ export class ProductsService {
       });
   }
 
+  getMosPopularProducts() {
+    fetch("http://localhost:3000/products/mostPopular")
+     .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error getting most popular products");
+        }
+        return response.json();
+      })
+     .then((data: Product[]) => {
+        this.mostPopular = data;
+      });
+  }
+
   /* Functionallity for offers view */
   getOffersProducts() {
     fetch("http://localhost:3000/products/products/offers")
@@ -102,7 +117,6 @@ export class ProductsService {
         return response.json();
       })
       .then((data: Product[]) => {
-        console.log("Products offer: ", data);
         this.products = data;
       });
   }
@@ -329,6 +343,7 @@ export class ProductsService {
     return stars;
   }
 
+  /* Update stock of a product */
   updateStock(products: any): void {
     const updates = products.map((product: any) => ({
       productId: product.id,

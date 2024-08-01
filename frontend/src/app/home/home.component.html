@@ -373,8 +373,8 @@
     <div class="col-md-4 mt-3 mb-4 col-sm-12">
       <h5> Most popular </h5>
       <ul class="text-start list-group list-group-flush mt-4">
-        @if(this.productsService.products.length > 0) {
-        @for(item of this.productsService.products.slice(0, 5); track $index) {
+        @if(this.productsService.mostPopular.length > 0) {
+        @for(item of this.productsService.mostPopular; track $index) {
         <li class="list-group-item">
           <div class="row">
             <div class="col-sm-4 d-flex justify-content-center">
