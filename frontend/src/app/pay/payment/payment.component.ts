@@ -75,6 +75,9 @@ export class PaymentComponent implements OnInit {
           }).then((result) => {
             if (result.isConfirmed) {
               this.printReceipt(details);
+              location.href = "/";
+              localStorage.removeItem("cartList");
+              localStorage.removeItem("clientInfo");
             } else {
               location.href = "/";
               localStorage.removeItem("cartList");
@@ -209,9 +212,6 @@ export class PaymentComponent implements OnInit {
       };
       
       this.sellsService.saveSellsData(receiptData);
-      location.href = "/";
-      localStorage.removeItem("cartList");
-      localStorage.removeItem("clientInfo");
     } catch (error) {
       console.error("Error saving bill: ", error);
     }

@@ -38,9 +38,12 @@ export class CartService {
   increaseQuantity(id: number, indexColor: number) {
     let item = this.items.find((n) => n.id === id && n.indexColor === indexColor);
 
-    if (item) item.quantity += this.quantity;
-
-    localStorage.setItem('cartList', JSON.stringify(this.items));
+    if(this.quantity <= item.stock) {
+      if (item) item.quantity += this.quantity;
+      localStorage.setItem('cartList', JSON.stringify(this.items));
+    } else {
+      alert("The product you are trying to add to your cart exceeds its stock.");
+    }
   }
 
   indexSelectedColor(index: number) {
