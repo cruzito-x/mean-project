@@ -129,3 +129,52 @@ exports.searchProductsBySubcategoryAndBrand = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 }
+
+exports.updateProductStock = async (req, res) => {
+  const updates = req.body;
+
+  if (!Array.isArray(updates)) {
+    return res.status(400).json({ error: 'El cuerpo de la solicitud debe ser un array.' });
+  }
+
+  try {
+    // Crete a promesise for individual stock update
+    const updatePromises = updates.map(async ({ productId, quantity }) => {
+      console.log(`Procesando actualización para el producto con ID ${productId} y cantidad ${quantity}`);
+
+      // Verify if the product exists and if this have suficient stock
+      const result = await Product.findOne({ id: productId });
+
+      if (!result) {
+        console.error(`Producto con ID ${productId} no encontrado.`);
+        throw new Error(`Producto con ID ${productId} no encontrado.`);
+      }
+
+      if (result.stock < quantity) {
+        console.error(`Stock insuficiente para el producto con ID ${productId}.`);
+        throw new Error(`Stock insuficiente para el producto con ID ${productId}.`);
+      }
+
+      // Update the stock
+      const updateResult = await Product.updateOne(
+        { id: productId },
+        { $inc: { stock: -quantity } } // $inc is used to decrease the stock
+      );
+
+      if (updateResult.nModified === 0) {
+        console.error(`No se pudo actualizar el producto con ID ${productId}.`);
+        throw new Error(`No se pudo actualizar el producto con ID ${productId}.`);
+      }
+
+      console.log(`Stock actualizado para el producto con ID ${productId}.`);
+    });
+
+    // Execute all promises
+    await Promise.all(updatePromises);
+
+    res.status(200).json({ message: 'Stock actualizado correctamente.' });
+  } catch (error) {
+    console.error('Error en la actualización de stock:', error);
+    res.status(500).json({ error: error.message });
+  }
+};

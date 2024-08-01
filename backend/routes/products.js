@@ -14,5 +14,6 @@ router.get("/search/category/:category/brand/:brand", productsController.searchP
 router.get("/search/name/:name/category/:category/brand/:brand", productsController.searchByNameCategoryAndBrand);
 router.get("/search/name/:name/subcategory/:subcategory/brand/:brand", productsController.searchByNameSubcategoryAndBrand);
 router.get("/search/subcategory/:subcategory/brand/:brand", productsController.searchProductsBySubcategoryAndBrand);
+router.post("/stock", productsController.updateProductStock);
 
 module.exports = router;

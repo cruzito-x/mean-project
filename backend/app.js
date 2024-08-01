@@ -18,7 +18,7 @@ app.use(helmet({
 }));
 app.use(bodyParser.json()); // Middleware para parsear el body de las solicitudes como JSON
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors()); // Permite solicitudes CORS de diferentes endpoints fuera del servidor
+app.use(cors("*")); // Permite solicitudes CORS de diferentes endpoints fuera del servidor
 
 // Crear la carpeta de logs si no existe
 if (!fs.existsSync(logsFolder)) {

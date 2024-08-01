@@ -16,7 +16,7 @@ const colorSchema = new mongoose.Schema({
 });
 
 const productSchema = new mongoose.Schema({
-  id: String,
+  id: {type: String, required: true, unique: true},
   name: String,
   description: String,
   price: Number,
