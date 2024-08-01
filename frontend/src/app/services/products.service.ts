@@ -283,7 +283,7 @@ export class ProductsService {
       .catch((error) => console.error("Error:", error));
   }
 
-  /* */
+  /* Fucnitonallity to get the details of a product */
   getProductDetails(product: string) {
     fetch(`http://localhost:3000/products/details/${product}`)
       .then((response) => {
@@ -329,6 +329,30 @@ export class ProductsService {
     return stars;
   }
 
+  updateStock(products: any): void {
+    const updates = products.map((product: any) => ({
+      productId: product.id,
+      quantity: product.quantity
+    }));
+  
+    fetch(`http://localhost:3000/products/stock`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updates),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error updating stock");
+        }
+        return response.json();
+      })
+      .then((data) => {
+      })
+      .catch((error) => console.error("Error:", error));
+  } 
+  
   selectBrand(brand: string): void {
     this.selectedBrand = brand;
   }

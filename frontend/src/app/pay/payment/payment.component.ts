@@ -5,6 +5,7 @@ import { faCreditCard, faUser, faAt, faMoneyBill, faAngleLeft, faAngleRight, faP
 import { PayStepsService } from '../../services/pay-steps.service';
 import { PaymentService } from '../../services/payment.service';
 import { CartService } from '../../services/cart.service';
+import { ProductsService } from '../../services/products.service';
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -27,7 +28,10 @@ export class PaymentComponent {
   faPrint = faPrint;
   amount = 0;
   cartService = inject(CartService);
+  productsService = inject(ProductsService);
   pay_steps = inject(PayStepsService);
+  cartList: any[] = JSON.parse(localStorage.getItem("cartList") || "{}");
+  clientInfo: any[] = JSON.parse(localStorage.getItem("clientInfo") || "{}");
 
   @ViewChild('paymentRef', { static: false }) paymentRef !: ElementRef;
 
@@ -50,6 +54,7 @@ export class PaymentComponent {
       },
       onApprove: (data: any, actions: any) => {
         return actions.order.capture().then((details: any) => {
+          this.productsService.updateStock(this.cartList);
           Swal.fire({
             text: "Your payment has been processed successfully!",
             icon: "success",
@@ -60,7 +65,7 @@ export class PaymentComponent {
             cancelButtonColor: "#dc3545"
           }).then((result) => {
             if (result.isConfirmed) {
-              this.printBill(details);
+              this.printReceipt(details);
             } else {
               location.href = "/";
               localStorage.removeItem("cartList");
@@ -75,11 +80,9 @@ export class PaymentComponent {
     }).render(this.paymentRef.nativeElement);
   }
 
-  async printBill(details: any) {
+  async printReceipt(details: any) {
     try {
       const doc = new jsPDF();
-      let cartList: any[] = JSON.parse(localStorage.getItem("cartList") || "{}");
-      let clientInfo: any[] = JSON.parse(localStorage.getItem("clientInfo") || "{}");
       let address: string = "C.C. Plaza Merliot, 3 nivel local 308, Santa Tecla, La Libertad, El Salvador, Centro América";
       let referencePoint: string = "Between Plaza Merliot Street and Rosa de Lima Street";
       
@@ -117,7 +120,7 @@ export class PaymentComponent {
       (doc as any).autoTable({
         startY: 105,
         head: [['Product', 'Quantity', 'Price', "Discount"]],
-        body: cartList.map((item: any) => [
+        body: this.cartList.map((item: any) => [
           (item.category+' '+item.brand[0].name+' '+item.name+' ('+(item.colors[item.indexColor].color).replace("-", " ")+')').toUpperCase(), 
           item.quantity, 
           "$" + item.price, item.discount > 0 ? "$" + (item.price - (item.price - (item.price * item.discount))).toFixed(2) : "$0"]),
@@ -150,12 +153,12 @@ export class PaymentComponent {
       doc.setFont("helvetica", "normal");
 
       const client = `
-      Client: ${ clientInfo[0].clientName }
-      Phone: ${ clientInfo[0].clientPhone }
-      Address: ${ clientInfo[0].clientAddress !== address ? clientInfo[0].clientAddress : "Pick at the store" }
-      Reference point: ${ clientInfo[0].referencePoint !== referencePoint ? clientInfo[0].referencePoint : referencePoint }
-      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${ this.cartService.shippingCost() } (${ clientInfo[0].department+" - "+clientInfo[0].municipality })` : "No shipping cost" }
-      ${ clientInfo[0].additionalComments !== "" ? `Additional comments: ${ clientInfo[0].additionalComments }` : "No additional comments"}
+      Client: ${ this.clientInfo[0].clientName }
+      Phone: ${ this.clientInfo[0].clientPhone }
+      Address: ${ this.clientInfo[0].clientAddress !== address ? this.clientInfo[0].clientAddress : "Pick at the store" }
+      Reference point: ${ this.clientInfo[0].referencePoint !== referencePoint ? this.clientInfo[0].referencePoint : referencePoint }
+      Shipping cost: ${ this.cartService.shippingCost() > 0 ? `$${ this.cartService.shippingCost() } (${ this.clientInfo[0].department+" - "+this.clientInfo[0].municipality })` : "No shipping cost" }
+      ${ this.clientInfo[0].additionalComments !== "" ? `Additional comments: ${ this.clientInfo[0].additionalComments }` : "No additional comments"}
       `;
 
       doc.text(client, 15, posY + 15);
@@ -170,7 +173,7 @@ export class PaymentComponent {
       doc.text("If you have any questions, please do not hesitate to contact us", 105, posY + 61, { align: "center" });
       
       doc.save("Receipt-" + details.id + ".pdf");
-      
+
       window.location.href = "/";
       localStorage.removeItem("cartList");
       localStorage.removeItem("clientInfo");
