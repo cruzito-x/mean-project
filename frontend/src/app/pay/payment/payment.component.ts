@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { OrderInfoComponent } from "../order-info/order-info.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCreditCard, faUser, faAt, faMoneyBill, faAngleLeft, faAngleRight, faPrint } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,7 @@ import { PaymentService } from '../../services/payment.service';
 import { CartService } from '../../services/cart.service';
 import { ProductsService } from '../../services/products.service';
 import { SellsService } from '../../services/sells.service';
+import $ from "jquery";
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
@@ -19,7 +20,7 @@ import moment from 'moment';
   templateUrl: './payment.component.html',
   styles: ``
 })
-export class PaymentComponent {
+export class PaymentComponent implements OnInit {
   faCreditCard = faCreditCard;
   faUser = faUser;
   faAt = faAt;
@@ -38,6 +39,12 @@ export class PaymentComponent {
   @ViewChild('paymentRef', { static: false }) paymentRef !: ElementRef;
 
   constructor(private payment: PaymentService) { }
+
+  ngOnInit(): void {
+    $("#clientInfoBtn").on("click", () => {
+      localStorage.removeItem("clientInfo");
+    });
+  }
 
   ngAfterViewInit(): void {
     this.amount = this.payment.amount;
