@@ -42,11 +42,13 @@ const users = require("./routes/users");
 const brands = require("./routes/brands");
 const categories = require("./routes/categories");
 const products = require("./routes/products");
+const sells = require("./routes/sells");
 
 app.use("/users", users);
 app.use("/brands", brands);
 app.use("/categories", categories);
 app.use("/products", products);
+app.use("/sells", sells);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
