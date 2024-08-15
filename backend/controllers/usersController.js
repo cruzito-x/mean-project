@@ -56,7 +56,7 @@ exports.updateUser = async (req, res) => {
 
     if (req.body.username) updatedFields.username = req.body.username;
     if (req.body.email) updatedFields.email = req.body.email;
-    if (req.body.password) updatedFields.password = req.body.password;
+    if (req.body.password) updatedFields.password = crypto.createHash('md5').update(req.body.password).digest('hex');
 
     const user = await Users.findByIdAndUpdate(req.user.userId, updatedFields, { new: true });
     if (!user) return res.status(404).json({ message: "User not found" });
