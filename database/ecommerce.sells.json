@@ -1,0 +1,175 @@
+[{
+  "_id": {
+    "$oid": "66aadbf0026a809d7d71d09e"
+  },
+  "transaction_id": "75D79653BK241210G",
+  "amount": 3768.1,
+  "date": "2024-07-31",
+  "payment_status": "COMPLETED",
+  "paid_by": "John Doe",
+  "email": "sb-47rvdv31610419@personal.example.com",
+  "products": [
+    {
+      "name": "GPU NVIDIA GEFORCE GTX 1650 4GB VRAM GDDR6 (BLACK)",
+      "quantity": 1,
+      "price": 299,
+      "discount": 29.9
+    },
+    {
+      "name": "GAMING PC INTEL CORE I9-14900K - NVIDIA RTX 3080 (BLACK)",
+      "quantity": 1,
+      "price": 3499,
+      "discount": 0
+    }
+  ],
+  "client_details": {
+    "client": "David Alejandro Cruz Cruz",
+    "phone": "74150122",
+    "address": "Pick at the store",
+    "reference_point": "Between Plaza Merliot Street and Rosa de Lima Street",
+    "shipping_cost": "No shipping cost",
+    "additional_comments": "ghgy"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aaf397bdeb7ecfc63c94af"
+  },
+  "transaction_id": "1BG473414L9460432",
+  "amount": 3748,
+  "date": "2024/07/We",
+  "payment_status": "COMPLETED",
+  "paid_by": "John Doe",
+  "email": "sb-47rvdv31610419@personal.example.com",
+  "products": [
+    {
+      "name": "gaming pc intel Core i9-14900K - NVIDIA RTX 3080 (black)",
+      "quantity": 1,
+      "price": 3499,
+      "discount": 0,
+      "_id": {
+        "$oid": "66aaf397bdeb7ecfc63c94b0"
+      }
+    },
+    {
+      "name": "cpu amd AMD Ryzen 5 5600G 6C/12T (NO NEED GPU) (default)",
+      "quantity": 1,
+      "price": 259,
+      "discount": 12.949999999999989,
+      "_id": {
+        "$oid": "66aaf397bdeb7ecfc63c94b1"
+      }
+    }
+  ],
+  "client_details": {
+    "client": "David Alejandro Cruz Cruz",
+    "phone": "74150122",
+    "address": "Pick at the store",
+    "reference_point": "Between Plaza Merliot Street and Rosa de Lima Street",
+    "shipping_cost": "$2.95 (La Libertad - Santa Tecla)",
+    "additional_comments": "erfwerwerw"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66aaf4f4bdeb7ecfc63c94bf"
+  },
+  "transaction_id": "4EJ23085DT4551642",
+  "amount": 3748,
+  "date": "2024/07/We",
+  "payment_status": "COMPLETED",
+  "paid_by": "John Doe",
+  "email": "sb-47rvdv31610419@personal.example.com",
+  "products": [
+    {
+      "name": "gaming pc intel Core i9-14900K - NVIDIA RTX 3080 (black)",
+      "quantity": 1,
+      "price": 3499,
+      "discount": 0,
+      "_id": {
+        "$oid": "66aaf4f4bdeb7ecfc63c94c0"
+      }
+    },
+    {
+      "name": "cpu amd AMD Ryzen 5 5600G 6C/12T (NO NEED GPU) (default)",
+      "quantity": 1,
+      "price": 259,
+      "discount": 12.949999999999989,
+      "_id": {
+        "$oid": "66aaf4f4bdeb7ecfc63c94c1"
+      }
+    }
+  ],
+  "client_details": {
+    "client": "David Alejandro Cruz Cruz",
+    "phone": "7415-0122",
+    "address": "Colonia Esmeralda 2, Avenida Amazonas San Salvador",
+    "reference_point": "Route 22 bus station",
+    "shipping_cost": "$2.95 (San Salvador - San Salvador)",
+    "additional_comments": "The package will be received by Daniel Flores, he is my nephew."
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66ab03fa849ce63f3614d5b3"
+  },
+  "transaction_id": "5C250460017009127",
+  "amount": 680,
+  "date": "2024/07/We",
+  "payment_status": "COMPLETED",
+  "paid_by": "John Doe",
+  "email": "sb-47rvdv31610419@personal.example.com",
+  "products": [
+    {
+      "name": "gaming headset razer Blackshark V2 (white)",
+      "quantity": 10,
+      "price": 85,
+      "discount": 17,
+      "_id": {
+        "$oid": "66ab03fa849ce63f3614d5b4"
+      }
+    }
+  ],
+  "client_details": {
+    "client": "David Alejandro Cruz Cruz",
+    "phone": "74150122",
+    "address": "Pick at the store",
+    "reference_point": "Between Plaza Merliot Street and Rosa de Lima Street",
+    "shipping_cost": "No shipping cost",
+    "additional_comments": "Comment"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66be3372ccf406279cefc8a2"
+  },
+  "transaction_id": "9F611698HG500123W",
+  "amount": 2001.95,
+  "date": "2024/08/Th",
+  "payment_status": "COMPLETED",
+  "paid_by": "John Doe",
+  "email": "sb-47rvdv31610419@personal.example.com",
+  "products": [
+    {
+      "name": "laptop dell XPS 15 i7-9750H - NVIDIA GTX 1650 Ti (silver)",
+      "quantity": 1,
+      "price": 1999,
+      "discount": 0,
+      "_id": {
+        "$oid": "66be3372ccf406279cefc8a3"
+      }
+    }
+  ],
+  "client_details": {
+    "client": "David Alejandro Cruz Cruz",
+    "phone": "74150122",
+    "address": "Pick at the store",
+    "reference_point": "Between Plaza Merliot Street and Rosa de Lima Street",
+    "shipping_cost": "$2.95 (La Libertad - Santa Tecla)",
+    "additional_comments": "xcvxc"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,1727 @@
+[{
+  "_id": {
+    "$oid": "6685e659414c8b36c0293f32"
+  },
+  "id": "3f447baf-445e-4f67-b7b7-0b4dc4de3e91",
+  "name": "Astro A10 Gen 2",
+  "description": "The Logitech Astro A10 v2 is a versatile gaming headset designed for multi-platform use, including PC, Mac, PlayStation, and Xbox. It features 40 mm drivers delivering a frequency response from 20 Hz to 20 kHz, ensuring clear and immersive audio across various gaming environments. With its durable build and comfortable fit, it's suitable for long gaming sessions. The headset includes a unidirectional microphone with a flip-to-mute function, ensuring clear communication with teammates. Wired connectivity via a 3.5mm audio jack provides reliable performance, and the headset is lightweight despite its robust construction, making it a practical choice for both casual and competitive gamers.",
+  "price": 45,
+  "discount": 0,
+  "category_id": "376f1522-2c5a-4687-b732-9884598d987c",
+  "category": "gaming headset",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "headset"
+    },
+    {
+      "name": "logitech"
+    },
+    {
+      "name": "wired"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "3.5mm"
+    }
+  ],
+  "brand": [
+    {
+      "id": "9af3e32e-98d8-4d71-8e9f-bae00e7311c7",
+      "name": "logitech"
+    }
+  ],
+  "stock": 130,
+  "photo": [
+    {
+      "url": "uploads/products/logitech/astro_a10_gen2/astro.png"
+    },
+    {
+      "url": "uploads/products/logitech/astro_a10_gen2/astro_2.png"
+    },
+    {
+      "url": "uploads/products/logitech/astro_a10_gen2/astro_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    },
+    {
+      "color": "purple"
+    }
+  ],
+  "technical_specifications": "Type: Gaming headset, Compatibility: PC / Mac / PlayStation / Xbox, Driver Size: 40 mm, Frequency Response: 20 Hz - 20 kHz, Impedance: 32 ohms, Sensitivity: 100 dB SPL/mW, Microphone: Yes (unidirectional flip-to-mute mic), Connectivity: Wired, 3.5mm audio jack, Cable Length: 6.5 ft (2 m), Weight: 346 g",
+  "rating": 5,
+  "total_sold": 10,
+  "created_at": "2024-07-03",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668846708b066ff7f5dd1c23"
+  },
+  "id": "a4eaa8e8-68d5-4c0a-bc6f-3eec21e4bda1",
+  "name": "Core i3-10100F 4C/8T (Needs GPU)",
+  "description": "The Intel Core i3-10100F is a 10th generation processor designed to deliver reliable and efficient performance for everyday tasks and basic gaming. With a 4-core, 8-thread configuration, this CPU provides an optimal balance between performance and cost. With a base frequency of 3.6 GHz and a turbo boost of up to 4.3 GHz, it is capable of handling multitasking applications and light gaming with ease.\n\nKey features:\n\nCores / Threads: 4C / 8T\nBase frequency: 3.6 GHz\nTurbo frequency: Up to 4.3 GHz\nCache: 6 MB Intel Smart Cache\nCompatibility: Socket LGA 1200\nTDP: 65W\nMemory: DDR4 support up to 2666 MHz\n\nThis processor requires a dedicated graphics card, as it does not include integrated graphics. It is an ideal choice for those looking to upgrade their system without compromising on budget, offering solid performance for a wide range of everyday applications and basic gaming.",
+  "price": 160,
+  "discount": 0.25,
+  "category_id": "06f4d9a1-8e8b-4c2a-aa0c-5c4412b4b77c",
+  "category": "cpu",
+  "sub_category": "intel_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "intel"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 420,
+  "photo": [
+    {
+      "url": "uploads/products/intel/i3_10100f/intel_i3_10100f.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Processor: Intel Core i3-10100F, Cores: 4, Threads: 8, Base Clock Speed: 3.6 GHz, Max Boost Clock Speed: 4.3 GHz, Cache: 6 MB, TDP: 65 W, Integrated Graphics: None (need GPU), Socket: LGA 1200, Architecture: Comet Lake",
+  "rating": 4,
+  "total_sold": 5,
+  "created_at": "2024-07-05",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66885b13e3247cba68f1e045"
+  },
+  "id": "d7c78b8c-29b2-4f69-b3c8-1e7e6a972b44",
+  "name": "A22 FHD 22P 75Hz HDMI VGA",
+  "description": "The Xiaomi A22 FHD 22P 75Hz monitor is a versatile display designed for both home and office use. It features a 22-inch IPS panel that delivers vibrant colors and wide viewing angles, ensuring consistent image quality from different perspectives. With a Full HD resolution of 1920 x 1080 pixels, it provides sharp and clear visuals, ideal for both productivity tasks and entertainment. The 75Hz refresh rate offers a smoother experience compared to standard 60Hz monitors, making it suitable for casual gaming and video playback. Connectivity options include HDMI and VGA ports, allowing compatibility with a wide range of devices. The monitor's stand is tilt-adjustable for ergonomic comfort, and it supports VESA mounting for flexible placement. With its sleek design and reliable performance, the Xiaomi A22 FHD 22P is a great choice for an affordable and high-quality monitor.",
+  "price": 119,
+  "discount": 0.1,
+  "category_id": "4b7e2d56-8138-463f-b919-230b7a9eecf0",
+  "category": "monitor",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "monitor"
+    },
+    {
+      "name": "xiaomi"
+    },
+    {
+      "name": "FHD"
+    },
+    {
+      "name": "IPS"
+    },
+    {
+      "name": "HDMI"
+    },
+    {
+      "name": "VGA"
+    }
+  ],
+  "brand": [
+    {
+      "id": "cfc0a4c9-5b37-4ba8-9bcf-4a9c7f16c733",
+      "name": "xiaomi"
+    }
+  ],
+  "stock": 420,
+  "photo": [
+    {
+      "url": "uploads/products/xiaomi/a_22/xiaomi_a22.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Display Size: 22 inches, Resolution: Full HD (1920 x 1080), Refresh Rate: 75Hz, Panel Type: IPS, Aspect Ratio: 16:9, Brightness: 250 nits, Contrast Ratio: 1000:1, Response Time: 5ms, Viewing Angles: 178° horizontal / 178° vertical, Color Support: 16.7 million colors, Inputs: HDMI / VGA, Stand: Tilt adjustable, VESA Mount: 100 x 100mm, Dimensions (with stand): 489.3 x 375.1 x 181.2 mm, Weight: 2.7 kg.",
+  "rating": 4,
+  "total_sold": 2,
+  "created_at": "2024-07-05",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "6688c102e3247cba68f1e046"
+  },
+  "id": "624a5170-6e6a-4878-bb37-d9bde86c1046",
+  "name": "USB Condenser Yeti",
+  "description": "The Blue Yeti USB Condenser Microphone is a versatile and high-quality microphone designed for a variety of applications, including podcasting, streaming, voiceovers, and music recording. It features a tri-capsule array that allows for four different pickup patterns: cardioid, bidirectional, omnidirectional, and stereo. The microphone delivers crystal-clear, studio-quality sound and offers user-friendly controls for volume, pattern selection, mute, and microphone gain. Its plug-and-play functionality ensures easy setup with both Windows and Mac computers.",
+  "price": 129,
+  "discount": 0,
+  "category_id": "221d0367-2b55-40b6-8546-f759a7787c5e",
+  "category": "microphone",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "audio"
+    },
+    {
+      "name": "microphone"
+    },
+    {
+      "name": "usb"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "condenser"
+    }
+  ],
+  "brand": [
+    {
+      "id": "a46f680d-3a35-4c6e-9b93-d77adcf27ef4",
+      "name": "blue"
+    }
+  ],
+  "stock": 180,
+  "photo": [
+    {
+      "url": "uploads/products/blue/yeti/blue_yeti.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    }
+  ],
+  "technical_specifications": "Microphone Type: Condenser, Capsules: Tri-capsule array (3 condenser capsules), Polar Patterns: Cardioid / Bidirectional / Omnidirectional / Stereo, Frequency Response: 20Hz - 20kHz, Bit Rate: 16-bit, Sample Rate: 48kHz, Max SPL: 120dB, Sensitivity: 4.5mV/Pa (1kHz), Signal to Noise Ratio: 100dB, Controls: Volume / Pattern Selection / Mute / Microphone Gain, Headphone Amplifier: Impedance: ≥16 ohms, Power Output (RMS): 130mW, Headphone Output Frequency Response: 15Hz - 22kHz, Headphone Output Signal to Noise Ratio: 100dB, Connectivity: USB, Dimensions: 12 x 4.9 x 4.7 inches, Weight: 1.2 pounds (microphone) / 2.2 pounds (stand), System Requirements: Windows 7 or higher / Mac OS X 10.10 or higher and USB 1.1 / 2.0 / 3.0",
+  "rating": 4,
+  "total_sold": 15,
+  "created_at": "2024-07-05",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "6688c13fe3247cba68f1e047"
+  },
+  "id": "2eb8075f-d80d-48f2-a399-d75edbe22014",
+  "name": "GeForce RTX 3080 12GB VRAM",
+  "description": "The RTX 3080 is based on NVIDIA's Ampere architecture, offering significant improvements in performance and efficiency compared to its predecessor, the RTX 2080. It features a large number of CUDA cores (stream processors) and utilizes second-generation RT cores and third-generation Tensor cores for real-time ray tracing and AI-powered features, respectively. The card supports DirectX 12 Ultimate and includes hardware-accelerated ray tracing and AI capabilities, making it suitable for both gaming and professional applications like 3D rendering and machine learning. It boasts excellent 4K gaming performance and is designed to handle the demands of the latest AAA games and VR experiences with ease.",
+  "price": 799,
+  "discount": 0.15,
+  "category_id": "47256b35-4ff8-4b65-8cfa-9e1d4dbd4c16",
+  "category": "gpu",
+  "sub_category": "graphic_cards",
+  "tags": [
+    {
+      "name": "gpu"
+    },
+    {
+      "name": "ocpc"
+    },
+    {
+      "name": "nvidia"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "rtx"
+    }
+  ],
+  "brand": [
+    {
+      "id": "7ec0b3e3-bc6f-4b84-b184-e1c9173b56f3",
+      "name": "nvidia"
+    }
+  ],
+  "stock": 100,
+  "photo": [
+    {
+      "url": "uploads/products/nvidia/rtx_3080/ocpc_nvidia_rtx_3080.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Architecture: Ampere, CUDA Cores: 8704, Base Clock: 1440 MHz, Boost Clock: 1710 MHz, Memory: 10 GB GDDR6X, Memory Interface: 320-bit, Memory Speed: 19 Gbps, Memory Bandwidth: 760 GB/s, RTX-OPS: 58 T, Tensor-OPS: 238 T, Ray Tracing Cores: 68, Texture Units: 272, ROP Units: 96, TDP: 320W, Power Connectors: 2x 8-pin, Bus Support: PCIe 4.0, Outputs: DisplayPort 1.4a (3x), HDMI 2.1 (1x)",
+  "rating": 4.9,
+  "total_sold": 10,
+  "created_at": "2024-07-05",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "6688c14de3247cba68f1e048"
+  },
+  "id": "f50f7624-85d3-4375-a569-5c6f847cfab7",
+  "name": "Core i7-11700K 8C/16T (No needs GPU)",
+  "description": "The Intel Core i7-11700K is a high-performance desktop processor from Intel's Rocket Lake series, designed for gaming, content creation, and multitasking. It features 8 cores and 16 threads, providing excellent performance in both single-threaded and multi-threaded applications. With a base clock of 3.6 GHz and a boost clock that can reach up to 5.0 GHz, it offers substantial speed for demanding tasks. The processor includes 16 MB of L3 cache, enhancing its ability to handle large amounts of data efficiently.",
+  "price": 399,
+  "discount": 0,
+  "category_id": "06f4d9a1-8e8b-4c2a-aa0c-5c4412b4b77c",
+  "category": "cpu",
+  "sub_category": "intel_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "intel"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 200,
+  "photo": [
+    {
+      "url": "uploads/products/intel/i7_11700k/intel_i7_11700k.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Architecture: Rocket Lake, Cores: 8, Threads: 16, Base Clock: 3.6 GHz, Boost Clock: Up to 5.0 GHz, L3 Cache: 16 MB, TDP: 125W, Integrated Graphics: Intel UHD Graphics 750, Socket: LGA 1200, PCIe Version: 4.0, Memory Support: DDR4-3200, Thermal Solution: None (requires separate cooler), Manufacturing Process: 14nm",
+  "rating": 4.6,
+  "total_sold": 5,
+  "created_at": "2024-07-05",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668991c23338dbd37fcfd335"
+  },
+  "id": "4d26b3c9-e4c5-41b4-a20f-5c9f4e28a1db",
+  "name": "Ryzen 9 5900X 12C/24T (Need GPU)",
+  "description": "The AMD Ryzen 9 5900X is a high-performance desktop processor based on AMD's Zen 3 architecture. It features 12 cores and 24 threads, providing excellent multi-threaded performance for demanding applications such as video editing, 3D rendering, and gaming. With a base clock of 3.7 GHz and a maximum boost clock of up to 4.8 GHz, it delivers strong single-core performance as well. The processor includes a substantial 6 MB of L2 cache and 64 MB of L3 cache, ensuring efficient data handling and reduced latency. Its TDP is 105W, making it power-efficient for its performance level. The Ryzen 9 5900X supports PCIe 4.0, enabling faster data transfer rates with compatible hardware, and has memory support for DDR4-3200. Designed for the AM4 socket, it is compatible with a wide range of motherboards, making it a versatile choice for high-end desktops.",
+  "price": 499,
+  "discount": 0.1,
+  "category_id": "2e5a60e3-94a4-487e-9db7-c2ecf8c8b2b2",
+  "category": "cpu",
+  "sub_category": "amd_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "amd"
+    }
+  ],
+  "brand": [
+    {
+      "id": "a4a1a47f-dbd8-41a2-b1c8-8b750dc4a428",
+      "name": "amd"
+    }
+  ],
+  "stock": 149,
+  "photo": [
+    {
+      "url": "uploads/products/amd/ryzen_9_5900x/ryzen_9_5900x.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Architecture: Zen 3, Cores: 12, Threads: 24, Base Clock: 3.7 GHz, Max Boost Clock: 4.8 GHz, L2 Cache: 6 MB, L3 Cache: 64 MB, TDP: 105W, Socket: AM4, PCIe Version: PCIe 4.0, Memory Support: DDR4-3200",
+  "rating": 4,
+  "total_sold": 13,
+  "created_at": "2024-07-05",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f1bea50e407c545d601a3"
+  },
+  "id": "1d03f6a3-8d39-4af8-962f-b73f2b8e3e1b",
+  "name": "Core i3-14100F 4C/8T (Needs GPU)",
+  "description": "The Intel Core i3-14100F is a 14th generation desktop processor based on the Comet Lake architecture. It features 4 cores and 8 threads, delivering solid performance for everyday computing tasks and light gaming. With a base clock speed of 3.5 GHz and a maximum turbo frequency of 4.3 GHz, it offers a balance between performance and power efficiency. The i3-14100F comes with 12 MB of Intel Smart Cache and supports both DDR4 and DDR5 memory, ensuring compatibility with modern systems. It lacks integrated graphics, necessitating a discrete GPU for display output and graphics processing. This makes it an ideal choice for budget-conscious users building a system with a separate graphics card.",
+  "price": 210,
+  "discount": 0,
+  "category_id": "06f4d9a1-8e8b-4c2a-aa0c-5c4412b4b77c",
+  "category": "cpu",
+  "sub_category": "intel_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "intel"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 200,
+  "photo": [
+    {
+      "url": "uploads/products/intel/i3_14100f/intel_i3_14100f.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Cores: 4, Threads: 8, Base Clock: 3.5 GHz, Max Turbo Frequency: 4.3 GHz, Cache: 12 MB Intel Smart Cache, TDP: 65W, Socket: LGA 1700, Memory Support: DDR4-3200 / DDR5-4800, PCIe Version: PCIe 4.0, Integrated Graphics: None (Needs GPU)",
+  "rating": 4.6,
+  "total_sold": 1,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f1dd750e407c545d601a4"
+  },
+  "id": "643d637e-80bb-4c35-988e-b89d7641de5b",
+  "name": "Core i9-12900K 16C/32T (No needs GPU)",
+  "description": "The Intel Core i9-12900K is a high-end desktop processor from Intel's Alder Lake family, designed for enthusiasts and power users. It features a hybrid architecture with 16 cores, comprising 8 Performance-cores and 8 Efficiency-cores, and supports 24 threads. The processor boasts a base clock speed of 3.2 GHz for Performance-cores and 2.4 GHz for Efficiency-cores, with a maximum turbo frequency of 5.2 GHz. It includes 30 MB of L3 cache and has a TDP of 125W. The i9-12900K supports the latest DDR5 memory and PCIe 5.0, providing high bandwidth for memory and peripherals. It also comes with integrated Intel UHD Graphics 770, eliminating the need for a dedicated GPU for basic graphical tasks. This processor is ideal for gaming, content creation, and demanding computing tasks.",
+  "price": 520,
+  "discount": 0,
+  "category_id": "06f4d9a1-8e8b-4c2a-aa0c-5c4412b4b77c",
+  "category": "cpu",
+  "sub_category": "intel_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "intel"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 200,
+  "photo": [
+    {
+      "url": "uploads/products/intel/i9_12900k/intel_i9_12900k.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Architecture: Alder Lake, Cores: 16 (8 Performance-cores and 8 Efficiency-cores), Threads: 24, Base Clock: 3.2 GHz (Performance-cores), 2.4 GHz (Efficiency-cores), Max Turbo Frequency: 5.2 GHz, L3 Cache: 30 MB, TDP: 125W, Socket: LGA 1700, Memory Support: DDR5-4800, DDR4-3200, PCIe Lanes: PCIe 5.0 (16 lanes), PCIe 4.0 (4 lanes), Integrated Graphics: Intel UHD Graphics 770, Max Memory Size: 128 GB",
+  "rating": 5,
+  "total_sold": 7,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f1ec650e407c545d601a5"
+  },
+  "id": "803f64fa-8b2f-4b56-a1a7-9b3e3e1a0194",
+  "name": "Core i5-13400 10C/16T (Needs GPU)",
+  "description": "The Intel Core i5-13400 is a mid-range desktop processor from Intel's 13th generation lineup. It features 10 cores and 16 threads, utilizing Intel's hybrid architecture that combines high-performance and high-efficiency cores. This configuration ensures balanced performance for both single-threaded and multi-threaded tasks, making it suitable for a variety of applications including gaming, productivity, and content creation. The processor does not include integrated graphics, meaning a dedicated GPU is required for video output. It supports the latest technologies, including DDR5 memory and PCIe 5.0, ensuring compatibility with modern hardware and high-speed peripherals.",
+  "price": 520,
+  "discount": 0,
+  "category_id": "06f4d9a1-8e8b-4c2a-aa0c-5c4412b4b77c",
+  "category": "cpu",
+  "sub_category": "intel_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "intel"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 200,
+  "photo": [
+    {
+      "url": "uploads/products/intel/i5_13400f/intel_i5_13400f.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Architecture: Intel 13th Gen, Cores: 10, Threads: 16, Base Clock: 2.5 GHz, Max Turbo Clock: 4.6 GHz, Cache: 20 MB Intel Smart Cache, TDP: 65W, Memory Support: DDR4-3200 / DDR5-4800, PCIe Support: PCIe 5.0, Socket: LGA 1700, Integrated Graphics: None, Thermal Solution: Not included",
+  "rating": 5,
+  "total_sold": 3,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f36d450e407c545d601a6"
+  },
+  "id": "35af0f0e-f1cb-4a6f-bde6-42e657f77f77",
+  "name": "Blackshark V2",
+  "description": "The Razer BlackShark V2 is a lightweight and comfortable gaming headset designed for immersive gaming experiences. It features a durable construction with memory foam ear cushions and a detachable cardioid microphone for clear communication. The headset is equipped with 50mm drivers that deliver clear and balanced audio, suitable for both gaming and multimedia use. It also includes an inline volume control and mute switch for convenient adjustments during gameplay.",
+  "price": 85,
+  "discount": 0.2,
+  "category_id": "376f1522-2c5a-4687-b732-9884598d987c",
+  "category": "gaming headset",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "headset"
+    },
+    {
+      "name": "razer"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "wireless"
+    },
+    {
+      "name": "3.5mm"
+    }
+  ],
+  "brand": [
+    {
+      "id": "3d05c59f-230c-43f7-832f-3a8afc9dcb48",
+      "name": "razer"
+    }
+  ],
+  "stock": 70,
+  "photo": [
+    {
+      "url": "uploads/products/razer/blackshark_v2_x/blackshark_v2_x.png"
+    },
+    {
+      "url": "uploads/products/razer/blackshark_v2_x/blackshark_v2_x_2.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    },
+    {
+      "color": "green"
+    },
+    {
+      "color": "pink"
+    }
+  ],
+  "technical_specifications": "Driver Size: 50mm, Frequency Response: 12 Hz - 28 kHz, Impedance: 32 ohms, Sensitivity: 100 dB/mW, Microphone Type: Detachable Cardioid Mic, Connectivity: 3.5mm analog / Wireless (using bluetooth), Weight: 240g, Cable Length: 1.3m, Compatibility: PC / Mac / PS4 / Xbox One / Nintendo Switch / mobile devices",
+  "rating": 3,
+  "total_sold": 45,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f5e1550e407c545d601a7"
+  },
+  "id": "ed77d173-647b-4a71-9d73-8e0d69efb8c1",
+  "name": "Themis 2 H220N",
+  "description": "The Redragon Themis 2 H220N is a versatile gaming headset designed for immersive audio experiences. It features high-quality audio drivers and a comfortable ergonomic design to enhance gaming sessions for extended periods.",
+  "price": 20,
+  "discount": 0,
+  "category_id": "376f1522-2c5a-4687-b732-9884598d987c",
+  "category": "gaming headset",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "headset"
+    },
+    {
+      "name": "redragon"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "wired"
+    },
+    {
+      "name": "3.5mm"
+    }
+  ],
+  "brand": [
+    {
+      "id": "f7af2a71-4c94-4ba5-bc4c-f0b7c0b2af7b",
+      "name": "redragon"
+    }
+  ],
+  "stock": 150,
+  "photo": [
+    {
+      "url": "uploads/products/redragon/themis_2_h220n/themis_2_h220n.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Type: Over-ear gaming headset, Driver Diameter: 50 mm, Impedance: 32 ohms, Frequency Response: 20 Hz - 20 kHz, Sensitivity: 116 dB ± 3 dB, Microphone Type: Flexible omnidirectional, Microphone Sensitivity: -45 dB ± 3 dB, Connectors: 3.5 mm audio jack (separate for mic and headphones), Cable Length: 2.2 meters, Compatibility: PC / PS4 / Xbox One / Nintendo Switch / mobile devices, Features: Adjustable headband / memory foam ear cushions / in-line volume control / LED lighting (on some models)",
+  "rating": 3,
+  "total_sold": 4,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f5f3e50e407c545d601a8"
+  },
+  "id": "66d7b2a1-57cf-4c2e-bbbf-00fbfcf8be94",
+  "name": "G203 Lightsync",
+  "description": "The Logitech G203 Lightsync is a sleek and ergonomic wired gaming mouse designed for precise gaming performance. It features customizable RGB lighting that syncs with your gameplay or setup, enhancing the aesthetics of your gaming rig. With its lightweight design and comfortable grip, it's suitable for long gaming sessions.",
+  "price": 20,
+  "discount": 0,
+  "category_id": "9b21d995-0b55-4144-b645-b5187858b070",
+  "category": "gaming mouse",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "mouse"
+    },
+    {
+      "name": "logitech"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "wired"
+    }
+  ],
+  "brand": [
+    {
+      "id": "9af3e32e-98d8-4d71-8e9f-bae00e7311c7",
+      "name": "logitech"
+    }
+  ],
+  "stock": 150,
+  "photo": [
+    {
+      "url": "uploads/products/logitech/g203_lightsync/logitech_g203_lightsync.png"
+    },
+    {
+      "url": "uploads/products/logitech/g203_lightsync/logitech_g203_lightsync_2.png"
+    },
+    {
+      "url": "uploads/products/logitech/g203_lightsync/logitech_g203_lightsync_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    },
+    {
+      "color": "blue"
+    }
+  ],
+  "technical_specifications": "Sensor: Optical, Resolution: 200 - 8000 DPI, Max Acceleration: > 25G, Max Speed: > 200 IPS, Buttons: 6 programmable buttons, Switches: Mechanical, Polling Rate: 1000Hz (1ms response time), RGB Lighting: Customizable with Logitech G HUB software, Cable Length: 2.10m, Weight: 85g, Dimensions: 116.6 x 62.15 x 38.2 mm (L x W x H)",
+  "rating": 4,
+  "total_sold": 9,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f608a50e407c545d601a9"
+  },
+  "id": "45c1c9d1-b07b-4df5-bb92-f61831cf982d",
+  "name": "G305",
+  "description": "The Logitech G305 is a wireless gaming mouse designed for performance and reliability. It features Logitech's HERO (High Efficiency Rated Optical) sensor for precise tracking up to 12,000 DPI. The mouse offers a lightweight design with a compact shape suitable for various grip styles. It utilizes Lightspeed wireless technology for a responsive connection with a 1ms report rate, ensuring minimal latency during gaming sessions. The G305 is powered by a single AA battery, providing up to 250 hours of continuous gaming. It's compatible with Logitech's gaming software for customizing button assignments, DPI settings, and RGB lighting (if applicable).",
+  "price": 35,
+  "discount": 0.25,
+  "category_id": "9b21d995-0b55-4144-b645-b5187858b070",
+  "category": "gaming mouse",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "mouse"
+    },
+    {
+      "name": "logitech"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "wireless"
+    }
+  ],
+  "brand": [
+    {
+      "id": "9af3e32e-98d8-4d71-8e9f-bae00e7311c7",
+      "name": "logitech"
+    }
+  ],
+  "stock": 250,
+  "photo": [
+    {
+      "url": "uploads/products/logitech/g305/logitech_g305.png"
+    },
+    {
+      "url": "uploads/products/logitech/g305/logitech_g305_2.png"
+    },
+    {
+      "url": "uploads/products/logitech/g305/logitech_g305_3.png"
+    },
+    {
+      "url": "uploads/products/logitech/g305/logitech_g305_4.png"
+    },
+    {
+      "url": "uploads/products/logitech/g305/logitech_g305_5.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    },
+    {
+      "color": "blue"
+    },
+    {
+      "color": "purple"
+    },
+    {
+      "color": "mint"
+    }
+  ],
+  "technical_specifications": "Sensor: HERO Sensor, DPI: Up to 12000, Wireless Technology: Lightspeed, Report Rate: 1ms, Battery Life: Up to 250 hours, Battery Type: 1x AA, Dimensions: Compact design suitable for various grip styles",
+  "rating": 4,
+  "total_sold": 8,
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66917e826982b0d0eee777ac"
+  },
+  "id": "7f4c8e6a-1f47-4a5b-8f7e-6bbce2ae1e93",
+  "name": "ARC A380 GDDR6X 6GB VRAM",
+  "description": "The Intel Arc A380 is built on the 6 nm process and is based on the DG2-128 graphics processor, in its ACM-G11 variant. This card supports DirectX 12 Ultimate, ensuring that all modern games run smoothly on the Arc A3801. With 8 Xe cores, 2 ray tracing units, 128 Xe array engines, 6 GB of GDDR6 memory and a power consumption of only 75 W, it is a solid choice for both gaming and creative tasks dThe Intel Arc A380 is a mid-range graphics card launched by Intel in June 2022. It is built on the 6 nm process and is based on the DG2-128 graphics processor, in its ACM-G11 variant. This card supports DirectX 12 Ultimate, ensuring that all modern games run smoothly on the Arc A3801. With 8 Xe cores, 2 ray tracing units, 128 Xe array engines, 6 GB of GDDR6 memory and a power consumption of only 75 W, it is a solid choice for both gaming and content creation tasks.",
+  "price": 160,
+  "discount": 0,
+  "category_id": "47256b35-4ff8-4b65-8cfa-9e1d4dbd4c16",
+  "category": "gpu",
+  "sub_category": "graphic_cards",
+  "tags": [
+    {
+      "name": "asrock"
+    },
+    {
+      "name": "intel"
+    },
+    {
+      "name": "gpu"
+    },
+    {
+      "name": "gaming"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 200,
+  "photo": [
+    {
+      "url": "uploads/products/intel/arc_a380/intel_arc_a380.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Graphics processor: DG2-128 ACM-G11, Xe cores: 8, Ray tracing units: 2, Xe array engines: 128, Memory: 6 GB GDDR6, Power consumption: 75 W",
+  "rating": 3,
+  "total_sold": 2,
+  "created_at": "2024-07-12",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669ae53fa830e712005ad452"
+  },
+  "id": "a34c91b4-4fbd-4c9b-9cbb-05a1a8d29216",
+  "name": "NX200M (MICRO-ATX & MINI-ITX)",
+  "description": "The Antec NX200M is a compact computer case designed to offer a balance of style and functionality. With a mesh front panel design and tempered glass sides, it provides a modern and sleek appearance. The structure supports ATX, micro-ATX and mini-ITX motherboards, and features a spacious interior that facilitates the installation of high-performance components. It includes versatile cooling options with support for up to six fans and a top with space for up to 240mm radiators. Its ability to accommodate storage units is suitable for both simple and advanced systems, while cable management and optimized airflow ensure efficient performance and a clean appearance.",
+  "price": 60,
+  "discount": 0.2,
+  "category_id": "d9b2d63d-a233-4123-847a-7aeddcb6f3e7",
+  "category": "case",
+  "sub_category": "components",
+  "tags": [
+    {
+      "name": "antec"
+    },
+    {
+      "name": "usb 3.1"
+    },
+    {
+      "name": "micro-atx"
+    },
+    {
+      "name": "mini-itx"
+    }
+  ],
+  "brand": [
+    {
+      "id": "b105e15c-f0a4-4d42-9b14-f3b7e8bcb5d1",
+      "name": "antec"
+    }
+  ],
+  "stock": 325,
+  "photo": [
+    {
+      "url": "uploads/products/antec/nx200m/antec_nx200m.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Format: Micro tower, Dimensions: 398mm x 200mm x 430mm, Weight: 4.3 kg, Motherboard support: Micro-ATX / Mini-ITX, Internal Bays: 3.5' (2) / 2.5' (2), Fan support: 120mm front (3) / 120mm rear (1), Pre-installed fans: 120mm front (2) / 120mm rear (1), Front ports: USB 3.0 (2) / USB 2.0 (1) / HD Audio (1), GPU space: Up to 355mm, CPU Cooler clearance: Up to 160mm, Cable management: Yes",
+  "rating": 5,
+  "total_sold": 2,
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669aecb6a830e712005ad456"
+  },
+  "id": "e7d05a4b-7981-4f5d-9fd5-d5e564a6f9b3",
+  "name": "Switch Oled",
+  "description": "The Nintendo Switch OLED model offers an enhanced gaming experience with a vibrant 7-inch OLED screen, improved audio, and a more adjustable stand. It includes 64GB of internal storage, supports both handheld and docked play, and features enhanced stability and ergonomics for extended gaming sessions. The model also comes with a redesigned dock that includes a built-in wired LAN port, providing a more reliable online gaming experience.",
+  "price": 299,
+  "discount": 0.1,
+  "category_id": "385b157b-1d78-470c-8975-3518879814a0",
+  "category": "consoles",
+  "sub_category": "consoles",
+  "tags": [
+    {
+      "name": "nintendo"
+    },
+    {
+      "name": "switch"
+    },
+    {
+      "name": "oled"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "portable"
+    }
+  ],
+  "brand": [
+    {
+      "id": "a0e9b05f-75d3-4f6f-bf83-08e3b59b3790",
+      "name": "nintendo"
+    }
+  ],
+  "stock": 150,
+  "photo": [
+    {
+      "url": "uploads/products/nintendo/switch_oled/nintendo_switch_oled.png"
+    },
+    {
+      "url": "uploads/products/nintendo/switch_oled/nintendo_switch_oled_2.png"
+    },
+    {
+      "url": "uploads/products/nintendo/switch_oled/nintendo_switch_oled_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "neon-red"
+    },
+    {
+      "color": "red-blue"
+    }
+  ],
+  "technical_specifications": "Screen: 7-inch OLED, Storage: 64 GB, Processor: NVIDIA Custom Tegra, Connectivity: Wi-Fi, Bluetooth 4.1, Battery life: Approximately 4.5 to 9 hours",
+  "rating": 4.8,
+  "total_sold": 7,
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669af209a830e712005ad458"
+  },
+  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "name": "Switch Lite",
+  "description": "The Nintendo Switch Lite is a compact, handheld-only version of the popular Nintendo Switch. It features a 5.5-inch touchscreen display, 32GB of internal storage, and a built-in battery that offers up to 7 hours of playtime. The Switch Lite is designed for portable gaming with a lightweight and ergonomic design, available in multiple vibrant colors.",
+  "price": 199,
+  "discount": 0.05,
+  "category_id": "385b157b-1d78-470c-8975-3518879814a0",
+  "category": "consoles",
+  "sub_category": "consoles",
+  "tags": [
+    {
+      "name": "nintendo"
+    },
+    {
+      "name": "switch"
+    },
+    {
+      "name": "portable"
+    },
+    {
+      "name": "handheld"
+    },
+    {
+      "name": "compact"
+    }
+  ],
+  "brand": [
+    {
+      "id": "a0e9b05f-75d3-4f6f-bf83-08e3b59b3790",
+      "name": "nintendo"
+    }
+  ],
+  "stock": 200,
+  "photo": [
+    {
+      "url": "uploads/products/nintendo/switch_lite/nintendo_switch_lite.png"
+    },
+    {
+      "url": "uploads/products/nintendo/switch_lite/nintendo_switch_lite_2.png"
+    },
+    {
+      "url": "uploads/products/nintendo/switch_lite/nintendo_switch_lite_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "turquoise"
+    },
+    {
+      "color": "pink"
+    },
+    {
+      "color": "blue"
+    }
+  ],
+  "technical_specifications": "Screen: 5.5-inch LCD, Storage: 32 GB, Processor: NVIDIA Custom Tegra, Connectivity: Wi-Fi, Battery life: Approximately 3 to 7 hours",
+  "rating": 4,
+  "total_sold": 0,
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669af2c4a830e712005ad459"
+  },
+  "id": "b2c3d4e5-f678-9012-abcd-ef1234567890",
+  "name": "PlayStation 4 + control",
+  "description": "The PlayStation 4 delivers high-definition gaming with a powerful processor and 1TB of internal storage. It features a sleek design, an integrated Blu-ray player, and supports a vast library of games. The PS4 offers online multiplayer gaming and media streaming capabilities, providing a comprehensive entertainment experience.",
+  "price": 349,
+  "discount": 0.15,
+  "category_id": "237c6975-87d3-405c-9b4c-f97572a76798",
+  "category": "consoles",
+  "sub_category": "consoles",
+  "tags": [
+    {
+      "name": "playstation"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "entertainment"
+    },
+    {
+      "name": "blu-ray"
+    }
+  ],
+  "brand": [
+    {
+      "id": "b1c2d3e4-f567-8901-abcd-ef1234567890",
+      "name": "sony"
+    }
+  ],
+  "stock": 100,
+  "photo": [
+    {
+      "url": "uploads/products/sony/ps_4/playstation_4.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Storage: 1 TB, Processor: AMD Jaguar 8-core, Graphics: AMD GCN, Connectivity: Wi-Fi, Bluetooth 2.1, Battery life: Varies by usage",
+  "rating": 4,
+  "total_sold": 10,
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669afacea830e712005ad45b"
+  },
+  "id": "c3d4e5f6-7890-1234-abcd-ef1234567890",
+  "name": "Xbox Series X",
+  "description": "The Xbox Series X is a next-gen gaming console offering 4K gaming at up to 120 frames per second. It includes 1TB of internal SSD storage, a custom-designed AMD processor, and supports a wide range of multimedia features. The Series X provides quick load times and enhanced graphics for a premium gaming experience.",
+  "price": 499,
+  "discount": 0.1,
+  "category_id": "04694625-9906-4226-8751-0b68f953f1a9",
+  "category": "consoles",
+  "sub_category": "consoles",
+  "tags": [
+    {
+      "name": "xbox"
+    },
+    {
+      "name": "4k"
+    },
+    {
+      "name": "next-gen"
+    },
+    {
+      "name": "high-performance"
+    }
+  ],
+  "brand": [
+    {
+      "id": "c2d3e4f5-6789-0123-abcd-ef1234567890",
+      "name": "microsoft"
+    }
+  ],
+  "stock": 175,
+  "photo": [
+    {
+      "url": "uploads/products/microsoft/xbox_series_x/xbox_series_x.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Storage: 1 TB SSD, Processor: AMD Zen 2, Graphics: AMD RDNA 2, Connectivity: Wi-Fi 6, Bluetooth 5.0, Battery life: N/A",
+  "rating": 5,
+  "total_sold": 1,
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a0446be4716afbf86e91b9"
+  },
+  "id": "2fadc1da-s4f7-4h19-c8h8-1a5da5fa2g09",
+  "name": "Astro A20",
+  "description": "The Astro A20 is a wireless headset designed to deliver an immersive, high-quality gaming audio experience. With a reliable 2.4GHz wireless connection, they provide low latency that is ideal for competitive gaming. They incorporate 40mm drivers that deliver clear, well-defined sound, with deep bass that enhances the immersive experience. The headset is comfortable, with soft, adjustable ear cushions that allow for long gaming sessions without fatigue. In addition, they feature intuitive in-ear controls for easy volume adjustment and microphone mute. Ideal for gamers looking for freedom of movement without compromising audio quality.",
+  "price": 75,
+  "discount": 0.2,
+  "category_id": "376f1522-2c5a-4687-b732-9884598d987c",
+  "category": "gaming headset",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "headset"
+    },
+    {
+      "name": "logitech"
+    },
+    {
+      "name": "wireless"
+    },
+    {
+      "name": "2.4GHz"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "3.5mm"
+    }
+  ],
+  "brand": [
+    {
+      "id": "9af3e32e-98d8-4d71-8e9f-bae00e7311c7",
+      "name": "logitech"
+    }
+  ],
+  "stock": 530,
+  "photo": [
+    {
+      "url": "uploads/products/logitech/astro_a20/astro_a20.png"
+    },
+    {
+      "url": "uploads/products/logitech/astro_a20/astro_a20_2.png"
+    },
+    {
+      "url": "uploads/products/logitech/astro_a20/astro_a20_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white-blue"
+    },
+    {
+      "color": "black-green"
+    },
+    {
+      "color": "black-gray"
+    }
+  ],
+  "technical_specifications": "Wireless connection: 2.4GHz, Latency: low, Drivers: 40mm, Sound quality: clear and well-defined / deep bass, Ear pads: soft and adjustable, Controls: on earcups (volume adjustment and microphone mute), Compatibility: PlayStation / Xbox / PC / Mac, Battery: up to 15 hours battery life, Microphone: unidirectional, Wireless range: up to 15 meters.",
+  "rating": 0,
+  "total_sold": 6,
+  "created_at": "2024-07-24",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a42ef17202734d8b7295ca"
+  },
+  "id": "2ce01a38-a4f7-a6ff-a900-173c5c3dafa1",
+  "name": "A22 FHD 22P 75Hz HDMI VGA",
+  "description": "The Xiaomi A22 FHD 22P 75Hz monitor is a versatile display designed for both home and office use. It features a 22-inch IPS panel that delivers vibrant colors and wide viewing angles, ensuring consistent image quality from different perspectives. With a Full HD resolution of 1920 x 1080 pixels, it provides sharp and clear visuals, ideal for both productivity tasks and entertainment. The 75Hz refresh rate offers a smoother experience compared to standard 60Hz monitors, making it suitable for casual gaming and video playback. Connectivity options include HDMI and VGA ports, allowing compatibility with a wide range of devices. The monitor's stand is tilt-adjustable for ergonomic comfort, and it supports VESA mounting for flexible placement. With its sleek design and reliable performance, the Xiaomi A22 FHD 22P is a great choice for an affordable and high-quality monitor.",
+  "price": 328,
+  "discount": 0,
+  "category_id": "4b7e2d56-8138-463f-b919-230b7a9eecf0",
+  "category": "monitor",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "monitor"
+    },
+    {
+      "name": "xiaomi"
+    },
+    {
+      "name": "FHD"
+    },
+    {
+      "name": "IPS"
+    },
+    {
+      "name": "HDMI"
+    },
+    {
+      "name": "VGA"
+    }
+  ],
+  "brand": [
+    {
+      "id": "cfc0a4c9-5b37-4ba8-9bcf-4a9c7f16c733",
+      "name": "xiaomi"
+    }
+  ],
+  "stock": 220,
+  "photo": [
+    {
+      "url": "uploads/products/xiaomi/my_monitor_1c/my_monitor_1c.png"
+    },
+    {
+      "url": "uploads/products/xiaomi/my_monitor_1c/my_monitor_1c_2.png"
+    },
+    {
+      "url": "uploads/products/xiaomi/my_monitor_1c/my_monitor_1c_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Display Size: 23 inches, Resolution: Full HD (1920 x 1080), Refresh Rate: 75Hz, Panel Type: IPS, Aspect Ratio: 16:9, Brightness: 250 nits, Contrast Ratio: 1000:1, Response Time: 5ms, Viewing Angles: 178° horizontal / 178° vertical, Color Support: 16.7 million colors, Inputs: HDMI / VGA, Stand: Tilt adjustable, VESA Mount: 100 x 100mm, Dimensions (with stand): 489.3 x 375.1 x 181.2 mm, Weight: 2.7 kg.",
+  "rating": 2,
+  "total_sold": 4,
+  "created_at": "2024-07-26",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a43de27202734d8b7295cb"
+  },
+  "id": "ad19d172-67cb-4ba1-9d73-6f1e4f2ac1d1",
+  "name": "Kumara K552",
+  "description": "The Redragon Kumara K552 is a compact mechanical keyboard designed for gamers and users seeking performance and durability. It features Outemu Blue mechanical switches that provide a distinctive tactile and auditory response, ideal for precise and fast typing. Its robust construction consists of a metal plate and a high-quality ABS plastic frame, offering a solid and durable feel. The keyboard includes RGB LED backlighting with multiple modes and effects, allowing users to customize the visual experience according to their preferences. Additionally, the Kumara K552 is splash-resistant and has 87 anti-ghosting keys, ensuring that every keystroke is accurately registered even during the most intense gaming sessions.",
+  "price": 55,
+  "discount": 0.25,
+  "category_id": "876d6c0a-c779-4822-9033-29880b6a493c",
+  "category": "gaming keyboard",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "keyboard"
+    },
+    {
+      "name": "redragon"
+    },
+    {
+      "name": "mechanical"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "wired"
+    },
+    {
+      "name": "rgb"
+    }
+  ],
+  "brand": [
+    {
+      "id": "f7af2a71-4c94-4ba5-bc4c-f0b7c0b2af7b",
+      "name": "redragon"
+    }
+  ],
+  "stock": 150,
+  "photo": [
+    {
+      "url": "uploads/products/redragon/kumara_k552/kumara_k552.png"
+    },
+    {
+      "url": "uploads/products/redragon/kumara_k552/kumara_k552_2.png"
+    },
+    {
+      "url": "uploads/products/redragon/kumara_k552/kumara_k552_3.png"
+    },
+    {
+      "url": "uploads/products/redragon/kumara_k552/kumara_k552_4.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Type: Mechanical keyboard, Switches: Outemu Red, Materials: Metal plate and ABS plastic frame, Backlighting: RGB LED with multiple modes and effects, Keys: 87 anti-ghosting, Resistance: Splash-resistant, Dimensions: 35.5 x 12.3 x 3.7 cm, Weight: 907 g, Connectivity: USB cable, Compatibility: Windows 10 / 8 / 7 / Vista / XP / Linux / Mac OS",
+  "rating": 5,
+  "total_sold": 3,
+  "created_at": "2024-07-26",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a652fe6aab3161019ef5f2"
+  },
+  "id": "b3f2a7d9-8ba3-4f84-9b5a-3dcf7e9861c1",
+  "name": "Radeon RX 6700 XT 12GB VRAM GDDR6",
+  "description": "The AMD Radeon RX 6700 XT is a high-performance graphics card built on the 7 nm process. It features the Navi 22 XT GPU architecture, delivering excellent gaming performance and support for DirectX 12 Ultimate. With 40 compute units, 2560 stream processors, 12 GB of GDDR6 memory, and a power consumption of 230 W, the RX 6700 XT is ideal for gaming enthusiasts and content creators alike. Its robust cooling system ensures efficient heat dissipation under heavy loads, making it a reliable choice for demanding applications.",
+  "price": 479,
+  "discount": 0,
+  "category_id": "47256b35-4ff8-4b65-8cfa-9e1d4dbd4c16",
+  "category": "gpu",
+  "sub_category": "graphic_cards",
+  "tags": [
+    {
+      "name": "amd"
+    },
+    {
+      "name": "gpu"
+    },
+    {
+      "name": "gaming"
+    }
+  ],
+  "brand": [
+    {
+      "id": "a4a1a47f-dbd8-41a2-b1c8-8b750dc4a428",
+      "name": "amd"
+    }
+  ],
+  "stock": 150,
+  "photo": [
+    {
+      "url": "uploads/products/amd/radeon_rx_6700_xt/radeon_rx_6700_xt.png"
+    },
+    {
+      "url": "uploads/products/amd/radeon_rx_6700_xt/radeon_rx_6700_xt_2.png"
+    },
+    {
+      "url": "uploads/products/amd/radeon_rx_6700_xt/radeon_rx_6700_xt_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black-red"
+    }
+  ],
+  "technical_specifications": "Graphics processor: Navi 22 XT, Compute units: 40, Stream processors: 2560, Memory: 12 GB GDDR6, Power consumption: 230 W",
+  "rating": 4,
+  "total_sold": 6,
+  "created_at": "2024-07-28",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7c1d7c7bcb19a301dbeb6"
+  },
+  "id": "f1a9b4e7-2c53-4e3c-b5fa-8e86b206a932",
+  "name": "Legion 5 Pro AMD Ryzen 7 5800H - NVIDIA RTX 3070",
+  "description": "The Lenovo Legion 5 Pro is a powerful gaming laptop equipped with AMD Ryzen 7 processor and NVIDIA GeForce RTX 3070 graphics. It features a 16-inch QHD display with 165Hz refresh rate, providing stunning visuals for gaming and creative work. With 16 GB of RAM and 1 TB SSD storage, it delivers smooth performance and fast loading times. The Legion Coldfront 3.0 cooling system ensures efficient heat dissipation during intense gaming sessions.",
+  "price": 1899,
+  "discount": 0,
+  "category_id": "6d976a96-156d-444d-859d-72",
+  "category": "gaming laptop",
+  "sub_category": "laptop",
+  "tags": [
+    {
+      "name": "lenovo"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "amd"
+    },
+    {
+      "name": "nvidia"
+    }
+  ],
+  "brand": [
+    {
+      "id": "f4a00ad6-6374-42e1-8a47-90f88bc6aef8",
+      "name": "lenovo"
+    }
+  ],
+  "stock": 78,
+  "photo": [
+    {
+      "url": "uploads/products/lenovo/legion_5_pro/legion_5_pro.png"
+    },
+    {
+      "url": "uploads/products/lenovo/legion_5_pro/legion_5_pro_2.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    },
+    {
+      "color": "blue"
+    }
+  ],
+  "technical_specifications": "Processor: AMD Ryzen 7 5800H, Graphics: NVIDIA GeForce RTX 3070, Display: 16-inch QHD, RAM: 16 GB, Storage: 1 TB SSD",
+  "rating": 4.5,
+  "total_sold": 25,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7c20cc7bcb19a301dbeb7"
+  },
+  "id": "c8e0a26e-0b66-45a7-b73d-10b34e1f57ec",
+  "name": "XPS 15 i7-9750H - NVIDIA GTX 1650 Ti",
+  "description": "The Dell XPS 15 is a premium ultrabook featuring a 15.6-inch 4K OLED display with InfinityEdge technology. Powered by an Intel Core i7 processor and NVIDIA GeForce GTX 1650 Ti graphics, it delivers exceptional performance for both productivity and multimedia tasks. With 16 GB of RAM and 512 GB SSD storage, it offers fast computing and ample space for files. Its sleek design and lightweight build make it ideal for professionals on the go.",
+  "price": 1999,
+  "discount": 0,
+  "category_id": "54c8752c-04b8-4c8e-8cfa-9147c73c0d8e",
+  "category": "laptop",
+  "sub_category": "ultrabook",
+  "tags": [
+    {
+      "name": "dell"
+    },
+    {
+      "name": "ultrabook"
+    },
+    {
+      "name": "intel"
+    },
+    {
+      "name": "nvidia"
+    }
+  ],
+  "brand": [
+    {
+      "id": "4f3378d0-4e07-43e1-bcc3-e104f1b50f52",
+      "name": "dell"
+    }
+  ],
+  "stock": 116,
+  "photo": [
+    {
+      "url": "uploads/products/dell/xps_15/xps_15.png"
+    },
+    {
+      "url": "uploads/products/dell/xps_15/xps_15_2.png"
+    },
+    {
+      "url": "uploads/products/dell/xps_15/xps_15_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "silver"
+    }
+  ],
+  "technical_specifications": "Processor: Intel Core i7-9750H, Graphics: NVIDIA GeForce GTX 1650 Ti, Display: 15.6-inch 4K OLED, RAM: 16 GB, Storage: 512 GB SSD",
+  "rating": 4.8,
+  "total_sold": 6,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7c21dc7bcb19a301dbeb8"
+  },
+  "id": "0c82fb6a-0c72-41c7-bf1e-3ec4a1a0f7c0",
+  "name": "Core i9-14900K - NVIDIA RTX 3080",
+  "description": "The Intel Core i9 Gaming PC is a high-performance desktop designed for hardcore gaming and professional use. It features an Intel Core i9 processor, NVIDIA GeForce RTX 3080 graphics card, and 32 GB of RAM. With a 2 TB SSD and 4 TB HDD, it offers ample storage for games, media, and applications. The system is housed in a stylish case with RGB lighting and includes advanced cooling solutions to maintain optimal performance under heavy loads.",
+  "price": 3499,
+  "discount": 0,
+  "category_id": "3c504a41-3153-4684-8978-d593f528860f",
+  "category": "gaming pc",
+  "sub_category": "desktop",
+  "tags": [
+    {
+      "name": "intel"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "nvidia"
+    }
+  ],
+  "brand": [
+    {
+      "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+      "name": "intel"
+    }
+  ],
+  "stock": 68,
+  "photo": [
+    {
+      "url": "uploads/products/intel/i9_14900k_gaming_pc/i9_14900k_gaming_pc.png"
+    },
+    {
+      "url": "uploads/products/intel/i9_14900k_gaming_pc/i9_14900k_gaming_pc_2.png"
+    },
+    {
+      "url": "uploads/products/intel/i9_14900k_gaming_pc/i9_14900k_gaming_pc_3.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Processor: Intel Core i9, Graphics: NVIDIA GeForce RTX 3080, RAM: 32 GB, Storage: 2 TB SSD + 4 TB HDD",
+  "rating": 4.9,
+  "total_sold": 5,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7dd23c7bcb19a301dbebc"
+  },
+  "id": "d9e94c5d-4786-4c7c-b315-7ef8cdd44159",
+  "name": "GeForce GTX 1650 4GB VRAM GDDR6",
+  "description": "The GTX 1650 is based on NVIDIA's Turing architecture, delivering solid 1080p gaming performance with improved power efficiency. It incorporates a good number of CUDA cores and supports advanced technologies such as G-SYNC. It is ideal for gamers looking for an affordable graphics card for gaming and multimedia applications.",
+  "price": 299,
+  "discount": 0.1,
+  "category_id": "47256b35-4ff8-4b65-8cfa-9e1d4dbd4c16",
+  "category": "gpu",
+  "sub_category": "graphic_cards",
+  "tags": [
+    {
+      "name": "gpu"
+    },
+    {
+      "name": "nvidia"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "gtx"
+    }
+  ],
+  "brand": [
+    {
+      "id": "7ec0b3e3-bc6f-4b84-b184-e1c9173b56f3",
+      "name": "nvidia"
+    }
+  ],
+  "stock": 147,
+  "photo": [
+    {
+      "url": "uploads/products/nvidia/gtx_1650/gtx_1650.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Architecture: Turing, CUDA Cores: 1024, Base Clock: 1350 MHz, Boost Clock: 1485 MHz, Memory: 4 GB GDDR6, Memory Interface: 128-bit, Memory Speed: 12 Gbps, Memory Bandwidth: 192 GB/s, TDP: 75W, Power Connectors: 1x 6-pin, Bus Support: PCIe 3.0, Outputs: DisplayPort 1.4 (1x), HDMI 2.0b (1x), DVI-D (1x)",
+  "rating": 3,
+  "total_sold": 11,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7de38c7bcb19a301dbebd"
+  },
+  "id": "f6c2c1d7-9c47-4d64-b7cf-5942d6b6989e",
+  "name": "GeForce RTX 2070 Super 8GB VRAM GDDR6",
+  "description": "The RTX 2070 Super is based on NVIDIA's Turing architecture and offers enhanced performance compared to the standard RTX 2070. It includes second-generation RT cores and third-generation Tensor cores, providing advanced real-time ray tracing capabilities and AI-powered features. It is an excellent choice for 1440p gaming and professional applications such as video editing and 3D rendering.",
+  "price": 499,
+  "discount": 0.12,
+  "category_id": "47256b35-4ff8-4b65-8cfa-9e1d4dbd4c16",
+  "category": "gpu",
+  "sub_category": "graphic_cards",
+  "tags": [
+    {
+      "name": "gpu"
+    },
+    {
+      "name": "nvidia"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "rtx"
+    }
+  ],
+  "brand": [
+    {
+      "id": "7ec0b3e3-bc6f-4b84-b184-e1c9173b56f3",
+      "name": "nvidia"
+    }
+  ],
+  "stock": 79,
+  "photo": [
+    {
+      "url": "uploads/products/nvidia/rtx_2070_super/rtx_2070_super.png"
+    },
+    {
+      "url": "uploads/products/nvidia/rtx_2070_super/rtx_2070_super_2.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Architecture: Turing, CUDA Cores: 2560, Base Clock: 1605 MHz, Boost Clock: 1770 MHz, Memory: 8 GB GDDR6, Memory Interface: 256-bit, Memory Speed: 14 Gbps, Memory Bandwidth: 448 GB/s, RTX-OPS: 52 T, Tensor-OPS: 208 T, Ray Tracing Cores: 40, Texture Units: 160, ROP Units: 64, TDP: 215W, Power Connectors: 1x 8-pin, 1x 6-pin, Bus Support: PCIe 3.0, Outputs: DisplayPort 1.4 (3x), HDMI 2.0b (1x), USB-C (1x)",
+  "rating": 4.8,
+  "total_sold": 7,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7de4bc7bcb19a301dbebe"
+  },
+  "id": "a8f4f1d1-8c7e-42f2-bcd2-71f8c9b81d1d",
+  "name": "AMD Ryzen 5 5600G 6C/12T (NO NEED GPU)",
+  "description": "The AMD Ryzen 5 5600G is a high-performance desktop processor combining 6 cores and 12 threads with integrated Radeon Vega 7 graphics. Based on the Zen 3 architecture, it delivers exceptional performance for gaming, productivity applications and content creation, providing excellent value for money.",
+  "price": 259,
+  "discount": 0.05,
+  "category_id": "2e5a60e3-94a4-487e-9db7-c2ecf8c8b2b2",
+  "category": "cpu",
+  "sub_category": "amd_cpu",
+  "tags": [
+    {
+      "name": "cpu"
+    },
+    {
+      "name": "amd"
+    },
+    {
+      "name": "ryzen"
+    },
+    {
+      "name": "gaming"
+    }
+  ],
+  "brand": [
+    {
+      "id": "a4a1a47f-dbd8-41a2-b1c8-8b750dc4a428",
+      "name": "amd"
+    }
+  ],
+  "stock": 192,
+  "photo": [
+    {
+      "url": "uploads/products/amd/ryzen_5_5600g/ryzen_5_5600g.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "default"
+    }
+  ],
+  "technical_specifications": "Architecture: Zen 3, Cores: 6, Threads: 12, Base Clock: 3.9 GHz, Boost Clock: 4.4 GHz, L2 Cache: 3 MB, L3 Cache: 16 MB, TDP: 65W, Integrated Graphics: Radeon Vega 7, GPU Cores: 7, Base GPU Clock: 1900 MHz, Memory Support: DDR4-3200, PCIe Version: 3.0, Socket: AM4",
+  "rating": 4,
+  "total_sold": 3,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7de59c7bcb19a301dbebf"
+  },
+  "id": "b5e8f8d3-5a84-40a7-890d-f0e8b31e4b3b",
+  "name": "C505 720P",
+  "description": "The Logitech C505 webcam delivers crisp, clear 720p HD video, ideal for video calls and conferences. With an omnidirectional microphone and a range of up to 10 feet, it ensures clear, uninterrupted audio. It is easy to use, simply plug and play, and is compatible with multiple operating systems and video conferencing applications.",
+  "price": 49,
+  "discount": 0.08,
+  "category_id": "5d77f928-7783-4c38-8674-853012595a54",
+  "category": "webcam",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "webcam"
+    },
+    {
+      "name": "logitech"
+    },
+    {
+      "name": "video"
+    },
+    {
+      "name": "hd"
+    }
+  ],
+  "brand": [
+    {
+      "id": "9af3e32e-98d8-4d71-8e9f-bae00e7311c7",
+      "name": "logitech"
+    }
+  ],
+  "stock": 300,
+  "photo": [
+    {
+      "url": "uploads/products/logitech/c505/c505.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Resolution: 720p HD, Field of View: 60°, Microphone: Built-in omnidirectional, Focus Type: Fixed focus, Connection Type: USB 2.0, Cable Length: 2 meters, Mounting: Universal clip for laptops / LCD or monitors, Compatibility: Windows 7 or later / macOS 10.10 or later / Chrome OS / Android v5.0 or later",
+  "rating": 3,
+  "total_sold": 5,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7de64c7bcb19a301dbec0"
+  },
+  "id": "e4f4b2c6-8d5f-4b3d-9c4e-1c7b8c9a4f5d",
+  "name": "Seisa SJ-4012B",
+  "description": "The Seisa SJ-4012B Gamepad offers a comfortable and precise gaming experience with its ergonomic and highly responsive controls. Compatible with multiple platforms, this controller is ideal for gamers looking for an affordable and reliable option for PC and console gaming.",
+  "price": 35,
+  "discount": 0.2,
+  "category_id": "4578a643-663f-4115-8988-79942f805522",
+  "category": "gamepads",
+  "sub_category": "peripherals",
+  "tags": [
+    {
+      "name": "gamepad"
+    },
+    {
+      "name": "controller"
+    },
+    {
+      "name": "gaming"
+    },
+    {
+      "name": "seisa"
+    }
+  ],
+  "brand": [
+    {
+      "id": "4f3378d0-4e07-43e1-bcc3-e104f1b50f52",
+      "name": "seisa"
+    }
+  ],
+  "stock": 250,
+  "photo": [
+    {
+      "url": "uploads/products/seisa/sj-4012b/sj-4012b.png"
+    },
+    {
+      "url": "uploads/products/seisa/sj-4012b/sj-4012b_2.png"
+    }
+  ],
+  "colors": [
+    {
+      "color": "white"
+    },
+    {
+      "color": "black"
+    }
+  ],
+  "technical_specifications": "Connection Type: Wired, Interface: USB 2.0, Compatibility: PC, PS3, Android, Button Layout: Standard (ABXY), D-pad: 8-way, Analog Sticks: 2, Vibration: Dual vibration motors, Cable Length: 1.8 meters",
+  "rating": 4.5,
+  "total_sold": 5,
+  "created_at": "2024-07-29",
+  "updated_at": ""
+}]

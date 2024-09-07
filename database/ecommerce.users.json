@@ -1,0 +1,84 @@
+[{
+  "_id": {
+    "$oid": "668c1f22a79df06af765aa50"
+  },
+  "username": "Alejandro Cruz",
+  "email": "cruzkun1527@gmail.com",
+  "phone": "7415-0122",
+  "address": "San Salvador, San Salvador, El Salvador, Centroamérica",
+  "password": "f15f1d3a8b4255b40e16d9b15a113b3d",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669c942b61d7416ebd47562a"
+  },
+  "username": "Perez Seras",
+  "email": "perezseras@gmail.com",
+  "phone": "1234-1234",
+  "address": "Mi casa",
+  "password": "81dc9bdb52d04dc20036dbd8313ed055",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669c95ba61d7416ebd4758f1"
+  },
+  "username": "Jorge Nitales",
+  "email": "jorgenitales@mailcom",
+  "phone": "0001-1000",
+  "address": "asjdkjsd",
+  "password": "81dc9bdb52d04dc20036dbd8313ed055",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669c95ff61d7416ebd4758f4"
+  },
+  "username": "Juanita la huerfanita",
+  "email": "juanitasingfecitos@gmail.com",
+  "phone": "1212-1212",
+  "address": "ajsdkasjk",
+  "password": "81dc9bdb52d04dc20036dbd8313ed055",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669c98da61d7416ebd476101"
+  },
+  "username": "Lala lala",
+  "email": "lalalala@gmail.com",
+  "phone": "1212-2121",
+  "address": "asjdksqajkd",
+  "password": "81dc9bdb52d04dc20036dbd8313ed055",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "669c992561d7416ebd476484"
+  },
+  "username": "cacahuate",
+  "email": "cacahuate@gmail.com",
+  "phone": "1922-2219",
+  "address": "asjkdksj",
+  "password": "13111c20aee51aeb480ecbd988cd8cc9",
+  "role": "user",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bd814a297d7234ff4742f8"
+  },
+  "username": "David Cruz",
+  "email": "dcruzer92@gmail.com",
+  "phone": "7415-0122",
+  "address": "San Salvador, San Salvador, El Salvador, Centroamérica",
+  "password": "e805cbba152a17e3ab2eb1b367c16f97",
+  "role": "user",
+  "__v": 0
+}]

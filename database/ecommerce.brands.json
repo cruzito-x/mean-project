@@ -1,0 +1,270 @@
+[{
+  "_id": {
+    "$oid": "668c3b73657b707aba7d3c96"
+  },
+  "id": "ecb5a391-df53-4e48-8454-1e2c5c4d5b2b",
+  "name": "intel",
+  "photo": "uploads/brands/intel.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c3dca657b707aba7d3c97"
+  },
+  "id": "a4a1a47f-dbd8-41a2-b1c8-8b750dc4a428",
+  "name": "amd",
+  "photo": "uploads/brands/amd.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c3f6f657b707aba7d3c98"
+  },
+  "id": "9af3e32e-98d8-4d71-8e9f-bae00e7311c7",
+  "name": "logitech",
+  "photo": "uploads/brands/logitech.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c4081657b707aba7d3c99"
+  },
+  "id": "8c5f0951-9d23-4d8d-8d9e-5f5311c0e539",
+  "name": "aoc",
+  "photo": "uploads/brands/aoc.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c4336657b707aba7d3c9a"
+  },
+  "id": "7ec0b3e3-bc6f-4b84-b184-e1c9173b56f3",
+  "name": "nvidia",
+  "photo": "uploads/brands/NVIDIA.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c43ab657b707aba7d3c9b"
+  },
+  "id": "cfc0a4c9-5b37-4ba8-9bcf-4a9c7f16c733",
+  "name": "xiaomi",
+  "photo": "uploads/brands/xiaomi.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c441e657b707aba7d3c9c"
+  },
+  "id": "a46f680d-3a35-4c6e-9b93-d77adcf27ef4",
+  "name": "blue",
+  "photo": "uploads/brands/blue.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c47cf657b707aba7d3c9d"
+  },
+  "id": "e76b374d-6934-4b9b-b63a-6e4e798c7420",
+  "name": "android",
+  "photo": "uploads/brands/android.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c51e6657b707aba7d3c9e"
+  },
+  "id": "b9e6d68d-4d51-4f77-9d3a-12d76e9c8d65",
+  "name": "aiwa",
+  "photo": "uploads/brands/aiwa.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5209657b707aba7d3c9f"
+  },
+  "id": "60b8c05f-ff80-4a34-a7d4-5eaa9d3f86d6",
+  "name": "adata",
+  "photo": "uploads/brands/adata.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c52c4657b707aba7d3ca1"
+  },
+  "id": "b105e15c-f0a4-4d42-9b14-f3b7e8bcb5d1",
+  "name": "antec",
+  "photo": "uploads/brands/antec.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c52d5657b707aba7d3ca2"
+  },
+  "id": "1a34d529-6f14-49df-9394-4b1e75ae5c09",
+  "name": "aero cool",
+  "photo": "uploads/brands/aeroCool.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5309657b707aba7d3ca4"
+  },
+  "id": "67994e2a-25b1-46ee-95a0-688ce1e5a1ad",
+  "name": "canon",
+  "photo": "uploads/brands/canon.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5319657b707aba7d3ca5"
+  },
+  "id": "993d22e8-f942-45b0-9507-7c6c616f6584",
+  "name": "cisco",
+  "photo": "uploads/brands/cisco.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5330657b707aba7d3ca6"
+  },
+  "id": "bbbf2b9d-ec3a-49db-bf2b-0a6d9e1b3a36",
+  "name": "corsair",
+  "photo": "uploads/brands/corsair.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5345657b707aba7d3ca7"
+  },
+  "id": "46cf228a-6a80-4d1b-b1cf-17b32e7bbce6",
+  "name": "xpg",
+  "photo": "uploads/brands/xpg.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c542f657b707aba7d3ca9"
+  },
+  "id": "fa727e97-54a2-4b8d-bb1d-1f5a942f9d21",
+  "name": "kingston",
+  "photo": "uploads/brands/kingston.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5444657b707aba7d3caa"
+  },
+  "id": "38c70c7f-89f5-4de7-a6b0-df9f7e6f7f23",
+  "name": "asus",
+  "photo": "uploads/brands/asus.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c5455657b707aba7d3cab"
+  },
+  "id": "81b72297-5194-4760-b601-cd3566d1793e",
+  "name": "cougar",
+  "photo": "uploads/brands/cougar.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668c546d657b707aba7d3cac"
+  },
+  "id": "4f3378d0-4e07-43e1-bcc3-e104f1b50f52",
+  "name": "dell",
+  "photo": "uploads/brands/dell.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668cc5d6aa6140a4f3ac4cc6"
+  },
+  "id": "755c0f87-b775-4d09-b5c6-1e1f8b9b0572",
+  "name": "gigabyte",
+  "photo": "uploads/brands/gigabyte.png",
+  "created_at": "08-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668d55ecab4dff09aa0eb44b"
+  },
+  "id": "f4a00ad6-6374-42e1-8a47-90f88bc6aef8",
+  "name": "lenovo",
+  "photo": "uploads/brands/lenovo.png",
+  "created_at": "09-07-2024",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "668f705c50e407c545d601ab"
+  },
+  "id": "f7af2a71-4c94-4ba5-bc4c-f0b7c0b2af7b",
+  "name": "redragon",
+  "photo": "uploads/brands/redragon.png",
+  "created_at": "2024-07-10",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669aeed7a830e712005ad457"
+  },
+  "id": "a0e9b05f-75d3-4f6f-bf83-08e3b59b3790",
+  "name": "nintendo",
+  "photo": "uploads/brands/nintendo.png",
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669af34aa830e712005ad45a"
+  },
+  "id": "b1c2d3e4-f567-8901-abcd-ef1234567890",
+  "name": "sony",
+  "photo": "uploads/brands/sony.png",
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "669afb4ba830e712005ad45c"
+  },
+  "id": "c2d3e4f5-6789-0123-abcd-ef1234567890",
+  "name": "microsoft",
+  "photo": "uploads/brands/microsoft.png",
+  "created_at": "2024-07-19",
+  "updated_at": ""
+},
+{
+  "_id": {
+    "$oid": "66a7edf6c7bcb19a301dbec4"
+  },
+  "id": "c15faac3-c0ab-7f32-1f4c-b2340abaf0dc",
+  "name": "seisa",
+  "photo": "uploads/brands/seisa.png",
+  "created_at": "2024-07-29",
+  "updated_at": ""
+}]
