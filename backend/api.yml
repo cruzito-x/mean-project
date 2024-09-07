@@ -1,12 +1,135 @@
-openapi: '3.0.3'
+openapi: 3.0.0
 info:
-  title: API Title
-  version: '1.0'
+  title: MEAN Project API
+  description: API documentation for the MEAN project.
+  version: 1.0.0
 servers:
-  - url: https://api.server.test/v1
+  - url: http://localhost:3000/api
+    description: Development server
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The auto-generated id of the product
+        name:
+          type: string
+          description: Name of the product
+        brand:
+          type: string
+          description: Brand associated with the product
+        category:
+          type: string
+          description: Category to which the product belongs
+        price:
+          type: number
+          description: Price of the product
+        stock:
+          type: number
+          description: Available stock of the product
+      required:
+        - name
+        - brand
+        - category
+        - price
+        - stock
+
 paths:
-  /test:
+  /products:
     get:
+      summary: Get all products
+      tags:
+        - Products
       responses:
         '200':
-          description: OK
+          description: A list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      summary: Create a new product
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          description: The created product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+  /products/{id}:
+    get:
+      summary: Get a product by ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The product ID
+      responses:
+        '200':
+          description: A single product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product not found
+    put:
+      summary: Update a product by ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The product ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '200':
+          description: The updated product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product not found
+    delete:
+      summary: Delete a product by ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: The product ID
+      responses:
+        '204':
+          description: Product deleted
+        '404':
+          description: Product not found
